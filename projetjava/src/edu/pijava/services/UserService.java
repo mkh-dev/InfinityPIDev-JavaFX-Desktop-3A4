@@ -132,5 +132,46 @@ public void ajouterUtilisateur2(Users usr){
     }
     return utilisateur;
 }
+    
+    
+   public boolean authenticateUser(String email, String password) {
+    try {
+        String query = "SELECT * FROM users WHERE email = ? AND password = ?";
+        PreparedStatement pst = cnx2.prepareStatement(query);
+        pst.setString(1, email);
+        pst.setString(2, password);
+        ResultSet rs = pst.executeQuery();
+        return rs.next();
+    } catch (SQLException ex) {
+        System.err.println(ex.getMessage());
+        return false;
+    }
+}
+   
+   public Users getUserByEmail(String email) {
+    Users user = null;
+    try {
+        String query = "SELECT * FROM users WHERE email=?";
+        PreparedStatement statement = cnx2.prepareStatement(query);
+        statement.setString(1, email);
+        ResultSet rs = statement.executeQuery();
+        if (rs.next()) {
+            user = new Users();
+            user.setId(rs.getInt("id"));
+            user.setPrenom(rs.getString("prenom"));
+            user.setNom(rs.getString("nom"));
+            user.setDateNaissance(rs.getDate("dateNaissance"));
+            user.setEmail(rs.getString("email"));
+            user.setNumTel(rs.getInt("numTel"));
+            user.setUserRole(rs.getString("userRole"));
+            user.setPassword(rs.getString("password"));
+        }
+    } catch (SQLException ex) {
+        System.err.println(ex.getMessage());
+    }
+    return user;
+}
+
+
 
 }

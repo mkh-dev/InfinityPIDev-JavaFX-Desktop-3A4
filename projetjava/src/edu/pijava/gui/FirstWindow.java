@@ -5,6 +5,7 @@
  */
 package edu.pijava.gui;
 
+import javafx.scene.image.Image;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -22,11 +23,13 @@ public class FirstWindow extends Application {
     public void start(Stage primaryStage) {
         
         try {
-            Parent root= FXMLLoader.load(getClass().getResource("Inscription.fxml"));
+            Parent root= FXMLLoader.load(getClass().getResource("Login.fxml"));
             
             Scene scene = new Scene(root);
             
             primaryStage.setTitle("Evento");
+            Image icon = new Image(getClass().getResourceAsStream("/images/logo.png"));
+            primaryStage.getIcons().add(icon);
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException ex) {

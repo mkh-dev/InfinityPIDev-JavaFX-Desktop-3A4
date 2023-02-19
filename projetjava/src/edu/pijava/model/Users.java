@@ -5,7 +5,6 @@
  */
 package edu.pijava.model;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -35,6 +34,8 @@ public class Users {
         this.userRole = userRole;
         this.password = password;
     }
+    
+    
 
     public Users(String prenom, String nom, String email, Date dateNaissance, int numTel, String userRole, String password) {
         this.prenom = prenom;
