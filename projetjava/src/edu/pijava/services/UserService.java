@@ -16,8 +16,6 @@ import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -29,22 +27,11 @@ public class UserService {
     cnx2= MyConnection.getInstance().getCnx();
 }
 
-
-//    public void ajouterUtilisateur(){
-//        try {
-//            String requete = "INSERT INTO users (prenom, nom, email, dateNaissance, numTel, userRole) VALUES ('Dupont', 'Julien', 'julien@gmail.com', '1996-03-23', '12244554', 'Organisateur')";
-//            Statement st = cnx2.createStatement();
-//            st.executeUpdate(requete);
-//            System.out.println("Personne ajoutée avec succès");
-//        } catch (SQLException ex) {
-//            System.err.println(ex.getMessage());
-//        }
-//    }
     
 
 public void ajouterUtilisateur2(Users usr){
     try {
-        String requete2="INSERT INTO users (prenom, nom, email, dateNaissance, numTel, userRole) VALUES (?, ?, ?, ?, ?,?)";
+        String requete2="INSERT INTO users (prenom, nom, email, dateNaissance, numTel, userRole, password) VALUES (?, ?, ?, ?, ?,?, ?)";
         try (PreparedStatement pst = cnx2.prepareStatement(requete2)) {
             pst.setString(1,usr.getPrenom());
             pst.setString(2,usr.getNom());
@@ -54,7 +41,8 @@ public void ajouterUtilisateur2(Users usr){
             String dateNaissance = sdf.format(usr.getDateNaissance());
             pst.setString(4,dateNaissance);
             pst.setString(5, String.valueOf(usr.getNumTel()));
-             pst.setString(6,usr.getUserRole());
+            pst.setString(6,usr.getUserRole());
+            pst.setString(7,usr.getPassword());
             pst.executeUpdate();
         }
     } catch (SQLException ex) {
@@ -79,8 +67,9 @@ public void ajouterUtilisateur2(Users usr){
                 u.setNom(rs.getString("nom"));
                 u.setDateNaissance(rs.getDate("dateNaissance"));
                 u.setEmail(rs.getString("email"));
-                u.setNumTel(rs.getString("numTel"));
+                u.setNumTel(rs.getInt("numTel"));
                 u.setUserRole(rs.getString("userRole"));
+                u.setPassword(rs.getString("password"));
                 myList.add(u);
             }
         } catch (SQLException ex) {
@@ -108,15 +97,16 @@ public void ajouterUtilisateur2(Users usr){
     
     public void modifierUtilisateur(Users utilisateur) {
     try {
-        String requete = "UPDATE users SET prenom=?, nom=?, email=?, dateNaissance=?, numTel=?, userRole=? WHERE id=?";
+        String requete = "UPDATE users SET prenom=?, nom=?, email=?, dateNaissance=?, numTel=?, userRole=?, password=? WHERE id=?";
         PreparedStatement pst = cnx2.prepareStatement(requete);
         pst.setString(1, utilisateur.getPrenom());
         pst.setString(2, utilisateur.getNom());
         pst.setString(3, utilisateur.getEmail());
         pst.setDate(4, new java.sql.Date(utilisateur.getDateNaissance().getTime()));
-        pst.setString(5, utilisateur.getNumTel());
+        pst.setInt(5, utilisateur.getNumTel());
         pst.setString(6, utilisateur.getUserRole());
-        pst.setInt(7, utilisateur.getId());
+        pst.setString(7, utilisateur.getPassword());
+        pst.setInt(8, utilisateur.getId());
         pst.executeUpdate();
     } catch (SQLException ex) {
         System.err.println(ex.getMessage());
@@ -135,7 +125,7 @@ public void ajouterUtilisateur2(Users usr){
         ResultSet rs = pst.executeQuery();
         if (rs.next()) {
             utilisateur = new Users(rs.getInt("id"), rs.getString("nom"), rs.getString("prenom"),
-                    rs.getString("email"), rs.getDate("dateNaissance"), rs.getString("numTel"), rs.getString("userRole"));
+                    rs.getString("email"), rs.getDate("dateNaissance"), rs.getInt("numTel"), rs.getString("userRole"),rs.getString("password"));
         }
     } catch (SQLException ex) {
         System.err.println(ex.getMessage());
