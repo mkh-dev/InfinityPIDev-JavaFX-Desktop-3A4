@@ -24,7 +24,6 @@ public class LoginController {
     @FXML
     private Button loginButton;
 
-    @FXML
     private void handleLogin(ActionEvent event) {
         String email = logEmail.getText();
         String password = logPassword.getText();
@@ -83,7 +82,6 @@ public class LoginController {
         }
     }
 
-    @FXML
     void initialize() {
         loginButton.setOnAction(this::handleLogin);
     }
