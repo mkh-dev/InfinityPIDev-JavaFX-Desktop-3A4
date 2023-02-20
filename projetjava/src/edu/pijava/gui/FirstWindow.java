@@ -26,6 +26,7 @@ public class FirstWindow extends Application {
             Parent root= FXMLLoader.load(getClass().getResource("Login.fxml"));
             
             Scene scene = new Scene(root);
+
             
             primaryStage.setTitle("Evento");
             Image icon = new Image(getClass().getResourceAsStream("/images/logo.png"));

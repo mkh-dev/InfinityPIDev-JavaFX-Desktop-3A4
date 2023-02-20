@@ -15,6 +15,11 @@
    <children>
       <AnchorPane prefHeight="546.0" prefWidth="758.0" style="-fx-background-color: white;">
          <children>
+            <ImageView fitHeight="95.0" fitWidth="101.0" layoutX="140.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/evento.png" />
+               </image>
+            </ImageView>
             <TextField fx:id="tfPrenom" layoutX="68.0" layoutY="107.0" prefHeight="25.0" prefWidth="265.0" promptText="Prénom" />
             <TextField fx:id="tfNom" layoutX="68.0" layoutY="140.0" prefHeight="25.0" prefWidth="265.0" promptText="Nom" />
             <DatePicker fx:id="datePicker" layoutX="68.0" layoutY="239.0" prefHeight="25.0" prefWidth="265.0" promptText="Date de naissance" />
@@ -31,11 +36,6 @@
             <PasswordField fx:id="pfConfirmerPassword" layoutX="68.0" layoutY="305.0" prefHeight="25.0" prefWidth="265.0" promptText="Confirmer le mot de passe" />
             <CheckBox fx:id="ckUtilisateur" layoutX="104.0" layoutY="380.0" mnemonicParsing="false" text="Utilisateur" />
             <CheckBox fx:id="ckPartenaire" layoutX="214.0" layoutY="379.0" mnemonicParsing="false" text="Partenaire" />
-            <ImageView fitHeight="95.0" fitWidth="101.0" layoutX="140.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../images/evento.png" />
-               </image>
-            </ImageView>
             <ImageView fitHeight="548.0" fitWidth="371.0" layoutX="407.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../images/event_register.jpg" />
