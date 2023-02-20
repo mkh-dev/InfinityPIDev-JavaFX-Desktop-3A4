@@ -58,37 +58,65 @@ public class InscriptionController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
   @FXML
-private void savePerson(ActionEvent event) {
-    if (validateFields()) {
-        String prenom = tfPrenom.getText();
-        String nom = tfNom.getText();
-        String email = tfEmail.getText();
-        int numTel = Integer.parseInt(tfNumTel.getText());
+    private void savePerson(ActionEvent event) {
+        // Compteur de cases à cocher sélectionnées
+        int checkedCount = 0;
 
-        LocalDate localDate = datePicker.getValue();
-        Date dateNaissance = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+        // Vérifier si la case à cocher utilisateur est sélectionnée
+        if (ckUtilisateur.isSelected()) {
+            checkedCount++;
+        }
 
-        String password = pfPassword.getText();
-        String confirmerMotDePasse = pfConfirmerPassword.getText();
+        // Vérifier si la case à cocher partenaire est sélectionnée
+        if (ckPartenaire.isSelected()) {
+            checkedCount++;
+        }
 
-        if (!password.equals(confirmerMotDePasse)) {
-            // Les mots de passe ne correspondent pas
-            Alert alert = new Alert(AlertType.WARNING);
-            alert.setTitle("Attention");
+        // Si plus d'une case à cocher est sélectionnée, afficher un message d'erreur
+        if (checkedCount != 1) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Erreur de saisie");
             alert.setHeaderText(null);
-            alert.setContentText("Les mots de passe ne correspondent pas !");
+            alert.setContentText("Veuillez sélectionner une et une seule case à cocher !");
             alert.showAndWait();
             return;
         }
 
-        Users u = new Users(prenom, nom, email, dateNaissance, numTel, "user", password);
+        // Si une seule case à cocher est sélectionnée, continuer avec l'inscription
+        if (validateFields()) {
+            String prenom = tfPrenom.getText();
+            String nom = tfNom.getText();
+            String email = tfEmail.getText();
+            int numTel = Integer.parseInt(tfNumTel.getText());
+
+            LocalDate localDate = datePicker.getValue();
+            Date dateNaissance = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+
+            String password = pfPassword.getText();
+            String confirmerMotDePasse = pfConfirmerPassword.getText();
+
+            if (!password.equals(confirmerMotDePasse)) {
+                // Les mots de passe ne correspondent pas
+                Alert alert = new Alert(AlertType.WARNING);
+                alert.setTitle("Attention");
+                alert.setHeaderText(null);
+                alert.setContentText("Les mots de passe ne correspondent pas !");
+                alert.showAndWait();
+                return;
+            }
+
+        // Récupérer le rôle utilisateur ou partenaire
+        String userRole = ckUtilisateur.isSelected() ? "Utilisateur" : "Partenaire";
+
+        Users u = new Users(prenom, nom, email, dateNaissance, numTel, userRole, password);
         UserService userCrud = new UserService();
         userCrud.ajouterUtilisateur2(u);
     }
 }
+
 
 private boolean validateFields() {
     if (tfPrenom.getText().isEmpty() ||
