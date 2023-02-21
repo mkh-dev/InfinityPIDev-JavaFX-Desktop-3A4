@@ -23,10 +23,10 @@ import javafx.stage.Stage;
  * @author ouesl
  */
 public class Reserver extends Application {
-    
+
     @Override
     public void start(Stage primaryStage) {
-     
+
         try {
             Parent root = FXMLLoader.load(getClass().getResource("reserverEvent.fxml"));
             Scene scene = new Scene(root);
@@ -35,7 +35,7 @@ public class Reserver extends Application {
             primaryStage.show();
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
-        } 
+        }
     }
 
     /**
@@ -44,5 +44,5 @@ public class Reserver extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }

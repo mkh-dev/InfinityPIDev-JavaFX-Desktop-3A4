@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" fx:id="pane2" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pijava.controllers.DetailsReservationController">
+   <children>
+      <Label alignment="CENTER" layoutX="30.0" layoutY="65.0" prefHeight="23.0" prefWidth="67.0" style="-fx-background-color: ebac08;" text="num Res">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <Label alignment="CENTER" layoutX="30.0" layoutY="124.0" prefHeight="23.0" prefWidth="67.0" style="-fx-background-color: ebac08;" text="id User">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <Label alignment="CENTER" layoutX="30.0" layoutY="188.0" prefHeight="23.0" prefWidth="67.0" style="-fx-background-color: ebac08;" text="Nombre de places ">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <Label alignment="CENTER" layoutX="30.0" layoutY="249.0" prefHeight="23.0" prefWidth="67.0" style="-fx-background-color: ebac08;" text="id Event">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <TextField fx:id="fxnumres" layoutX="121.0" layoutY="64.0" prefHeight="26.0" prefWidth="56.0" />
+      <TextField fx:id="fxidevent" layoutX="121.0" layoutY="248.0" prefHeight="26.0" prefWidth="56.0" />
+      <TextField fx:id="fxnbreplaces" layoutX="121.0" layoutY="187.0" prefHeight="26.0" prefWidth="56.0" />
+      <TextField fx:id="fxiduser" layoutX="121.0" layoutY="123.0" prefHeight="26.0" prefWidth="56.0" />
+      <Button fx:id="btnreserver" layoutX="31.0" layoutY="311.0" mnemonicParsing="false" onAction="#save" prefHeight="26.0" prefWidth="178.0" text="Confirmer Réservation" />
+   </children>
+</AnchorPane>

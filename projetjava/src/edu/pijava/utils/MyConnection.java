@@ -8,42 +8,37 @@ package edu.pijava.utils;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 /**
  *
- * @author MALEK-ADMIN
+ * @author belkn
  */
 public class MyConnection {
-       private static Connection conn; //DB Credations
-
-    public String url="jdbc:mysql://localhost:3306/pidev";
-    public String login="root";
-    public String pwd="";
-    Connection cnx;
-    public static MyConnection instance;
+private static Connection conn; //DB Credations
     
-    private MyConnection(){
+String url = "jdbc:mysql://localhost:3306/pidev";
+String user = "root";
+String pwd = "";
+private static MyConnection instance;
+    private MyConnection() {
         try {
-          cnx = DriverManager.getConnection(url, login, pwd);
-          System.out.println("Connexion établie!");
+            conn=DriverManager.getConnection(url, user, pwd);
+            System.out.println("Connexion etablie!!!");
         } catch (SQLException ex) {
-            System.err.println(ex.getMessage());
-        }
+            System.out.println("Prebleme de connexion");        }
     }
-    
-    public Connection getCnx (){
-        return cnx;
-    }
-    
-    public static MyConnection getInstance(){
-        if(instance == null){
-            instance = new MyConnection();
+
+    public static MyConnection getInstance() {
+        if(instance==null){
+            instance= new MyConnection();
         }
         return instance;
     }
-        public Connection getConn(){
+ 
+    
+    public Connection getConn(){
         return MyConnection.getInstance().conn;
-
-}    
+    }
+    
 }
+
