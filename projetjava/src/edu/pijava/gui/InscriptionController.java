@@ -61,6 +61,7 @@ public class InscriptionController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         hlinkLogin.setStyle("-fx-text-fill: black;");
+        
     }
 
   @FXML
