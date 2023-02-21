@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pijava.controllers.ReserverEventController">
+   <children>
+      <SplitPane dividerPositions="0.37800802139037426" prefHeight="400.0" prefWidth="600.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="241.0" style="-fx-background-color: white;">
+               <children>
+                  <Button layoutX="16.0" layoutY="295.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="202.0" style="-fx-background-color: ebac08;" text="Consulter nos évenements">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="16.0" layoutY="247.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="202.0" style="-fx-background-color: ebac08;" text="Créer un événement">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button blendMode="DARKEN" layoutX="16.0" layoutY="199.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="202.0" style="-fx-background-color: ebac08;" text="Accueil">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="173.0" fitWidth="179.0" layoutX="6.0" layoutY="14.0">
+                     <image>
+                        <Image url="@../../../../../../../Downloads/326996669_1596880347482679_7753465681436732922_n.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="398.0">
+               <children>
+                  <MenuButton alignment="CENTER" layoutX="248.0" layoutY="14.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="108.0" style="-fx-background-color: ebac08;" text="userName" textAlignment="CENTER">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Profil" />
+                      <MenuItem mnemonicParsing="false" text="Logout" />
+                    </items>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </MenuButton>
+                  <Button layoutX="119.0" layoutY="352.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="163.0" style="-fx-background-color: ebac08;" text="Afficher plus">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <effect>
+                        <DropShadow height="44.39" radius="19.3575" width="35.04" />
+                     </effect>
+                  </Button>
+                  <ImageView fitHeight="104.0" fitWidth="134.0" layoutX="22.0" layoutY="95.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);">
+                     <image>
+                        <Image url="@../../../../../../../Downloads/event2.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="104.0" fitWidth="134.0" layoutX="201.0" layoutY="95.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);">
+                     <image>
+                        <Image url="@../../../../../../../Downloads/event3.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" layoutX="35.0" layoutY="210.0" prefHeight="18.0" prefWidth="108.0" text="Art Gallery" />
+                  <Label alignment="CENTER" layoutX="214.0" layoutY="210.0" prefHeight="18.0" prefWidth="108.0" text="Seminar" />
+                  <Button fx:id="btnReserver" layoutX="63.0" layoutY="238.0" mnemonicParsing="false" onAction="#ajouterReservation" style="-fx-background-color: ebac08; -fx-cursor: black;" text="Réserver">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+                  <Button fx:id="btnReserver" layoutX="242.0" layoutY="238.0" mnemonicParsing="false" onAction="#ajouterReservation" style="-fx-background-color: ebac08;" text="Réserver ">
+                     <cursor>
+                     </cursor>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
