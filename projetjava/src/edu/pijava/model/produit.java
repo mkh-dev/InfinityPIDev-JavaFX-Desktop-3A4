@@ -52,6 +52,10 @@ public class produit {
         this.image=image;
     }
 
+    public produit(String nom_prod, String description, double prix, int quantite, int id_cat, String image) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getId_prod() {
         return id_prod;
     }
