@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pijava.gui.ThirdController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutY="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0">
+         <children>
+            <BorderPane prefHeight="500.0" prefWidth="1000.0">
+               <top>
+                  <Pane prefHeight="91.0" prefWidth="1000.0" style="-fx-background-color: #FFFFFFFF;" BorderPane.alignment="CENTER">
+                     <children>
+                        <ImageView fitHeight="71.0" fitWidth="31.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../../Pictures/Capture%20d’écran%202023-02-01%20003008.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="63.0" fitWidth="111.0" layoutX="64.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../../Pictures/Capture%20d’écran%202023-02-01%20214113.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+               </top>
+               <left>
+                  <Pane prefHeight="393.0" prefWidth="269.0" style="-fx-background-radius: 0 60 0 0;" styleClass="right-bar" stylesheets="@first.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label layoutX="27.0" layoutY="188.0" text="Mobile Phone ">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="27.0" layoutY="259.0" text="Email">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </left>
+               <center>
+                  <Pane prefHeight="367.0" prefWidth="902.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label layoutX="134.0" layoutY="74.0" text="Nom de Produit">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="135.0" layoutY="107.0" text="Prix">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="131.0" layoutY="139.0" text="Quantité">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="133.0" layoutY="175.0" text="Id Catégorie">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="135.0" layoutY="211.0" text="Description">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="137.0" layoutY="242.0" text="Nom Partenaire">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="138.0" layoutY="275.0" text="Image">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="tfNom" layoutX="377.0" layoutY="70.0" prefHeight="25.0" prefWidth="223.0" promptText="Entrez le nom de produit" styleClass="shadow" stylesheets="@first.css" />
+                        <TextField fx:id="tfQuantite" layoutX="377.0" layoutY="135.0" prefHeight="25.0" prefWidth="223.0" promptText="Entrez la quantité disponible" styleClass="shadow" stylesheets="@first.css" />
+                        <TextField fx:id="tfPrix" layoutX="377.0" layoutY="103.0" prefHeight="25.0" prefWidth="223.0" promptText="Entrez le prix de produit" styleClass="shadow" stylesheets="@first.css" />
+                        <TextField fx:id="tfIdCat" layoutX="377.0" layoutY="171.0" prefHeight="25.0" prefWidth="223.0" promptText="Entrez l'id de catégorie" styleClass="shadow" stylesheets="@first.css" />
+                        <TextField fx:id="tfDesc" layoutX="377.0" layoutY="207.0" prefHeight="25.0" prefWidth="223.0" promptText="Entrez une description de produit" styleClass="shadow" stylesheets="@first.css" />
+                        <TextField fx:id="tfNomPart" layoutX="377.0" layoutY="238.0" prefHeight="25.0" prefWidth="223.0" promptText="Entrez votre nom" styleClass="shadow" stylesheets="@first.css" />
+                        <TextField fx:id="tfImg" layoutX="377.0" layoutY="271.0" prefHeight="25.0" prefWidth="223.0" promptText="Entre l'image " styleClass="shadow" stylesheets="@first.css" />
+                        <Button fx:id="btnAjouter" layoutX="314.0" layoutY="339.0" mnemonicParsing="false" onAction="#AjouterClicked" prefHeight="25.0" prefWidth="144.0" stylesheets="@first.css" text="Ajouter Produit">
+                           <styleClass>
+                              <String fx:value="search-button" />
+                              <String fx:value="shadow" />
+                           </styleClass>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </Pane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="edu.pijava.gui.AddProductController">
+   <children>
+      <VBox prefHeight="400.0" prefWidth="178.0" style="-fx-background-color: #000000;" />
+      <Label layoutX="286.0" layoutY="50.0" text="Nom de produit">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="286.0" layoutY="86.0" text="Description">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="285.0" layoutY="121.0" text="Prix">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="286.0" layoutY="158.0" text="Quantité">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="286.0" layoutY="200.0" text="Votre nom ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="286.0" layoutY="239.0" text="Image">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfnomprod" layoutX="426.0" layoutY="51.0" styleClass="shadow" stylesheets="@first.css" />
+      <TextField fx:id="tfprix" layoutX="426.0" layoutY="122.0" styleClass="shadow" stylesheets="@first.css" />
+      <TextField fx:id="tfdesc" layoutX="426.0" layoutY="87.0" styleClass="shadow" stylesheets="@first.css" />
+      <TextField fx:id="tfquantite" layoutX="426.0" layoutY="159.0" styleClass="shadow" stylesheets="@first.css" />
+      <TextField fx:id="tfnompart" layoutX="426.0" layoutY="201.0" styleClass="shadow" stylesheets="@first.css" />
+      <TextField fx:id="tfimg" layoutX="426.0" layoutY="240.0" styleClass="shadow" stylesheets="@first.css" />
+      <Button fx:id="btnajouter" layoutX="397.0" layoutY="333.0" mnemonicParsing="false" onAction="#btnajouter" stylesheets="@first.css" text="Ajouter ">
+         <styleClass>
+            <String fx:value="search-button" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </Button>
+      <Label layoutX="286.0" layoutY="289.0" text="Id catégorie">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfidcat" layoutX="426.0" layoutY="285.0" styleClass="shadow" stylesheets="@first.css" />
+   </children>
+</AnchorPane>
