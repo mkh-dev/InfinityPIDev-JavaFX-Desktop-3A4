@@ -64,7 +64,8 @@ public class MesReservationsController implements Initializable {
     private Label fxnbre;
     @FXML
     private Button btnrefresh;
-ObservableList<Reservation> ReservationList ;
+    ObservableList<Reservation> ReservationList;
+
     /**
      * Initializes the controller class.
      */
@@ -72,9 +73,10 @@ ObservableList<Reservation> ReservationList ;
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         loadData();
-    } 
+    }
+
     @FXML
-     private void loadData(){
+    private void loadData() {
         fxnumres.setCellValueFactory(new PropertyValueFactory<>("numRes"));
         fxnbplaces.setCellValueFactory(new PropertyValueFactory<>("nbPlaces"));
         fxidevent.setCellValueFactory(new PropertyValueFactory<>("idEvent"));
@@ -90,13 +92,14 @@ ObservableList<Reservation> ReservationList ;
 
                     private final Button btn = new Button("Modifier");
                     private final Button btn2 = new Button("Supprimer");
+                    private final Button btn3 = new Button("payer");
 
                     {
                         btn.setOnAction((ActionEvent event) -> {
                             // Récupérer la reservation correspondante
                             Reservation r = getTableView().getItems().get(getIndex());
                             ModifierReservationController modifController = new ModifierReservationController();
-                           modifController.init(r.getNumRes()); 
+                            modifController.init(r.getNumRes());
                             // Ouvrir la fenêtre de modification pour cette reservation
                             FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/pijava/gui/ModifierReservation.fxml"));
                             Parent root = null;
@@ -118,6 +121,8 @@ ObservableList<Reservation> ReservationList ;
                         btn2.setOnAction((ActionEvent event) -> {
                             // Récupérer l'offre correspondante
                             Reservation r = getTableView().getItems().get(getIndex());
+                             AjouterFactureController factureController = new AjouterFactureController();
+                           factureController.init(r.getNumRes());
 
                             // Suppression alert
                             ReservationCrud rc = new ReservationCrud();
@@ -131,13 +136,30 @@ ObservableList<Reservation> ReservationList ;
                             // Rafraîchir la table des reservations
                             tableview.setItems(FXCollections.observableArrayList(rc.afficherMesReservations(2)));
                         });
+                        btn3.setOnAction((ActionEvent event) -> {
+                            
+
+                         FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/pijava/gui/AjouterFacture.fxml"));
+                            Parent root = null;
+                            try {
+                                root = loader.load();
+                            } catch (IOException ex) {
+                                Logger.getLogger(AjouterFactureController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                              AjouterFactureController controller = loader.getController();
+
+                            Scene scene = new Scene(root);
+                            Stage stage = new Stage();
+                            stage.setScene(scene);
+                            stage.showAndWait();
+                        });
                     }
 
                     // Cette méthode updateItem() sera appelée pour chaque ligne de la tableOffres,
                     // ce qui permettra de mettre un bouton "Modifier" pour chaque ligne
                     @Override
                     protected void updateItem(Void item, boolean empty) {
-                        HBox managebtn = new HBox(btn, btn2);
+                        HBox managebtn = new HBox(btn, btn2, btn3);
                         super.updateItem(item, empty);
                         if (empty) {
                             setGraphic(null);
@@ -158,7 +180,5 @@ ObservableList<Reservation> ReservationList ;
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
     }
-
-   
 
 }

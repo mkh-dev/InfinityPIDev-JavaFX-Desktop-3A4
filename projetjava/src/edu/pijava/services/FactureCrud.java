@@ -31,7 +31,7 @@ public class FactureCrud implements InterfaceCRUD  {
     @Override
     public void ajouterFacture(Facture f) {
         try {
-            String req = "INSERT INTO `facture`(  `numRes`,`netApayer`,`nomUser`) VALUES ('"  + f.getNumRes() + "','" + f.getNetApayer() + "','" + f.getNomUser() + "')";
+            String req = "INSERT INTO `facture` (  `numRes`,`netApayer`,`idUser`) VALUES ('"  + f.getNumRes() + "','" + f.getNetApayer() + "','" + f.getIdUser() + "')";
             ste = conn.createStatement();
             ste.executeUpdate(req);
             System.out.println("Facture ajoutée!!!");
@@ -55,12 +55,11 @@ public class FactureCrud implements InterfaceCRUD  {
     
     
     
-    @Override
-     public List<Facture> afficherFacture() {
+     public List<Facture> afficherMesFactures(int idUser) {
        List<Facture> list = new ArrayList<>();
        
      try {
-            String req = "Select *  from facture ";
+            String req = "Select *  from facture where idUser=" + idUser;
             Statement st = conn.createStatement();
            
             ResultSet RS= st.executeQuery(req);
@@ -68,9 +67,44 @@ public class FactureCrud implements InterfaceCRUD  {
              Facture f = new Facture();
              f.setIdFacture(RS.getInt("idFacture"));
              f.setNumRes(RS.getInt("numRes"));
-             f.setNetApayer(RS.getFloat("netApayer"));
-             f.setNomUser(RS.getString("nomUser"));
-             //f.setPrenomUser(RS.getString("prenom")); lezem nsob classet malek 
+             f.setNetApayer(RS.getInt("netApayer"));
+             f.setIdUser(RS.getInt("idUser"));
+             //f.setPrenomUser(RS.getString("prenom")); 
+
+             list.add(f);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }  
+       
+       
+       
+       
+       
+       return list;
+       
+       
+       
+       
+     
+       
+       
+     }  
+     public List<Facture> afficherFacture() {
+       List<Facture> list = new ArrayList<>();
+       
+     try {
+            String req = "Select *  from facture " ;
+            Statement st = conn.createStatement();
+           
+            ResultSet RS= st.executeQuery(req);
+            while(RS.next()){
+             Facture f = new Facture();
+             f.setIdFacture(RS.getInt("idFacture"));
+             f.setNumRes(RS.getInt("numRes"));
+             f.setNetApayer(RS.getInt("netApayer"));
+             f.setIdUser(RS.getInt("idUser"));
+             //f.setPrenomUser(RS.gtring("prenom")); lezem nsob classet malek 
 
              list.add(f);
             }

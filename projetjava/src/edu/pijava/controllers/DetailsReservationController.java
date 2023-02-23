@@ -80,6 +80,7 @@ public class DetailsReservationController implements Initializable {
     @FXML
     private void save(ActionEvent event) {
      if (validateFields()) {
+         
         int idUser = Integer.parseInt(fxiduser.getText());
         int nbrePlaces = Integer.parseInt(fxnbreplaces.getText());
         int idEvent = Integer.parseInt(fxidevent.getText());
@@ -95,20 +96,22 @@ public class DetailsReservationController implements Initializable {
     }
     
     private boolean validateFields() {
-    if (fxiduser.getText().isEmpty() ||
-            fxnbreplaces.getText().isEmpty() ||
-            fxidevent.getText().isEmpty() ) {
-        /* bch tji fenetre okhra 
+    if (fxnumres.getText().isEmpty()
+                || fxidevent.getText().isEmpty()
+                || fxiduser.getText().isEmpty()) {
+            /* bch tji fenetre okhra 
             Alert alert = new Alert(AlertType.WARNING);
         alert.setTitle("Attention");
         alert.setHeaderText(null);
         alert.setContentText("Veuillez remplir tous les champs !");
         alert.showAndWait();
         return false;*/
-        
-       fxmessage.setText("Veuillez remplir tous les champs");
-        fxmessage.setVisible(true); }
-        return false;
+
+            fxmessage.setText("Veuillez remplir tous les champs");
+            fxmessage.setVisible(true);
+            return false;
+        }
+        return true;
     }
     
    
