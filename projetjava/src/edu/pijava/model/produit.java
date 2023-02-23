@@ -40,6 +40,17 @@ public class produit {
         this.id_cat = id_cat;
         this.image=image;
     }
+    public produit( String nom_prod, String description, double prix, int quantite, int id_cat,String image) {
+        
+        this.nom_prod = nom_prod;
+        this.description = description;
+        this.prix = prix;
+        this.quantite = quantite;
+      
+        this.id_cat = id_cat;
+        this.image=image;
+    }
+    
 
      public produit(int id_prod, String nom_prod, String description, double prix, int quantite, String nom_part, int id_cat,String image) {
         this.id_prod=id_prod;
@@ -52,9 +63,7 @@ public class produit {
         this.image=image;
     }
 
-    public produit(String nom_prod, String description, double prix, int quantite, int id_cat, String image) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 
     public int getId_prod() {
         return id_prod;

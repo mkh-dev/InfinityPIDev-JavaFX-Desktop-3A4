@@ -8,14 +8,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FFFFFF;" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="edu.pijava.gui.AddController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FFFFFF;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pijava.gui.AddController">
     <stylesheets>
         <URL value="@add.css" />
     </stylesheets>
    <children>
       <AnchorPane id="AnchorPane" prefHeight="413.0" prefWidth="600.0" styleClass="mainFxmlClass" stylesheets="@first.css">
          <children>
-            <HBox layoutX="-1.0" prefHeight="413.0" prefWidth="157.0" styleClass="right-bar" stylesheets="@../../../../../../../NetBeansProjects/projetjava/src/add.css" />
+            <HBox layoutX="-1.0" prefHeight="413.0" prefWidth="157.0" styleClass="right-bar" stylesheets="C:\Users\rimbs\Documents\GitHub\InfinityPIDev-JavaFX-Desktop-3A4\projetjava\src\edu\pijava\gui\add.css" />
             <Label layoutX="236.0" layoutY="49.0" text="Nom de produit" />
             <Label layoutX="236.0" layoutY="84.0" text="Prix" />
             <Label layoutX="239.0" layoutY="122.0" text="Quantité" />
@@ -23,13 +23,13 @@
             <Label layoutX="241.0" layoutY="200.0" text="Description" />
             <Label layoutX="246.0" layoutY="241.0" text="Image" />
             <Label layoutX="253.0" layoutY="262.0" />
-            <TextField fx:id="tfNomProd" layoutX="388.0" layoutY="45.0" styleClass="shadow" stylesheets="@../../../../../../../NetBeansProjects/projetjava/src/edu/pijava/gui/add.css" />
-            <TextField fx:id="tfPrix" layoutX="388.0" layoutY="80.0" styleClass="shadow" stylesheets="@../../../../../../../NetBeansProjects/projetjava/src/edu/pijava/gui/add.css" />
-            <TextField fx:id="tfQuantite" layoutX="388.0" layoutY="118.0" styleClass="shadow" stylesheets="@../../../../../../../NetBeansProjects/projetjava/src/edu/pijava/gui/add.css" />
-            <TextField fx:id="tfIdCat" layoutX="388.0" layoutY="158.0" styleClass="shadow" stylesheets="@../../../../../../../NetBeansProjects/projetjava/src/edu/pijava/gui/add.css" />
-            <TextField fx:id="tfDescription" layoutX="388.0" layoutY="196.0" styleClass="shadow" stylesheets="@../../../../../../../NetBeansProjects/projetjava/src/edu/pijava/gui/add.css" />
-            <TextField fx:id="tfImg" layoutX="388.0" layoutY="237.0" styleClass="shadow" stylesheets="@../../../../../../../NetBeansProjects/projetjava/src/edu/pijava/gui/add.css" />
-            <Button fx:id="btnAdd" layoutX="355.0" layoutY="316.0" mnemonicParsing="false" onAction="#AddClicked" stylesheets="@../../../../../../../NetBeansProjects/projetjava/src/edu/pijava/gui/add.css" text="Add Product">
+            <TextField fx:id="tfNomProd" layoutX="388.0" layoutY="45.0" styleClass="shadow" stylesheets="C:\Users\rimbs\Documents\GitHub\InfinityPIDev-JavaFX-Desktop-3A4\projetjava\src\edu\pijava\gui\add.css" />
+            <TextField fx:id="tfPrix" layoutX="388.0" layoutY="80.0" styleClass="shadow" stylesheets="C:\Users\rimbs\Documents\GitHub\InfinityPIDev-JavaFX-Desktop-3A4\projetjava\src\edu\pijava\gui\add.css" />
+            <TextField fx:id="tfQuantite" layoutX="388.0" layoutY="118.0" styleClass="shadow" stylesheets="C:\Users\rimbs\Documents\GitHub\InfinityPIDev-JavaFX-Desktop-3A4\projetjava\src\edu\pijava\gui\add.css" />
+            <TextField fx:id="tfIdCat" layoutX="388.0" layoutY="158.0" styleClass="shadow" stylesheets="C:\Users\rimbs\Documents\GitHub\InfinityPIDev-JavaFX-Desktop-3A4\projetjava\src\edu\pijava\gui\add.css" />
+            <TextField fx:id="tfDescription" layoutX="388.0" layoutY="196.0" styleClass="shadow" stylesheets="@C:\Users\rimbs\Documents\GitHub\InfinityPIDev-JavaFX-Desktop-3A4\projetjava\src\edu\pijava\gui\add.css" />
+            <TextField fx:id="tfImg" layoutX="388.0" layoutY="237.0" styleClass="shadow" stylesheets="C:\Users\rimbs\Documents\GitHub\InfinityPIDev-JavaFX-Desktop-3A4\projetjava\src\edu\pijava\gui\add.css" />
+            <Button fx:id="btnAdd" layoutX="355.0" layoutY="316.0" mnemonicParsing="false" onAction="#AddClicked" stylesheets="C:\Users\rimbs\Documents\GitHub\InfinityPIDev-JavaFX-Desktop-3A4\projetjava\src\edu\pijava\gui\add.css" text="Add Product">
                <styleClass>
                   <String fx:value="search-button" />
                   <String fx:value="shadow" />

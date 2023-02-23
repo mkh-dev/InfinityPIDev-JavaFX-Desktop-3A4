@@ -192,4 +192,40 @@ System.out.println(ex.getMessage());
 
         return u;
     }
+  
+    
+    
+    
+    
+    ///APres...................................
+    public List<produit> getAllProducts() {
+    List<produit> list = new ArrayList<>();
+    try {
+        String req = "SELECT * FROM produit";
+        PreparedStatement pst = conn.prepareStatement(req);
+        ResultSet rs = pst.executeQuery();
+        while (rs.next()) {
+            produit p = new produit();
+            p.setId_prod(rs.getInt("id_prod"));
+            p.setDescription(rs.getString("description"));
+            p.setNom_prod(rs.getString("nom_prod"));
+            p.setPrix(rs.getDouble("prix"));
+            p.setQuantite(rs.getInt("quantite"));
+            p.setNom_part(rs.getString("nom_part"));
+            p.setId_cat(rs.getInt("id_cat"));
+            p.setImage(rs.getString("image"));
+            list.add(p);
+        }
+    } catch (SQLException ex) {
+        Logger.getLogger(produit_service.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return list;
+}
+public void displayAllProducts() {
+   List<produit> produits = getAllProducts(); // Appel de la méthode getAllProducts()
+   for (produit product : produits) {
+       System.out.println(product.getNom_prod()); // Affichage du nom de chaque produit
+   }
+}
+
 }
