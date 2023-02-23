@@ -15,9 +15,6 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-/**
- * FXML Controller class
- */
 public class UpdateUserController implements Initializable {
 
     @FXML
@@ -40,21 +37,29 @@ public class UpdateUserController implements Initializable {
     private UserService userService;
     private Users user;
 
-    public void initData(Users user) {
-        this.user = user;
+   public void initData(Users user) {
+    this.user = user;
+    if (user != null) {
         updatePrenom.setText(user.getPrenom());
         updateNom.setText(user.getNom());
-        datePicker.setValue(user.getDateNaissance().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+        datePicker.setValue(new Date(user.getDateNaissance().getTime()).toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
         updateEmail.setText(user.getEmail());
         updateNumTel.setText(Integer.toString(user.getNumTel()));
         updatePassword.setText(user.getPassword());
+        if (user.getUserRole().equals("utilisateur")) {
+            ckUtilisateur.setSelected(true);
+        } else if (user.getUserRole().equals("partenaire")) {
+            ckPartenaire.setSelected(true);
+        }
+    
     }
+}
 
     @FXML
     private void handleUpdateUser(ActionEvent event) {
         user.setPrenom(updatePrenom.getText());
         user.setNom(updateNom.getText());
-        user.setDateNaissance(Date.from(datePicker.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()));
+        user.setDateNaissance(new Date(datePicker.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli()));
         user.setEmail(updateEmail.getText());
         user.setNumTel(Integer.parseInt(updateNumTel.getText()));
         user.setPassword(updatePassword.getText());
@@ -78,10 +83,11 @@ public class UpdateUserController implements Initializable {
         alert.showAndWait();
     }
 
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // initialize the UserService
         userService = new UserService();
+        initData(user);
     }
 }
+

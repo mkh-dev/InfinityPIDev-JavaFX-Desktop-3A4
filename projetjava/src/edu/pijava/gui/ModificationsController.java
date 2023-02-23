@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -101,9 +102,18 @@ public class ModificationsController implements Initializable {
         }
     }
     
-    @FXML
-private void handleEditUser() throws IOException {
-    Users selectedUser = usersListView.getSelectionModel().getSelectedItem();
+   @FXML
+        private void handleEditUser() throws IOException {
+        Users selectedUser = usersListView.getSelectionModel().getSelectedItem();
+        if (selectedUser == null) {
+        // Afficher un message d'erreur pour informer l'utilisateur qu'il doit sélectionner un utilisateur avant de pouvoir le modifier
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erreur");
+        alert.setHeaderText(null);
+        alert.setContentText("Veuillez sélectionner un utilisateur à modifier.");
+        alert.showAndWait();
+        return;
+        }
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("UpdateUser.fxml"));
         Parent root = (Parent) fxmlLoader.load();
         UpdateUserController updateUserController = fxmlLoader.getController();
@@ -116,8 +126,5 @@ private void handleEditUser() throws IOException {
 
         // Rafraîchir la liste des utilisateurs après la mise à jour
         handleRefresh();
-}
-}
-
-
-    
+                }
+        }
