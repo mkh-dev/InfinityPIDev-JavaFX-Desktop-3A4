@@ -78,11 +78,6 @@ public class UpdateUserController implements Initializable {
         alert.showAndWait();
     }
 
-    @FXML
-    private void handleCancel(ActionEvent event) {
-        // close the dialog
-        updatePrenom.getScene().getWindow().hide();
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
