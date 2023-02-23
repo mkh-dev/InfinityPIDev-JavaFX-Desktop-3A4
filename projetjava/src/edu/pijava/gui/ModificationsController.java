@@ -93,14 +93,22 @@ public class ModificationsController implements Initializable {
     }
     
     @FXML
-    private void handleDeleteUser() {
-        Users selectedUser = usersListView.getSelectionModel().getSelectedItem();
-        if (selectedUser != null) {
-            userService.supprimerUtilisateur(selectedUser);
-            userListObservable.remove(selectedUser);
-            userCountLabel.setText("Total des utilisateurs : " + userListObservable.size());
-        }
+private void handleDeleteUser() {
+    Users selectedUser = usersListView.getSelectionModel().getSelectedItem();
+    if (selectedUser != null) {
+        userService.supprimerUtilisateur(selectedUser);
+        userListObservable.remove(selectedUser);
+        userCountLabel.setText("Total des utilisateurs : " + userListObservable.size());
+        
+        // Afficher l'alerte pour indiquer que la suppression a été effectuée avec succès
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Suppression réussie");
+        alert.setHeaderText(null);
+        alert.setContentText("L'utilisateur a été supprimé avec succès !");
+        alert.showAndWait();
     }
+}
+
     
    @FXML
         private void handleEditUser() throws IOException {

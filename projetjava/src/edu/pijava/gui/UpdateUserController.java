@@ -79,7 +79,7 @@ public class UpdateUserController implements Initializable {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Modification réussie");
         alert.setHeaderText(null);
-        alert.setContentText("Le profil a été modifié avec succès !");
+        alert.setContentText("L'utilisateur a été modifié avec succès !");
         alert.showAndWait();
     }
 

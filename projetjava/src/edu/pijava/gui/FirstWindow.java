@@ -23,7 +23,7 @@ public class FirstWindow extends Application {
     public void start(Stage primaryStage) {
         
         try {
-            Parent root= FXMLLoader.load(getClass().getResource("Modifications.fxml"));
+            Parent root= FXMLLoader.load(getClass().getResource("Administrateur.fxml"));
             
             Scene scene = new Scene(root);
 

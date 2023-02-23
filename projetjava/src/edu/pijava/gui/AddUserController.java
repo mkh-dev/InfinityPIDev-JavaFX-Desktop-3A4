@@ -98,6 +98,12 @@ public class AddUserController implements Initializable {
         Users u = new Users(prenom, nom, email, dateNaissance, numTel, userRole, password);
         UserService userCrud = new UserService();
         userCrud.ajouterUtilisateur2(u);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Modification réussie");
+        alert.setHeaderText(null);
+        alert.setContentText("L'utilisateur a été modifié avec succès !");
+        alert.showAndWait();
+
     }
 }
 
