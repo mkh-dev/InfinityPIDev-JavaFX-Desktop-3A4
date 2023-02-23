@@ -2,20 +2,26 @@ package edu.pijava.gui;
 
 import edu.pijava.model.Users;
 import edu.pijava.services.UserService;
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
-public class ListeController implements Initializable {
+public class ModificationsController implements Initializable {
 
     @FXML
     private AnchorPane anchorPane;
@@ -68,7 +74,24 @@ public class ListeController implements Initializable {
         }
         userCountLabel.setText("Total des utilisateurs : " + usersListView.getItems().size());
     }
-
+    
+    @FXML
+    private void handleAddUser() throws IOException {
+        // Charger le fichier FXML de la fenêtre addUser.fxml
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addUser.fxml"));
+        Parent root = (Parent) fxmlLoader.load();
+        
+        // Créer une nouvelle scène et y ajouter le layout chargé depuis le fichier FXML
+        Scene scene = new Scene(root);
+        
+        // Créer une nouvelle fenêtre modale
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setTitle("Ajouter utilisateur");
+        stage.setScene(scene);
+        stage.showAndWait();
+    }
 }
 
 
+    

@@ -171,7 +171,28 @@ public void ajouterUtilisateur2(Users usr){
     }
     return user;
 }
-
+   
+   public List<Users> getAllUsers() {
+    List<Users> userList = new ArrayList<>();
+    try {
+        String query = "SELECT * FROM users";
+        Statement stmt = cnx2.createStatement();
+        ResultSet rs = stmt.executeQuery(query);
+        while (rs.next()) {
+            Users user = new Users();
+            user.setId(rs.getInt("id"));
+            user.setNom(rs.getString("nom"));
+            user.setPrenom(rs.getString("prenom"));
+            user.setEmail(rs.getString("email"));
+            user.setPassword(rs.getString("password"));
+            user.setDateNaissance(rs.getDate("dateNaissance"));
+            userList.add(user);
+        }
+    } catch (SQLException ex) {
+        System.out.println(ex.getMessage());
+    }
+    return userList;
+}
 
 
 }

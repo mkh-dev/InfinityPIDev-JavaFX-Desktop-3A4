@@ -47,6 +47,7 @@ public class Users {
         this.password = password;
     }
 
+
     
     public int getId() {
         return id;
@@ -112,13 +113,9 @@ public class Users {
         this.password = password;
     }
 
-    @Override
-    public String toString() {
-        return "Users{" + "id=" + id + ", prenom=" + prenom + ", nom=" + nom + ", email=" + email + ", dateNaissance=" + dateNaissance + ", numTel=" + numTel + ", userRole=" + userRole + ", password=" + password + '}';
-    }
-
-   
-   
+   public String toString() {
+    return prenom + " " + nom + ", " + email + ", " + dateNaissance + ", " + numTel + ", " + userRole + ", " + password;
+}
 }
 
 
