@@ -4,7 +4,6 @@ import edu.pijava.model.Users;
 import edu.pijava.services.UserService;
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -91,6 +90,33 @@ public class ModificationsController implements Initializable {
         stage.setScene(scene);
         stage.showAndWait();
     }
+    
+    @FXML
+    private void handleDeleteUser() {
+        Users selectedUser = usersListView.getSelectionModel().getSelectedItem();
+        if (selectedUser != null) {
+            userService.supprimerUtilisateur(selectedUser);
+            userListObservable.remove(selectedUser);
+            userCountLabel.setText("Total des utilisateurs : " + userListObservable.size());
+        }
+    }
+    
+    @FXML
+private void handleEditUser() throws IOException {
+    Users selectedUser = usersListView.getSelectionModel().getSelectedItem();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("UpdateUser.fxml"));
+        Parent root = (Parent) fxmlLoader.load();
+        UpdateUserController updateUserController = fxmlLoader.getController();
+        updateUserController.initData(selectedUser);
+
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.showAndWait();
+
+        // Rafraîchir la liste des utilisateurs après la mise à jour
+        handleRefresh();
+}
 }
 
 
