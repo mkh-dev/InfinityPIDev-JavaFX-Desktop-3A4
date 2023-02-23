@@ -65,6 +65,8 @@ public class MesReservationsController implements Initializable {
     @FXML
     private Button btnrefresh;
     ObservableList<Reservation> ReservationList;
+    @FXML
+    private Button fxretour;
 
     /**
      * Initializes the controller class.
@@ -179,6 +181,24 @@ public class MesReservationsController implements Initializable {
     private void close(javafx.scene.input.MouseEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
+    }
+
+    @FXML
+    private void back(ActionEvent event) {
+        
+                         FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/pijava/gui/ReserverEvent.fxml"));
+                            Parent root = null;
+                            try {
+                                root = loader.load();
+                            } catch (IOException ex) {
+                                Logger.getLogger(AjouterFactureController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                             ReserverEventController controller = loader.getController();
+
+                            Scene scene = new Scene(root);
+                            Stage stage = new Stage();
+                            stage.setScene(scene);
+                            stage.showAndWait();
     }
 
 }

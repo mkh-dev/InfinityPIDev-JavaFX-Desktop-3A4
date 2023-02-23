@@ -17,8 +17,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
@@ -37,6 +39,8 @@ public class ReserverEventController implements Initializable {
     private Button btnReserver1;
     @FXML
     private Button fxmesfactures;
+    @FXML
+    private Button fxtest;
     
 
     /**
@@ -91,5 +95,22 @@ public class ReserverEventController implements Initializable {
          
         
         
+    }
+
+    @FXML
+    private void test(ActionEvent event) {
+          FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/pijava/gui/InterfaceTest.fxml"));
+                            Parent root = null;
+                            try {
+                                root = loader.load();
+                            } catch (IOException ex) {
+                                Logger.getLogger(AjouterFactureController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                             ReserverEventController controller = loader.getController();
+
+                            Scene scene = new Scene(root);
+                            Stage stage = new Stage();
+                            stage.setScene(scene);
+                            stage.showAndWait();
     }
 }
