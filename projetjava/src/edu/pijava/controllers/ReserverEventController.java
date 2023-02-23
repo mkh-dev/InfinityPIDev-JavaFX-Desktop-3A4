@@ -31,6 +31,10 @@ public class ReserverEventController implements Initializable {
     
     @FXML
     private AnchorPane pane1; 
+    @FXML
+    private Button fxmesresrvations;
+    @FXML
+    private Button btnReserver1;
     
 
     /**
@@ -56,5 +60,18 @@ public class ReserverEventController implements Initializable {
         
     }
   
-    
+       @FXML 
+    public void handlebc2(ActionEvent event)
+    {
+        try
+        {
+            Parent sv ;
+            sv = (AnchorPane)FXMLLoader.load(getClass().getResource("/edu/pijava/gui/MesReservations.fxml"));
+          pane1.getChildren().removeAll() ; 
+          pane1.getChildren().setAll(sv) ;                              
+        } catch (IOException ex) {
+             Logger.getLogger(ReserverEventController.class.getName()).log(Level.SEVERE, null, ex);
+         }
+        
+    }
 }

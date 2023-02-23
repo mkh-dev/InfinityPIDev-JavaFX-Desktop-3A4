@@ -15,6 +15,12 @@ public class Reservation {
        private int nbPlaces;
        private int idEvent;
 
+    public Reservation(int idUser, int nbPlaces, int idEvent) {
+        this.idUser = idUser;
+        this.nbPlaces = nbPlaces;
+        this.idEvent = idEvent;
+    }
+
     public Reservation(int numRes, int idUser, int nbPlaces, int idEvent) {
         this.numRes = numRes;
         this.idUser = idUser;

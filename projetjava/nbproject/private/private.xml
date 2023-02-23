@@ -3,15 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ouesl/Desktop/3A/projetjava/src/edu/pijava/services/UserService.java</file>
-            <file>file:/C:/Users/ouesl/Desktop/3A/projetjava/src/edu/pijava/model/Users.java</file>
-            <file>file:/C:/Users/ouesl/Desktop/3A/projetjava/src/edu/pijava/services/FactureCrud.java</file>
-            <file>file:/C:/Users/ouesl/Desktop/3A/projetjava/src/edu/pijava/utils/MyConnection.java</file>
-            <file>file:/C:/Users/ouesl/Desktop/3A/projetjava/src/edu/pijava/model/Facture.java</file>
-            <file>file:/C:/Users/ouesl/Desktop/3A/projetjava/src/edu/pijava/model/Reservation.java</file>
-            <file>file:/C:/Users/ouesl/Desktop/3A/projetjava/src/edu/pijava/services/CRUDtransport.java</file>
-            <file>file:/C:/Users/ouesl/Desktop/3A/projetjava/src/projetjava/Projetjava.java</file>
-            <file>file:/C:/Users/ouesl/Desktop/3A/projetjava/src/edu/pijava/services/CRUDvehicule.java</file>
+            <file>file:/C:/Users/ouesl/Desktop/3A/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/edu/pijava/controllers/DetailsReservationController.java</file>
+            <file>file:/C:/Users/ouesl/Desktop/3A/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/edu/pijava/controllers/CardReservationController.java</file>
+            <file>file:/C:/Users/ouesl/Desktop/3A/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/edu/pijava/controllers/MesReservationsController.java</file>
+            <file>file:/C:/Users/ouesl/Desktop/3A/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/edu/pijava/services/ReservationCrud.java</file>
+            <file>file:/C:/Users/ouesl/Desktop/3A/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/edu/pijava/services/FactureCrud.java</file>
         </group>
     </open-files>
 </project-private>

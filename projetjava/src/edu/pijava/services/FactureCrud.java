@@ -31,7 +31,7 @@ public class FactureCrud implements InterfaceCRUD  {
     @Override
     public void ajouterFacture(Facture f) {
         try {
-            String req = "INSERT INTO `facture`( `idFacture`, `numRes`,`netApayer`,`nomUser`) VALUES ('" + f.getIdFacture() + "','" + f.getNumRes() + "','" + f.getNetApayer() + "','" + f.getNomUser() + "')";
+            String req = "INSERT INTO `facture`(  `numRes`,`netApayer`,`nomUser`) VALUES ('"  + f.getNumRes() + "','" + f.getNetApayer() + "','" + f.getNomUser() + "')";
             ste = conn.createStatement();
             ste.executeUpdate(req);
             System.out.println("Facture ajoutée!!!");

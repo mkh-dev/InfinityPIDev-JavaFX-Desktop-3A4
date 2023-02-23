@@ -31,7 +31,7 @@ public class ReservationCrud implements InterfaceCRUD {
     @Override
     public void ajouterReservation(Reservation r) {
         try {
-            String req = "INSERT INTO `reservation`( `numRes`, `idUser`,`nbPlaces`,`idEvent`) VALUES ('" + r.getNumRes() + "','" + r.getIdUser() + "','" + r.getNbPlaces() + "','" + r.getIdEvent() + "')";
+            String req = "INSERT INTO `reservation`( `idUser`,`nbPlaces`,`idEvent`) VALUES ('" + r.getIdUser() + "','" + r.getNbPlaces() + "','" + r.getIdEvent() + "')";
             ste = conn.createStatement();
             ste.executeUpdate(req);
             System.out.println("Reservation ajoutée!!!");
@@ -39,10 +39,11 @@ public class ReservationCrud implements InterfaceCRUD {
             System.out.println("Réservation non ajouté");
         }
     }
-     @Override
-        public void modifierReservation (Reservation r) {
+
+    @Override
+    public void modifierReservation(Reservation r) {
         try {
-            String req = "UPDATE `reservation` SET `idUser` = '" + r.getIdUser() + "', `nbPlaces` = '" + r.getNbPlaces() + "', `idEvent` = '" + r.getIdEvent() +"' WHERE `reservation`.`numRes` = " + r.getNumRes();
+            String req = "UPDATE `reservation` SET `idUser` = '" + r.getIdUser() + "', `nbPlaces` = '" + r.getNbPlaces() + "', `idEvent` = '" + r.getIdEvent() + "' WHERE `numRes` = " + r.getNumRes();
             Statement st = conn.createStatement();
             st.executeUpdate(req);
             System.out.println("Réservation updated !");
@@ -55,10 +56,10 @@ public class ReservationCrud implements InterfaceCRUD {
      *
      * @param numRes
      */
-    
     @Override
     public void annulerReservation(int numRes) {
         try {
+                   
             String req = "DELETE FROM `reservation` WHERE numRes = " + numRes;
             Statement st = conn.createStatement();
             st.executeUpdate(req);
@@ -67,23 +68,47 @@ public class ReservationCrud implements InterfaceCRUD {
             System.out.println(ex.getMessage());
         }
     }
-    
+
     @Override
-      public List<Reservation> afficherReservation() {
-       List<Reservation> list = new ArrayList<>();
+    public List<Reservation> afficherReservation() {
+        List<Reservation> list = new ArrayList<>();
         try {
             String req = "Select * from reservation";
             Statement st = conn.createStatement();
-           
-            ResultSet RS= st.executeQuery(req);
-            while(RS.next()){
-             Reservation r = new Reservation();
-             r.setNumRes(RS.getInt("numRes"));
-             r.setIdUser(RS.getInt("idUser"));
-             r.setNbPlaces(RS.getInt("nbPlaces"));
-             r.setIdEvent(RS.getInt("idEvent"));
 
-             list.add(r);
+            ResultSet RS = st.executeQuery(req);
+            while (RS.next()) {
+                Reservation r = new Reservation();
+                r.setNumRes(RS.getInt("numRes"));
+                r.setIdUser(RS.getInt("idUser"));
+                r.setNbPlaces(RS.getInt("nbPlaces"));
+                r.setIdEvent(RS.getInt("idEvent"));
+
+                list.add(r);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return list;
+    }
+
+    public List<Reservation> afficherMesReservations(int  idUser) {
+      
+        List<Reservation> list = new ArrayList<>();
+        try {
+            String req = "Select * from reservation where idUser=" + idUser;
+            Statement st = conn.createStatement();
+
+            ResultSet RS = st.executeQuery(req);
+            while (RS.next()) {
+                Reservation r = new Reservation();
+                r.setNumRes(RS.getInt("numRes"));
+                r.setNbPlaces(RS.getInt("nbPlaces"));
+                r.setIdEvent(RS.getInt("idEvent"));
+
+                list.add(r);
+                
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -101,8 +126,5 @@ public class ReservationCrud implements InterfaceCRUD {
     public List<Facture> afficherFacture() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    
-   
 
 }

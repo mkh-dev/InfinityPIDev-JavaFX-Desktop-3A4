@@ -26,8 +26,7 @@ public class Facture {
      * @param netApayer
      * @param nomUser
      */
-    public Facture(int idFacture, int numRes, float netApayer, String nomUser) {
-        this.idFacture = idFacture;
+    public Facture( int numRes, float netApayer, String nomUser) {
 
         this.numRes = numRes;
         this.netApayer = netApayer;
