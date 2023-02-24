@@ -46,9 +46,9 @@ public class UpdateUserController implements Initializable {
         updateEmail.setText(user.getEmail());
         updateNumTel.setText(Integer.toString(user.getNumTel()));
         updatePassword.setText(user.getPassword());
-        if (user.getUserRole().equals("utilisateur")) {
+        if (user.getUserRole().equals("Utilisateur")) {
             ckUtilisateur.setSelected(true);
-        } else if (user.getUserRole().equals("partenaire")) {
+        } else if (user.getUserRole().equals("Partenaire")) {
             ckPartenaire.setSelected(true);
         }
     
@@ -65,11 +65,11 @@ public class UpdateUserController implements Initializable {
         user.setPassword(updatePassword.getText());
 
         if (ckUtilisateur.isSelected()) {
-            user.setUserRole("utilisateur");
+            user.setUserRole("Utilisateur");
         } else if (ckPartenaire.isSelected()) {
-            user.setUserRole("partenaire");
+            user.setUserRole("Partenaire");
         } else {
-            user.setUserRole("utilisateur");
+            user.setUserRole("Utilisateur");
         }
 
         // update the user in the database
