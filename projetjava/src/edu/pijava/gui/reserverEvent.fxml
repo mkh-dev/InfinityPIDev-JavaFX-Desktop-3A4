@@ -37,7 +37,7 @@
                         <Image url="@../../../images/326996669_1596880347482679_7753465681436732922_n.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="fxmesresrvations" layoutX="30.0" layoutY="463.0" mnemonicParsing="false" onAction="#handlebc2" prefHeight="32.0" prefWidth="202.0" style="-fx-background-color: ebac08;" text="Mes réservations">
+                  <Button fx:id="fxmesresrvations" layoutX="10.0" layoutY="463.0" mnemonicParsing="false" onAction="#handlebc2" prefHeight="32.0" prefWidth="234.0" style="-fx-background-color: ebac08;" text="Mes réservations TableView">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -52,11 +52,31 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button fx:id="fxtest" blendMode="DARKEN" layoutX="28.0" layoutY="248.0" mnemonicParsing="false" onAction="#test" prefHeight="32.0" prefWidth="196.0" style="-fx-background-color: ebac08;" text="Test">
+                  <ImageView fitHeight="26.0" fitWidth="24.0" layoutX="18.0" layoutY="466.0">
+                     <image>
+                        <Image url="@../../../images/reserved.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView layoutX="38.0" layoutY="518.0">
+                     <image>
+                        <Image url="@../../../images/bill.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView layoutX="42.0" layoutY="373.0">
+                     <image>
+                        <Image url="@../../../images/add.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="fxtest" blendMode="DARKEN" layoutX="25.0" layoutY="239.0" mnemonicParsing="false" onAction="#test" prefHeight="32.0" prefWidth="202.0" style="-fx-background-color: ebac08;" text="Mes Réservation ListView">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
+                  <ImageView fitHeight="26.0" fitWidth="24.0" layoutX="30.0" layoutY="271.0">
+                     <image>
+                        <Image url="@../../../images/reserved.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
           <AnchorPane fx:id="pane1" minHeight="0.0" minWidth="0.0" prefHeight="488.0" prefWidth="365.0">
@@ -81,11 +101,6 @@
                   <ImageView fitHeight="104.0" fitWidth="134.0" layoutX="22.0" layoutY="95.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);">
                      <image>
                         <Image url="@../../../../../../../Downloads/event2.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="104.0" fitWidth="134.0" layoutX="201.0" layoutY="95.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);">
-                     <image>
-                        <Image url="@../../../../../../../Downloads/event3.png" />
                      </image>
                   </ImageView>
                   <Label alignment="CENTER" layoutX="76.0" layoutY="340.0" prefHeight="18.0" prefWidth="134.0" text="Art Gallery" />

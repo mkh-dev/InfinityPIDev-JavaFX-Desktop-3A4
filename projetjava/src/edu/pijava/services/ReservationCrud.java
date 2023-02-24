@@ -97,7 +97,7 @@ public class ReservationCrud implements InterfaceCRUD {
       
         List<Reservation> list = new ArrayList<>();
         try {
-            String req = "Select * from reservation where idUser=" + idUser;
+            String req = "SELECT `numRes`, `idUser`, `nbPlaces`, `idEvent` FROM `reservation` WHERE  `idUser`=" + idUser;
             Statement st = conn.createStatement();
 
             ResultSet RS = st.executeQuery(req);

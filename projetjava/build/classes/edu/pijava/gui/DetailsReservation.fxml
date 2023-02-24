@@ -8,6 +8,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" fx:id="pane2" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pijava.controllers.DetailsReservationController">
    <children>
@@ -41,6 +42,14 @@
             <DropShadow />
          </effect>
       </Label>
-      <Button fx:id="fxretour" layoutX="39.0" layoutY="361.0" mnemonicParsing="false" onAction="#back" text="Retour au menu principal " />
+      <Button fx:id="fxretour" layoutY="369.0" mnemonicParsing="false" onAction="#back" prefHeight="30.0" prefWidth="244.0" style="-fx-background-color: #EAF2F8;" text="Retour au menu principal ">
+         <font>
+            <Font name="Leelawadee UI Semilight" size="14.0" />
+         </font></Button>
+      <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="14.0" layoutY="371.0">
+         <image>
+            <Image url="@../../../images/undo.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

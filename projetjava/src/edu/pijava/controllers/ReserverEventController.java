@@ -21,6 +21,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+
 /**
  * FXML Controller class
  *
@@ -30,9 +31,9 @@ public class ReserverEventController implements Initializable {
 
     @FXML
     private Button btnReserver;
-    
+
     @FXML
-    private AnchorPane pane1; 
+    private AnchorPane pane1;
     @FXML
     private Button fxmesresrvations;
     @FXML
@@ -41,7 +42,6 @@ public class ReserverEventController implements Initializable {
     private Button fxmesfactures;
     @FXML
     private Button fxtest;
-    
 
     /**
      * Initializes the controller class.
@@ -49,68 +49,57 @@ public class ReserverEventController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-
-    @FXML 
-    public void handlebc1(ActionEvent event)
-    {
-        try
-        {
-            Parent sv ;
-            sv = (AnchorPane)FXMLLoader.load(getClass().getResource("/edu/pijava/gui/DetailsReservation.fxml"));
-          pane1.getChildren().removeAll() ; 
-          pane1.getChildren().setAll(sv) ;                              
-        } catch (IOException ex) {
-             Logger.getLogger(ReserverEventController.class.getName()).log(Level.SEVERE, null, ex);
-         }
-        
     }
-  
-       @FXML 
-    public void handlebc2(ActionEvent event)
-    {
-        try
-        {
-            Parent sv ;
-            sv = (AnchorPane)FXMLLoader.load(getClass().getResource("/edu/pijava/gui/MesReservations.fxml"));
-          pane1.getChildren().removeAll() ; 
-          pane1.getChildren().setAll(sv) ;                              
+
+    @FXML
+    public void handlebc1(ActionEvent event) {
+        try {
+            Parent sv;
+            sv = (AnchorPane) FXMLLoader.load(getClass().getResource("/edu/pijava/gui/DetailsReservation.fxml"));
+            pane1.getChildren().removeAll();
+            pane1.getChildren().setAll(sv);
         } catch (IOException ex) {
-             Logger.getLogger(ReserverEventController.class.getName()).log(Level.SEVERE, null, ex);
-         }
-        
+            Logger.getLogger(ReserverEventController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    @FXML
+    public void handlebc2(ActionEvent event) {
+        try {
+            Parent sv;
+            sv = (AnchorPane) FXMLLoader.load(getClass().getResource("/edu/pijava/gui/MesReservations.fxml"));
+            pane1.getChildren().removeAll();
+            pane1.getChildren().setAll(sv);
+        } catch (IOException ex) {
+            Logger.getLogger(ReserverEventController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
     @FXML
     private void hadlebc5(ActionEvent event) {
-        try
-        {
-            Parent sv ;
-            sv = (AnchorPane)FXMLLoader.load(getClass().getResource("/edu/pijava/gui/MesFactures.fxml"));
-          pane1.getChildren().removeAll() ; 
-          pane1.getChildren().setAll(sv) ;                              
+        try {
+            Parent sv;
+            sv = (AnchorPane) FXMLLoader.load(getClass().getResource("/edu/pijava/gui/MesFactures.fxml"));
+            pane1.getChildren().removeAll();
+            pane1.getChildren().setAll(sv);
         } catch (IOException ex) {
-             Logger.getLogger(ReserverEventController.class.getName()).log(Level.SEVERE, null, ex);
-         }
-         
-        
-        
+            Logger.getLogger(ReserverEventController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
     @FXML
     private void test(ActionEvent event) {
-          FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/pijava/gui/InterfaceTest.fxml"));
-                            Parent root = null;
-                            try {
-                                root = loader.load();
-                            } catch (IOException ex) {
-                                Logger.getLogger(AjouterFactureController.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                             ReserverEventController controller = loader.getController();
+          try {
+            Parent sv;
+            sv = (AnchorPane) FXMLLoader.load(getClass().getResource("/edu/pijava/gui/MesReservations2.fxml"));
+            pane1.getChildren().removeAll();
+            pane1.getChildren().setAll(sv);
+        } catch (IOException ex) {
+            Logger.getLogger(ReserverEventController.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-                            Scene scene = new Scene(root);
-                            Stage stage = new Stage();
-                            stage.setScene(scene);
-                            stage.showAndWait();
     }
 }
