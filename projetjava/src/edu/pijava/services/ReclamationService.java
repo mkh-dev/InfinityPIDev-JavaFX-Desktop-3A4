@@ -19,11 +19,12 @@ public ReclamationService() {
 
 public void ajouterReclamation(Reclamations recl) {
     try {
-        String requete = "INSERT INTO reclamations (prenom, nom, email) VALUES (?, ?, ?)";
+        String requete = "INSERT INTO reclamations (prenom, nom, email, message) VALUES (?, ?, ?, ?)";
         PreparedStatement pst = cnx.prepareStatement(requete);
         pst.setString(1, recl.getPrenom());
         pst.setString(2, recl.getNom());
         pst.setString(3, recl.getEmail());
+        pst.setString(4, recl.getMessage());
         pst.executeUpdate();
         System.out.println("Reclamation ajoutée !");
     } catch (SQLException ex) {
@@ -43,6 +44,7 @@ public List<Reclamations> afficherReclamations() {
             r.setPrenom(rs.getString("prenom"));
             r.setNom(rs.getString("nom"));
             r.setEmail(rs.getString("email"));
+            r.setMessage(rs.getString("message"));
             myList.add(r);
         }
     } catch (SQLException ex) {
@@ -65,12 +67,13 @@ public void supprimerReclamation(Reclamations recl) {
 
 public void modifierReclamation(Reclamations recl) {
     try {
-        String requete = "UPDATE reclamations SET prenom=?, nom=?, email=? WHERE id=?";
+        String requete = "UPDATE reclamations SET prenom=?, nom=?, email=?, message=? WHERE id=?";
         PreparedStatement pst = cnx.prepareStatement(requete);
         pst.setString(1, recl.getPrenom());
         pst.setString(2, recl.getNom());
         pst.setString(3, recl.getEmail());
-        pst.setInt(4, recl.getId());
+        pst.setString(4, recl.getMessage());
+        pst.setInt(5, recl.getId());
         pst.executeUpdate();
         System.out.println("Reclamation modifiée !");
     } catch (SQLException ex) {
@@ -91,6 +94,7 @@ public Reclamations getReclamationById(int id) {
             r.setPrenom(rs.getString("prenom"));
             r.setNom(rs.getString("nom"));
             r.setEmail(rs.getString("email"));
+            r.setMessage(rs.getString("message"));
         }
     } catch (SQLException ex) {
         System.err.println(ex.getMessage());

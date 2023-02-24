@@ -14,18 +14,22 @@ public class Reclamations {
     private String prenom;
     private String nom;
     private String email;
+    private String message;
+    
 
-    public Reclamations(String prenom, String nom, String email) {
+    public Reclamations(String prenom, String nom, String email,String message) {
         this.prenom = prenom;
         this.nom = nom;
         this.email = email;
+         this.message = message;
     }
 
-    public Reclamations(int id, String prenom, String nom, String email) {
+    public Reclamations(int id, String prenom, String nom, String email, String message) {
         this.id = id;
         this.prenom = prenom;
         this.nom = nom;
         this.email = email;
+        this.message = message;
     }
 
     public Reclamations() {
@@ -63,10 +67,18 @@ public class Reclamations {
         this.email = email;
     }
 
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
     @Override
     public String toString() {
-        return "Reclamations{" + "prenom=" + prenom + ", nom=" + nom + ", email=" + email + '}';
+        return "Reclamations{" + "prenom=" + prenom + ", nom=" + nom + ", email=" + email + ", message=" + message + '}';
     }
-    
+
     
 }
