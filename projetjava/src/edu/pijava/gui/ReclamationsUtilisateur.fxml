@@ -5,16 +5,38 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pijava.gui.ReclamationsUtilisateurController">
+<AnchorPane id="AnchorPane" prefHeight="459.0" prefWidth="776.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pijava.gui.ReclamationsUtilisateurController">
    <children>
-      <TextField fx:id="emailTextField" layoutX="118.0" layoutY="96.0" promptText="email" />
-      <TextArea fx:id="textArea" layoutX="91.0" layoutY="161.0" prefHeight="200.0" prefWidth="200.0" promptText="votre texte" />
-      <TextField fx:id="nomTextField" layoutX="119.0" layoutY="58.0" promptText="nom" />
-      <TextField fx:id="prenomTextField" layoutX="117.0" layoutY="23.0" promptText="prenom" />
-      <Button fx:id="ajouterButton" layoutX="119.0" layoutY="379.0" mnemonicParsing="false" onAction="#ajouterReclamation" text="Ajouter Réclamation" />
-      <ListView fx:id="listView" layoutX="311.0" layoutY="23.0" prefHeight="375.0" prefWidth="274.0" />
-      <Button layoutX="448.0" layoutY="404.0" mnemonicParsing="false" onAction="#supprimerReclamation" text="Supprimer Réclamation" />
-      <Button layoutX="311.0" layoutY="404.0" mnemonicParsing="false" onAction="#modifierReclamation" text="Modifier Réclamation" />
+      <TextField fx:id="emailTextField" layoutX="89.0" layoutY="136.0" promptText="Email" />
+      <TextArea fx:id="textArea" layoutX="36.0" layoutY="198.0" prefHeight="200.0" prefWidth="255.0" promptText="Votre Réclamation" />
+      <TextField fx:id="nomTextField" layoutX="89.0" layoutY="89.0" promptText="Nom" />
+      <TextField fx:id="prenomTextField" layoutX="89.0" layoutY="38.0" promptText="Prénom" />
+      <Button fx:id="ajouterButton" layoutX="102.0" layoutY="404.0" mnemonicParsing="false" onAction="#ajouterReclamation" style="-fx-background-color: black;" text="Ajouter Réclamation" textFill="WHITE" />
+      <ListView fx:id="listView" layoutX="311.0" layoutY="23.0" prefHeight="375.0" prefWidth="428.0" />
+      <Button layoutX="448.0" layoutY="404.0" mnemonicParsing="false" onAction="#supprimerReclamation" style="-fx-background-color: black;" text="Supprimer Réclamation" textFill="WHITE" />
+      <Button layoutX="311.0" layoutY="404.0" mnemonicParsing="false" onAction="#modifierReclamation" style="-fx-background-color: black;" text="Modifier Réclamation" textFill="WHITE" />
+      <Text layoutX="89.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prénom">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text layoutX="89.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom">
+                   <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text layoutX="89.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" >
+                   <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text layoutX="36.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Votre Réclamation" >
+                   <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

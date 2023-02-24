@@ -4,10 +4,9 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="edu.pijava.gui.ReclamationsPartenaireController">
+<AnchorPane id="AnchorPane" prefHeight="491.0" prefWidth="712.0" style="-fx-translate-x: 90; -fx-translate-y: 80;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pijava.gui.ReclamationsPartenaireController">
    <children>
-      <ListView layoutX="395.0" layoutY="23.0" prefHeight="375.0" prefWidth="190.0" fx:id="listView" />
-      <Button layoutX="405.0" layoutY="404.0" mnemonicParsing="false" onAction="#supprimerReclamation" text="Supprimer Réclamation" />
+      <ListView fx:id="listView" layoutX="15.0" layoutY="8.0" prefHeight="343.0" prefWidth="571.0" />
+      <Button layoutX="230.0" layoutY="361.0" mnemonicParsing="false" onAction="#supprimerReclamation" style="-fx-background-color: black;" text="Supprimer Réclamation" textFill="WHITE" />
    </children>
 </AnchorPane>

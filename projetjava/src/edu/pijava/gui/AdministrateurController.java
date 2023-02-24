@@ -57,7 +57,7 @@ public class AdministrateurController implements Initializable {
 
     @FXML
     private void reclamations(MouseEvent event) {
-                    loadPage("Reclamations");
+                    loadPage("ReclamationsAdmin");
     }
             private void loadPage (String page){
         Parent root=null;

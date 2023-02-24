@@ -1,17 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pijava.gui.UpdateReclamationsController">
+<AnchorPane id="AnchorPane" prefHeight="444.0" prefWidth="667.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pijava.gui.UpdateReclamationsController">
    <children>
-      <TextField fx:id="emailTextField" layoutX="118.0" layoutY="96.0" promptText="email" />
-      <TextArea fx:id="textArea" layoutX="91.0" layoutY="161.0" prefHeight="200.0" prefWidth="200.0" promptText="votre texte" />
-      <TextField fx:id="nomTextField" layoutX="119.0" layoutY="58.0" promptText="nom" />
-      <TextField fx:id="prenomTextField" layoutX="117.0" layoutY="23.0" promptText="prenom" />
-      <Button fx:id="validerButton" layoutX="119.0" layoutY="379.0" mnemonicParsing="false" onAction="#validerReclamation" text="Valider Réclamation" />
+      <TextField fx:id="emailTextField" layoutX="259.0" layoutY="135.0" promptText="Email" />
+      <TextArea fx:id="textArea" layoutX="117.0" layoutY="190.0" prefHeight="200.0" prefWidth="434.0" promptText="Votre Réclamation" />
+      <TextField fx:id="nomTextField" layoutX="259.0" layoutY="85.0" promptText="Nom" />
+      <TextField fx:id="prenomTextField" layoutX="259.0" layoutY="34.0" promptText="Prénom" />
+      <Button fx:id="validerButton" layoutX="273.0" layoutY="403.0" mnemonicParsing="false" onAction="#validerReclamation" style="-fx-background-color: black;" text="Valider Réclamation" textFill="WHITE" />
+      <Text layoutX="259.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prénom">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text layoutX="260.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text layoutX="259.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
+          <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text layoutX="118.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Votre réclamation" >
+          <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

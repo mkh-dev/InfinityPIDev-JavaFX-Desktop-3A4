@@ -8,8 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="452.0" prefWidth="648.0" style="-fx-background-color: #ebac08;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
+<AnchorPane id="AnchorPane" prefHeight="452.0" prefWidth="648.0" style="-fx-background-color: #ebac08;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pijava.gui.HomePageController">
    <children>
       <AnchorPane layoutX="128.0" layoutY="65.0" prefHeight="323.0" prefWidth="393.0" style="-fx-background-color: white; -fx-background-radius: 12;">
          <children>
@@ -23,11 +22,11 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Button layoutX="152.0" layoutY="178.0" mnemonicParsing="false" style="-fx-background-color: black;" text="Se Connecter" textFill="WHITE" />
+            <Button fx:id="connectBtn" layoutX="152.0" layoutY="180.0" mnemonicParsing="false" onAction="#handleConnectBtn" style="-fx-background-color: black;" text="Se Connecter" textFill="WHITE" />
             <Text layoutX="186.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ou" />
-            <Button layoutX="152.0" layoutY="258.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: black;" text="S'inscrire" textFill="WHITE" />
-            <Separator layoutX="223.0" layoutY="231.0" prefHeight="1.0" prefWidth="87.0" />
-            <Separator layoutX="84.0" layoutY="230.0" prefHeight="1.0" prefWidth="87.0" />
+            <Button fx:id="registerBtn" layoutX="152.0" layoutY="256.0" mnemonicParsing="false" onAction="#handleRegisterBtn" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: black;" text="S'inscrire" textFill="WHITE" />
+            <Separator layoutX="208.0" layoutY="231.0" prefHeight="1.0" prefWidth="87.0" />
+            <Separator layoutX="91.0" layoutY="231.0" prefHeight="1.0" prefWidth="87.0" />
          </children>
       </AnchorPane>
    </children>
