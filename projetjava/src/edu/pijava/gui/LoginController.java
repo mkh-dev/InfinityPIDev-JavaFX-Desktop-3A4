@@ -85,5 +85,6 @@ public class LoginController {
     @FXML
     void initialize() {
         loginButton.setOnAction(this::handleLogin);
+        
     }
 }

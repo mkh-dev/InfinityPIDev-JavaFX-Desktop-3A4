@@ -11,7 +11,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
@@ -46,6 +45,11 @@ public class AddUserController implements Initializable {
 
     @FXML
     private void savePerson(ActionEvent event) {
+        // Vérifier que tous les champs sont remplis et que la date de naissance est valide
+        if (!validateFields()) {
+            return;
+        }
+
         // Compteur de cases à cocher sélectionnées
         int checkedCount = 0;
 
@@ -70,58 +74,68 @@ public class AddUserController implements Initializable {
         }
 
         // Si une seule case à cocher est sélectionnée, continuer avec l'inscription
-        if (validateFields()) {
-            String prenom = addPrenom.getText();
-            String nom = addNom.getText();
-            String email = addEmail.getText();
-            int numTel = Integer.parseInt(addNumTel.getText());
+        String prenom = addPrenom.getText();
+        String nom = addNom.getText();
+        String email = addEmail.getText();
+        int numTel = Integer.parseInt(addNumTel.getText());
 
-            LocalDate localDate = datePicker.getValue();
-            Date dateNaissance = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+        LocalDate localDate = datePicker.getValue();
+        Date dateNaissance = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
 
-            String password = addPassword.getText();
+        String password = addPassword.getText();
 
-            // Récupérer le rôle utilisateur ou partenaire
-            String userRole = ckUtilisateur.isSelected() ? "Utilisateur" : "Partenaire";
+        // Récupérer le rôle utilisateur ou partenaire
+        String userRole = ckUtilisateur.isSelected() ? "Utilisateur" : "Partenaire";
 
-            Users u = new Users(prenom, nom, email, dateNaissance, numTel, userRole, password);
-            UserService userCrud = new UserService();
-            userCrud.ajouterUtilisateur2(u);
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Modification réussie");
-            alert.setHeaderText(null);
-            alert.setContentText("L'utilisateur a été modifié avec succès !");
-            alert.showAndWait();
-        }
-    }
-
-    private boolean validateFields() {
-        if (addPassword.getText().isEmpty() ||
-                addPrenom.getText().isEmpty() ||
-                addNom.getText().isEmpty() ||
-                datePicker.getValue() == null ||
-                addEmail.getText().isEmpty() ||
-                addNumTel.getText().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Attention");
-            alert.setHeaderText(null);
-                    alert.setContentText("Veuillez remplir tous les champs !");
+        Users u = new Users(prenom, nom, email, dateNaissance, numTel, userRole, password);
+        UserService userCrud = new UserService();
+        userCrud.ajouterUtilisateur2(u);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Modification réussie");
+        alert.setHeaderText(null);
+        alert.setContentText("L'utilisateur a été modifié avec succès !");
         alert.showAndWait();
-        return false;
     }
 
-    LocalDate dateNaissance = datePicker.getValue();
-    if (dateNaissance.isAfter(LocalDate.now())) {
-        Alert alert = new Alert(AlertType.WARNING);
+   private boolean validateFields() {
+    // Vérifier si tous les champs obligatoires sont remplis
+    if (addPassword.getText().isEmpty() ||
+            addPrenom.getText().isEmpty() ||
+            addNom.getText().isEmpty() ||
+            datePicker.getValue() == null ||
+            addEmail.getText().isEmpty() ||
+            addNumTel.getText().isEmpty()) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Attention");
         alert.setHeaderText(null);
-        alert.setContentText("Veuillez sélectionner une date de naissance valide !");
+        alert.setContentText("Veuillez remplir tous les champs obligatoires.");
         alert.showAndWait();
         return false;
     }
-
+    
+    // Vérifier si l'adresse email est au bon format
+    String EMAIL_REGEX = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
+    if (!addEmail.getText().matches(EMAIL_REGEX)) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Format email incorrect");
+        alert.setHeaderText(null);
+        alert.setContentText("Veuillez saisir une adresse email valide.");
+        alert.showAndWait();
+        return false;
+    }
+    
+    // Vérifier si le numéro de téléphone est au bon format
+    String NUMTEL_REGEX = "^[0-9]{8}$";
+    if (!addNumTel.getText().matches(NUMTEL_REGEX)) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Format numéro de téléphone incorrect");
+        alert.setHeaderText(null);
+        alert.setContentText("Veuillez saisir un numéro de téléphone valide.");
+        alert.showAndWait();
+        return false;
+    }
+    
+    // Si tous les champs sont remplis et que l'adresse email et le numéro de téléphone sont au bon format, retourner true
     return true;
 }
 }
-           
-
