@@ -1,22 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.pijava.gui;
 
 import edu.pijava.model.Users;
 import edu.pijava.services.UserService;
-import java.net.URL;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.Date;
-import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
@@ -24,13 +12,15 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-/**
- * FXML Controller class
- *
- * @author MALEK-ADMIN
- */
-public class InscriptionController implements Initializable {
+import java.net.URL;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
+import java.util.ResourceBundle;
 
+public class InscriptionController implements Initializable {
+    private static final String EMAIL_REGEX = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
+    private static final String NUMTEL_REGEX = "^\\d{8}$";
 
     @FXML
     private TextField tfNom;
@@ -61,27 +51,27 @@ public class InscriptionController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         hlinkLogin.setStyle("-fx-text-fill: black;");
-        
+
     }
 
-  @FXML
-    private void savePerson(ActionEvent event) {
-        // Compteur de cases à cocher sélectionnées
+    @FXML
+    private void savePerson() {
+        if (!validateFields()) {
+            return;
+        }
+
         int checkedCount = 0;
 
-        // Vérifier si la case à cocher utilisateur est sélectionnée
         if (ckUtilisateur.isSelected()) {
             checkedCount++;
         }
 
-        // Vérifier si la case à cocher partenaire est sélectionnée
         if (ckPartenaire.isSelected()) {
             checkedCount++;
         }
 
-        // Si plus d'une case à cocher est sélectionnée, afficher un message d'erreur
         if (checkedCount != 1) {
-            Alert alert = new Alert(AlertType.ERROR);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Erreur de saisie");
             alert.setHeaderText(null);
             alert.setContentText("Veuillez sélectionner une et une seule case à cocher !");
@@ -89,65 +79,75 @@ public class InscriptionController implements Initializable {
             return;
         }
 
-        // Si une seule case à cocher est sélectionnée, continuer avec l'inscription
-        if (validateFields()) {
-            String prenom = tfPrenom.getText();
-            String nom = tfNom.getText();
-            String email = tfEmail.getText();
-            int numTel = Integer.parseInt(tfNumTel.getText());
+        String prenom = tfPrenom.getText();
+        String nom = tfNom.getText();
+        String email = tfEmail.getText();
+        int numTel = Integer.parseInt(tfNumTel.getText());
 
-            LocalDate localDate = datePicker.getValue();
-            Date dateNaissance = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+        LocalDate localDate = datePicker.getValue();
+        Date dateNaissance = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
 
-            String password = pfPassword.getText();
-            String confirmerMotDePasse = pfConfirmerPassword.getText();
+        String password = pfPassword.getText();
+        String confirmerMotDePasse = pfConfirmerPassword.getText();
 
-            if (!password.equals(confirmerMotDePasse)) {
-                // Les mots de passe ne correspondent pas
-                Alert alert = new Alert(AlertType.WARNING);
-                alert.setTitle("Attention");
-                alert.setHeaderText(null);
-                alert.setContentText("Les mots de passe ne correspondent pas !");
-                alert.showAndWait();
-                return;
-            }
+        if (!password.equals(confirmerMotDePasse)) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Attention");
+            alert.setHeaderText(null);
+            alert.setContentText("Les mots de passe ne correspondent pas !");
+            alert.showAndWait();
+            return;
+        }
 
-        // Récupérer le rôle utilisateur ou partenaire
         String userRole = ckUtilisateur.isSelected() ? "Utilisateur" : "Partenaire";
 
         Users u = new Users(prenom, nom, email, dateNaissance, numTel, userRole, password);
         UserService userCrud = new UserService();
         userCrud.ajouterUtilisateur2(u);
-    }
-}
 
-
-private boolean validateFields() {
-    if (tfPrenom.getText().isEmpty() ||
-        tfNom.getText().isEmpty() ||
-        datePicker.getValue() == null ||
-        tfEmail.getText().isEmpty() ||
-        tfNumTel.getText().isEmpty() ||
-        pfPassword.getText().isEmpty() ||
-        pfConfirmerPassword.getText().isEmpty()) {
-        Alert alert = new Alert(AlertType.WARNING);
-        alert.setTitle("Attention");
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Inscription réussie");
         alert.setHeaderText(null);
-        alert.setContentText("Veuillez remplir tous les champs !");
+        alert.setContentText("Votre inscription a été enregistrée !");
         alert.showAndWait();
-        return false;
     }
 
-    LocalDate dateNaissance = datePicker.getValue();
-    if (dateNaissance.isAfter(LocalDate.now())) {
-        Alert alert = new Alert(AlertType.WARNING);
-        alert.setTitle("Attention");
-        alert.setHeaderText(null);
-        alert.setContentText("Veuillez sélectionner une date de naissance valide !");
-        alert.showAndWait();
-        return false;
-    }
-
-    return true;
-}
-}
+    private boolean validateFields() {
+        if (tfPrenom.getText().isEmpty() ||
+                tfNom.getText().isEmpty() ||
+                datePicker.getValue() == null ||
+                tfEmail.getText().isEmpty() ||
+                tfNumTel.getText().isEmpty() ||
+                pfPassword.getText().isEmpty() ||
+                pfConfirmerPassword.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Champs vides");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez remplir tous les champs obligatoires.");
+            alert.showAndWait();
+            return false;
+            } else if (!tfEmail.getText().matches(EMAIL_REGEX)) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Format email incorrect");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez saisir une adresse email valide.");
+            alert.showAndWait();
+            return false;
+            } else if (!tfNumTel.getText().matches(NUMTEL_REGEX)) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Format numéro de téléphone incorrect");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez saisir un numéro de téléphone valide.");
+            alert.showAndWait();
+            return false;
+            } else if (!pfPassword.getText().equals(pfConfirmerPassword.getText())) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Mots de passe différents");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez saisir le même mot de passe dans les deux champs.");
+            alert.showAndWait();
+            return false;
+            }
+            return true;
+            }
+            }

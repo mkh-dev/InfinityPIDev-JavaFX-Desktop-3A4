@@ -18,11 +18,6 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-/**
- * FXML Controller class
- *
- * @author MALEK-ADMIN
- */
 public class AddUserController implements Initializable {
 
     @FXML
@@ -44,18 +39,12 @@ public class AddUserController implements Initializable {
     @FXML
     private CheckBox ckPartenaire;
 
-
-
-
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+
     }
 
-  @FXML
+    @FXML
     private void savePerson(ActionEvent event) {
         // Compteur de cases à cocher sélectionnées
         int checkedCount = 0;
@@ -72,7 +61,7 @@ public class AddUserController implements Initializable {
 
         // Si plus d'une case à cocher est sélectionnée, afficher un message d'erreur
         if (checkedCount != 1) {
-            Alert alert = new Alert(AlertType.ERROR);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Erreur de saisie");
             alert.setHeaderText(null);
             alert.setContentText("Veuillez sélectionner une et une seule case à cocher !");
@@ -92,33 +81,31 @@ public class AddUserController implements Initializable {
 
             String password = addPassword.getText();
 
-        // Récupérer le rôle utilisateur ou partenaire
-        String userRole = ckUtilisateur.isSelected() ? "Utilisateur" : "Partenaire";
+            // Récupérer le rôle utilisateur ou partenaire
+            String userRole = ckUtilisateur.isSelected() ? "Utilisateur" : "Partenaire";
 
-        Users u = new Users(prenom, nom, email, dateNaissance, numTel, userRole, password);
-        UserService userCrud = new UserService();
-        userCrud.ajouterUtilisateur2(u);
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Modification réussie");
-        alert.setHeaderText(null);
-        alert.setContentText("L'utilisateur a été modifié avec succès !");
-        alert.showAndWait();
-
+            Users u = new Users(prenom, nom, email, dateNaissance, numTel, userRole, password);
+            UserService userCrud = new UserService();
+            userCrud.ajouterUtilisateur2(u);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Modification réussie");
+            alert.setHeaderText(null);
+            alert.setContentText("L'utilisateur a été modifié avec succès !");
+            alert.showAndWait();
+        }
     }
-}
 
-
-private boolean validateFields() {
-    if (addPassword.getText().isEmpty() ||
-            addPrenom.getText().isEmpty() ||
-            addNom.getText().isEmpty() ||
-            datePicker.getValue() == null ||
-            addEmail.getText().isEmpty() ||
-            addNumTel.getText().isEmpty() ) {
-        Alert alert = new Alert(AlertType.WARNING);
-        alert.setTitle("Attention");
-        alert.setHeaderText(null);
-        alert.setContentText("Veuillez remplir tous les champs !");
+    private boolean validateFields() {
+        if (addPassword.getText().isEmpty() ||
+                addPrenom.getText().isEmpty() ||
+                addNom.getText().isEmpty() ||
+                datePicker.getValue() == null ||
+                addEmail.getText().isEmpty() ||
+                addNumTel.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Attention");
+            alert.setHeaderText(null);
+                    alert.setContentText("Veuillez remplir tous les champs !");
         alert.showAndWait();
         return false;
     }
@@ -136,4 +123,5 @@ private boolean validateFields() {
     return true;
 }
 }
+           
 
