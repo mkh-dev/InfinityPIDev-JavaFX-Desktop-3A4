@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -23,6 +24,8 @@ public class LoginController {
 
     @FXML
     private Button loginButton;
+    @FXML
+    private Hyperlink linkPassword;
 
     private void handleLogin(ActionEvent event) {
         String email = logEmail.getText();
@@ -82,9 +85,25 @@ public class LoginController {
         }
     }
 
+@FXML
+void initialize() {
+    loginButton.setOnAction(this::handleLogin);
+    linkPassword.setOnAction(this::handleForgotPassword);
+}
+
+
+    
     @FXML
-    void initialize() {
-        loginButton.setOnAction(this::handleLogin);
-        
+private void handleForgotPassword(ActionEvent event) {
+    try {
+        Parent root = FXMLLoader.load(getClass().getResource("ResetPassword.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+    } catch (IOException e) {
+        e.printStackTrace();
     }
+}
+
 }
