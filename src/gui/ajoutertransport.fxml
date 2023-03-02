@@ -27,5 +27,6 @@
       <AnchorPane fx:id="anchorajoutertransport" layoutX="523.0" layoutY="204.0" prefHeight="26.0" prefWidth="67.0" />
       <Button fx:id="suivant_t" layoutX="505.0" layoutY="344.0" mnemonicParsing="false" style="-fx-background-color: black;" text="Suivant" textFill="WHITE" />
       <AnchorPane fx:id="anchore_suivant_t" layoutX="535.0" layoutY="377.0" prefHeight="10.0" prefWidth="55.0" />
+      <Button layoutX="385.0" layoutY="196.0" mnemonicParsing="false" onAction="#getPosition" text="Utiliser ma position actuel" />
    </children>
 </AnchorPane>

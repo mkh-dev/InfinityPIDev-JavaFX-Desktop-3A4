@@ -25,6 +25,7 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -42,6 +43,8 @@ public class AffichertransportController implements Initializable {
 
     @FXML
     private Button retour_tr;
+    @FXML
+    private AnchorPane anchorPaneAfficher;
 
     void select_modifier(ActionEvent event) {
 
@@ -90,7 +93,7 @@ public class AffichertransportController implements Initializable {
                     imageView.setFitHeight(20);
                     //hbox
                     HBox h = new HBox();
-                    h.getChildren().addAll(imageView, new Label("" + item.getId_transport()));
+                    h.getChildren().addAll(imageView, new Label("IDENTIFIANT: " + item.getId_transport()));
                     /////////////////////
 
                     //////////////heur_depart
@@ -102,7 +105,7 @@ public class AffichertransportController implements Initializable {
                     imageView1.setFitHeight(20);
                     //hbox
                     HBox h1 = new HBox();
-                    h1.getChildren().addAll(imageView1, new Label("" + item.getHeure_depart()));
+                    h1.getChildren().addAll(imageView1, new Label("HEUR DEPART: " + item.getHeure_depart()));
                     /////////////////////
 
                     //////////////-date_depart
@@ -114,7 +117,7 @@ public class AffichertransportController implements Initializable {
                     imageView2.setFitHeight(20);
                     //hbox
                     HBox h2 = new HBox();
-                    h2.getChildren().addAll(imageView2, new Label("" + item.getDate_depart()));
+                    h2.getChildren().addAll(imageView2, new Label("DATE DEPART: " + item.getDate_depart()));
                     /////////////////////
                     
                      //////////////type tranport
@@ -126,7 +129,7 @@ public class AffichertransportController implements Initializable {
                     imageView3.setFitHeight(20);
                     //hbox
                     HBox h3 = new HBox();
-                    h3.getChildren().addAll(imageView3, new Label("" + item.getType_transport()));
+                    h3.getChildren().addAll(imageView3, new Label("TYPE TRANSPORT: " + item.getType_transport()));
                     /////////////////////
                     
                     //////////////-lieu depart
@@ -138,7 +141,7 @@ public class AffichertransportController implements Initializable {
                     imageView4.setFitHeight(20);
                     //hbox
                     HBox h4 = new HBox();
-                    h4.getChildren().addAll(imageView4, new Label("" + item.getLieu_depart()));
+                    h4.getChildren().addAll(imageView4, new Label("LIEU DEPART: " + item.getLieu_depart()));
                     /////////////////////
                     
                     //////////////lieu arriver
@@ -150,7 +153,7 @@ public class AffichertransportController implements Initializable {
                     imageView5.setFitHeight(20);
                     //hbox
                     HBox h5 = new HBox();
-                    h5.getChildren().addAll(imageView5, new Label("" + item.getLieu_arriver()));
+                    h5.getChildren().addAll(imageView5, new Label("LIEU ARRIVER: " + item.getLieu_arriver()));
                     //////////////////
                     
                     //////////////-prix tranport
@@ -162,7 +165,7 @@ public class AffichertransportController implements Initializable {
                     imageView6.setFitHeight(20);
                     //hbox
                     HBox h6 = new HBox();
-                    h6.getChildren().addAll(imageView6, new Label("" + item.getPrix_transport()));
+                    h6.getChildren().addAll(imageView6, new Label("PRIX TRANSPORT: " + item.getPrix_transport()));
                     /////////////////////
 
                     // Créer un VBox pour aligner les labels
@@ -213,7 +216,7 @@ public class AffichertransportController implements Initializable {
             try {
                 Parent newParent = FXMLLoader.load(getClass().getResource("ajoutertransport.fxml"));
                 Scene newScene = new Scene(newParent);
-                Stage currentStage = (Stage) modifier_tr.getScene().getWindow();
+                Stage currentStage = (Stage) anchorPaneAfficher.getScene().getWindow();
                 currentStage.setScene(newScene);
             } catch (IOException ex) {
                 ex.printStackTrace();
