@@ -45,6 +45,8 @@ public class AffichertransportController implements Initializable {
     private Button retour_tr;
     @FXML
     private AnchorPane anchorPaneAfficher;
+    @FXML
+    private Button statistique;
 
     void select_modifier(ActionEvent event) {
 
@@ -215,6 +217,17 @@ public class AffichertransportController implements Initializable {
         retour_tr.setOnAction(event -> {
             try {
                 Parent newParent = FXMLLoader.load(getClass().getResource("ajoutertransport.fxml"));
+                Scene newScene = new Scene(newParent);
+                Stage currentStage = (Stage) anchorPaneAfficher.getScene().getWindow();
+                currentStage.setScene(newScene);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        });
+        
+        statistique.setOnAction(event -> {
+            try {
+                Parent newParent = FXMLLoader.load(getClass().getResource("statistique.fxml"));
                 Scene newScene = new Scene(newParent);
                 Stage currentStage = (Stage) anchorPaneAfficher.getScene().getWindow();
                 currentStage.setScene(newScene);

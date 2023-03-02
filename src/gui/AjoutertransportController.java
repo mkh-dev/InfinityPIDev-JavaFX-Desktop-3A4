@@ -50,7 +50,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import org.json.JSONObject;
 
-
 /**
  * FXML Controller class
  *
@@ -82,7 +81,8 @@ public class AjoutertransportController implements Initializable {
     private Button suivant_t;
     @FXML
     private AnchorPane anchore_suivant_t;
-   /* @FXML
+
+    /* @FXML
     private WebView location_web;*/
 
     /**
@@ -163,7 +163,7 @@ public class AjoutertransportController implements Initializable {
         WebEngine webEngine = web.getEngine();
         webEngine.load("https://www.google.com/maps/embed/v1/view?center=" + latitude + "," + longitude +
                 "&zoom=15&key=YOUR_API_KEY");*/
-      /*  WebEngine engine = location_web.getEngine();
+ /*  WebEngine engine = location_web.getEngine();
 
         engine.getLoadWorker().stateProperty().addListener((observable, oldState, newState) -> {
             if (newState == Worker.State.SUCCEEDED) {
@@ -204,7 +204,6 @@ public class AjoutertransportController implements Initializable {
                 + "<div id='city'></div>"
                 + "<button onclick='getLocation()'>Get Location</button>"
                 + "</body></html>");*/
-
     }
 
     public String getJsonFromUrl(String url) throws IOException {
@@ -257,7 +256,7 @@ public class AjoutertransportController implements Initializable {
 
     public void getPosition() {
         try {
-            // Appeler l'API GeoIP pour obtenir les coordonnées géographiques
+            // Appeler l'API ip-api pour obtenir les coordonnées géographiques
             String url = "http://ip-api.com/json";
             URL obj = new URL(url);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -278,13 +277,12 @@ public class AjoutertransportController implements Initializable {
             String country = json.getString("country");
             String city = json.getString("city");
             BigDecimal lon/*itude*/ = json.getBigDecimal("lon");
-            
-            lieu_depart_aj.setText(country+","+town+","+city);
+
+            lieu_depart_aj.setText(country + "," + town + "," + city);
 
             // Afficher les coordonnées géographiques dans la WebView
-           /* WebEngine webEngine = location_web.getEngine();
+            /* WebEngine webEngine = location_web.getEngine();
             webEngine.loadContent("<html><body><h1>Position actuelle :</h1><p>" + country + "," + town + ","+city+" </p></body></html>");*/
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -292,8 +290,3 @@ public class AjoutertransportController implements Initializable {
     }
 
 }
-
-/*
-
-
-*/

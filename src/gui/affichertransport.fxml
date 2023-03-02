@@ -17,5 +17,6 @@
          </font>
       </Text>
       <Button fx:id="retour_tr" layoutX="14.0" layoutY="360.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="89.0" text="Retour" />
+      <Button fx:id="statistique" layoutX="14.0" layoutY="257.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="90.0" text="Statistique" />
    </children>
 </AnchorPane>

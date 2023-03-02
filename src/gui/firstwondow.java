@@ -29,6 +29,7 @@ public class firstwondow extends Application {
        Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getResource("ajoutertransport.fxml"));
+            //root = FXMLLoader.load(getClass().getResource("Statistique.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setTitle("");
             primaryStage.setScene(scene);
