@@ -70,7 +70,7 @@ Connection conn = MyConnection.getInstance().getConnection();
             Transport resultatTransport = new Transport(result.getInt("Id_transport"), result.getString("heure_depart"),result.getString("date_depart"), result.getString("type_transport"),result.getString("lieu_depart"),result.getString("lieu_arriver"),result.getFloat("prix_transport"));
             trans.add(resultatTransport);
         }
-        System.out.println(trans);
+        //System.out.println(trans);
       
     } catch (SQLException ex) {
          System.out.println(ex);   

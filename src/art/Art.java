@@ -27,8 +27,8 @@ public class Art {
         //Transport t = new Transport(2,"119:23:22","2018-10-16","sss","jjj","cvvv",1200f);
         //CRUDtransport crud = new CRUDtransport();
         
-         Vehicule v = new Vehicule(2,"rollsroys","n2022","r12","non");
-         CRUDvehicule crud = new CRUDvehicule();
+         //Vehicule v = new Vehicule(2,"rollsroys","n2022","r12","non");
+         //CRUDvehicule crud = new CRUDvehicule();
         
         //teste ajoutertransport
        //crud.ajoutertransport(t);

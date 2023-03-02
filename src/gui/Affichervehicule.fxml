@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AffichervehiculeController">
+   <children>
+      <TableView fx:id="tabaffichervoiture" layoutX="94.0" layoutY="74.0" prefHeight="153.0" prefWidth="346.0">
+        <columns>
+          <TableColumn fx:id="marque_af_v" prefWidth="75.0" text="Marque" />
+          <TableColumn fx:id="Modele_af_v" prefWidth="75.0" text="Modèle" />
+            <TableColumn fx:id="Immatriculation_af_v" prefWidth="102.4000244140625" text="Immatriculation" />
+            <TableColumn fx:id="Disponibilte_af_v" prefWidth="88.0" text="Disponibilté" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjoutervehiculeController">
+   <children>
+      <Label layoutX="126.0" layoutY="82.0" text="Marque :" />
+      <Label layoutX="126.0" layoutY="134.0" text="Modele :" />
+      <Label layoutX="126.0" layoutY="191.0" text="Immatricullation :" />
+      <Label layoutX="126.0" layoutY="248.0" text="Disponibilité :" />
+      <TextField fx:id="immatriculation_aj" layoutX="225.0" layoutY="187.0" />
+      <TextField fx:id="Disponibilite_aj" layoutX="225.0" layoutY="244.0" />
+      <ComboBox fx:id="marque_aj" layoutX="224.0" layoutY="78.0" prefWidth="150.0" />
+      <ComboBox fx:id="modele_aj" layoutX="224.0" layoutY="130.0" prefWidth="150.0" />
+      <Button fx:id="Ajouter_v" layoutX="219.0" layoutY="320.0" mnemonicParsing="false" onAction="#save_voiture" style="-fx-background-color: black;" text="Ajouter" textFill="WHITE" />
+      <Button fx:id="Annuler_v" layoutX="323.0" layoutY="320.0" mnemonicParsing="false" style="-fx-background-color: black;" text="Annuler" textFill="WHITE" />
+      <AnchorPane fx:id="anchor_v" layoutX="527.0" layoutY="367.0" prefHeight="18.0" prefWidth="58.0" />
+      <Button layoutX="486.0" layoutY="333.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="73.0" style="-fx-background-color: black;" text="Suivant" textFill="WHITE" />
+      <Button fx:id="Voir_v" layoutX="489.0" layoutY="91.0" mnemonicParsing="false" style="-fx-background-color: black;" text="Voir ajoute" textFill="WHITE" />
+      <AnchorPane fx:id="anchor_voir_v" layoutX="539.0" layoutY="121.0" prefHeight="26.0" prefWidth="47.0" />
+   </children>
+</AnchorPane>
