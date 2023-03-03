@@ -194,6 +194,9 @@ public void ajouterUtilisateur2(Users usr){
     return userList;
 }
 
+public void setConnection(Connection connection) {
+    this.cnx2 = connection;
+}
 
    
 

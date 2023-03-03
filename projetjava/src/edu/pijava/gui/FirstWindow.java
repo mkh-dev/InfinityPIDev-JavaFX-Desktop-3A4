@@ -37,6 +37,8 @@ public class FirstWindow extends Application {
             System.out.println(ex.getMessage());
         }
     }
+    
+    
 
     /**
      * @param args the command line arguments
