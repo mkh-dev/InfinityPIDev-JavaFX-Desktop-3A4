@@ -55,9 +55,9 @@ public class MesReservations2Controller implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         ReservationCrud rc = new ReservationCrud();
-        ObservableList<Reservation> ReservationList = FXCollections.observableArrayList(rc.afficherMesReservations(2));
+        ObservableList<Reservation> ReservationList = FXCollections.observableArrayList(rc.afficherMesReservations(10));
         listview.setItems(ReservationList);
-        fxnbre.setText("Vous Avez  " + ReservationList.size() + "      réservations:");
+        fxnbre.setText("Vous Avez " + ReservationList.size() +" réservations:");
         ;
 
     }
@@ -70,13 +70,13 @@ public class MesReservations2Controller implements Initializable {
         if (selectedRes != null) {
             rc.annulerReservation(selectedRes.getNumRes());
             ReservationList.remove(selectedRes);
-            fxnbre.setText("Total des utilisateurs : " + ReservationList.size());
+            fxnbre.setText("Total des reservations : " + ReservationList.size());
 
             // Afficher l'alerte pour indiquer que la suppression a été effectuée avec succès
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Suppression réussie");
             alert.setHeaderText(null);
-            alert.setContentText("L'utilisateur a été supprimé avec succès !");
+            alert.setContentText("La réservation a été annulée avec succès !");
             alert.showAndWait();
         }
     }
@@ -137,7 +137,7 @@ public class MesReservations2Controller implements Initializable {
     private void refresh() {
 
        ReservationCrud rc = new ReservationCrud();
-        ObservableList<Reservation> ReservationList = FXCollections.observableArrayList(rc.afficherMesReservations(2));
+        ObservableList<Reservation> ReservationList = FXCollections.observableArrayList(rc.afficherMesReservations(10));
         listview.setItems(ReservationList);
         fxnbre.setText("Vous Avez  " + ReservationList.size() + "      réservations:");
         ;

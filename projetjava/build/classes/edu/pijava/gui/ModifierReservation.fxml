@@ -7,35 +7,33 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Rectangle?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pijava.controllers.ModifierReservationController">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="600.0">
+      <Label alignment="CENTER" layoutX="369.0" layoutY="93.0" prefHeight="23.0" prefWidth="104.0" style="-fx-background-color: ebac08;" text="id User">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <Label alignment="CENTER" layoutX="370.0" layoutY="157.0" prefHeight="23.0" prefWidth="104.0" style="-fx-background-color: ebac08;" text="Nombre de places ">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <Label alignment="CENTER" layoutX="373.0" layoutY="218.0" prefHeight="23.0" prefWidth="104.0" style="-fx-background-color: ebac08;" text="id Event">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <TextField fx:id="fxidevent" layoutX="483.0" layoutY="217.0" prefHeight="26.0" prefWidth="56.0" />
+      <TextField fx:id="fxnbreplaces" layoutX="483.0" layoutY="156.0" prefHeight="26.0" prefWidth="56.0" />
+      <TextField fx:id="fxiduser" layoutX="483.0" layoutY="92.0" prefHeight="26.0" prefWidth="56.0" />
+      <Button fx:id="btnmodifier" layoutX="369.0" layoutY="282.0" mnemonicParsing="false" onAction="#modify" prefHeight="26.0" prefWidth="178.0" style="-fx-background-color: black;" text="Modifier Réservation" textFill="WHITE" />
+      <Button fx:id="btnmodifier1" layoutX="369.0" layoutY="336.0" mnemonicParsing="false" onAction="#modify" prefHeight="26.0" prefWidth="178.0" text="Retour au menu principal " />
+      <ImageView fitHeight="400.0" fitWidth="279.0" layoutX="52.0">
          <image>
-            <Image url="@../../../images/matinee-red-1_1.jpg" />
+            <Image url="@../../../images/759b4e4507408e5103690353d8cc8984.jpg" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8c0b0bcc" height="293.0" layoutX="97.0" layoutY="54.0" stroke="BLACK" strokeType="INSIDE" width="406.0" />
-      <Label alignment="CENTER" layoutX="211.0" layoutY="99.0" prefHeight="23.0" prefWidth="104.0" style="-fx-background-color: ebac08;" text="id User">
-         <effect>
-            <DropShadow />
-         </effect>
-      </Label>
-      <Label alignment="CENTER" layoutX="212.0" layoutY="163.0" prefHeight="23.0" prefWidth="104.0" style="-fx-background-color: ebac08;" text="Nombre de places ">
-         <effect>
-            <DropShadow />
-         </effect>
-      </Label>
-      <Label alignment="CENTER" layoutX="215.0" layoutY="224.0" prefHeight="23.0" prefWidth="104.0" style="-fx-background-color: ebac08;" text="id Event">
-         <effect>
-            <DropShadow />
-         </effect>
-      </Label>
-      <TextField fx:id="fxidevent" layoutX="325.0" layoutY="223.0" prefHeight="26.0" prefWidth="56.0" />
-      <TextField fx:id="fxnbreplaces" layoutX="325.0" layoutY="162.0" prefHeight="26.0" prefWidth="56.0" />
-      <TextField fx:id="fxiduser" layoutX="325.0" layoutY="98.0" prefHeight="26.0" prefWidth="56.0" />
-      <Button fx:id="btnmodifier" layoutX="211.0" layoutY="288.0" mnemonicParsing="false" onAction="#modify" prefHeight="26.0" prefWidth="178.0" style="-fx-background-color: red;" text="Modifier Réservation" textFill="WHITE" />
-      <Button fx:id="btnmodifier1" layoutX="33.0" layoutY="359.0" mnemonicParsing="false" onAction="#modify" prefHeight="26.0" prefWidth="178.0" text="Retour au menu principal " />
    </children>
 </AnchorPane>

@@ -105,20 +105,20 @@ public class DetailsReservationController implements Initializable {
     }
     
     private boolean validateFields() {
-    if (fxnumres.getText().isEmpty()
+    if (fxnbreplaces.getText().isEmpty()
                 || fxidevent.getText().isEmpty()
                 || fxiduser.getText().isEmpty()) {
-            /* bch tji fenetre okhra 
+             //bch tji fenetre okhra 
             Alert alert = new Alert(AlertType.WARNING);
         alert.setTitle("Attention");
         alert.setHeaderText(null);
         alert.setContentText("Veuillez remplir tous les champs !");
         alert.showAndWait();
-        return false;*/
+        return false;
 
-            fxmessage.setText("Veuillez remplir tous les champs");
+           /* fxmessage.setText("Veuillez remplir tous les champs");
             fxmessage.setVisible(true);
-            return false;
+            return false;*/
         }
         return true;
     }

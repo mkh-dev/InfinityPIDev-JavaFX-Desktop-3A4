@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package edu.pijava.gui;
+import javafx.scene.image.Image;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -30,7 +31,10 @@ public class Reserver extends Application {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("reserverEvent.fxml"));
             Scene scene = new Scene(root);
-            primaryStage.setTitle("Nos événements");
+            primaryStage.setTitle("Evento");
+            Image icon = new Image(getClass().getResourceAsStream("/images/logo.png")) ;
+            primaryStage.getIcons().add(icon);
+
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException ex) {

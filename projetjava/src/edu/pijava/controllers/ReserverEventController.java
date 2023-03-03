@@ -35,8 +35,6 @@ public class ReserverEventController implements Initializable {
     @FXML
     private AnchorPane pane1;
     @FXML
-    private Button fxmesresrvations;
-    @FXML
     private Button btnReserver1;
     @FXML
     private Button fxmesfactures;
@@ -64,7 +62,6 @@ public class ReserverEventController implements Initializable {
 
     }
 
-    @FXML
     public void handlebc2(ActionEvent event) {
         try {
             Parent sv;

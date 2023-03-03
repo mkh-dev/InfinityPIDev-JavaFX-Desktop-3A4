@@ -21,13 +21,18 @@ public class Facture {
 
     /**
      *
-     * @param idFacture
-     * @param numRes
      * @param netApayer
      * @param idUser
      */
-    public Facture( int numRes, int netApayer, int idUser) {
+    
+    
+    public Facture( int netApayer, int idUser) {
 
+        this.netApayer = netApayer;
+        this.idUser = idUser;
+    }
+
+    public Facture(int numRes, int netApayer, int idUser) {
         this.numRes = numRes;
         this.netApayer = netApayer;
         this.idUser = idUser;

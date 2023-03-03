@@ -5,8 +5,6 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -20,21 +18,16 @@
             <TableColumn fx:id="fxactions" prefWidth="136.0" text="Actions" />
         </columns>
       </TableView>
-      <Separator layoutX="-5.0" layoutY="81.0" prefHeight="18.0" prefWidth="610.0" style="-fx-background-color: #E8DAEF;" />
-      <Text fill="#8e44ad" layoutX="14.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mes factures" wrappingWidth="356.5367431640625">
+      <Separator layoutX="-5.0" layoutY="81.0" prefHeight="18.0" prefWidth="610.0" style="-fx-background-color: ffcc00;" />
+      <Text fill="#ffcc00" layoutX="14.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mes factures" wrappingWidth="356.5367431640625">
          <font>
             <Font name="Modern No. 20" size="57.0" />
          </font>
       </Text>
       <Label fx:id="fxnbre" layoutX="14.0" layoutY="61.0" prefHeight="18.0" prefWidth="475.0" />
-      <Button fx:id="fxretour" layoutX="34.0" layoutY="346.0" mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="241.0" style="-fx-background-color: #D2B4DE;" text="Retour au menu principal ">
+      <Button fx:id="fxretour" layoutX="34.0" layoutY="346.0" mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="241.0" style="-fx-background-color: ffcc00;" text="Retour au menu principal " textFill="WHITE">
          <font>
-            <Font name="System Bold Italic" size="13.0" />
+            <Font name="System Bold" size="17.0" />
          </font></Button>
-      <ImageView layoutX="40.0" layoutY="350.0">
-         <image>
-            <Image url="@../../../images/undo.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>
