@@ -34,26 +34,37 @@ public class ResetPasswordController {
     private final String EMAIL_CONTENT = "Voici votre code de réinitialisation de mot de passe : ";
 
     private String code;
+    
+    
+@FXML
+public void handleValider() {
+    String email = textFieldEmail.getText();
+    Users user = userService.getUserByEmail(email);
 
-    @FXML
-    public void handleValider() {
-        String email = textFieldEmail.getText();
-        Users user = userService.getUserByEmail(email);
-
-        if (user == null) {
-            showAlert("Adresse email invalide", "Aucun utilisateur n'est associé à cette adresse email !");
-            return;
-        }
-
-        // Générer un code aléatoire à 6 chiffres
-        code = generateCode();
-
-        // Envoyer le code par email
-        sendEmail(email, code);
-
-        // Rediriger l'utilisateur vers l'interface NewCode.fxml
-        redirectToNewCode();
+    if (user == null) {
+        showAlert("Adresse email invalide", "Aucun utilisateur n'est associé à cette adresse email !");
+        return;
     }
+
+    // Générer un code aléatoire à 6 chiffres
+    code = generateCode();
+
+    // Envoyer le code par email
+    sendEmail(email, code);
+
+    // Afficher une alerte "Code de réinitialisation envoyé dans le mail"
+    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+    alert.setTitle("Réinitialisation de mot de passe");
+    alert.setHeaderText(null);
+    alert.setContentText("Le code de réinitialisation a été envoyé à votre adresse email.");
+    alert.showAndWait();
+
+    // Rediriger l'utilisateur vers l'interface NewCode.fxml
+    redirectToNewCode();
+    return;
+}
+
+
 
     private String generateCode() {
         Random random = new Random();
@@ -114,6 +125,20 @@ public class ResetPasswordController {
         alert.setContentText(message);
         alert.showAndWait();
     }
+    
+    @FXML
+public void handleEnvoyerSms() {
+    try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/pijava/gui/ResetPasswordSms.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
+
 }
 
 
