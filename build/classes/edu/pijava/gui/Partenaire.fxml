@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="452.0" prefWidth="648.0" style="-fx-background-color: #ebac08;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pijava.gui.PartenaireController">
+   <children>
+      <AnchorPane layoutX="128.0" layoutY="65.0" prefHeight="323.0" prefWidth="393.0" style="-fx-background-color: white; -fx-background-radius: 12;">
+         <children>
+            <ImageView fitHeight="108.0" fitWidth="122.0" layoutX="138.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/evento.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="134.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenue Partenaire ">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Button layoutX="152.0" layoutY="178.0" mnemonicParsing="false" onAction="#Consulterprod" style="-fx-background-color: black;" text="Mes produits" textFill="WHITE" />
+            <Text layoutX="186.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ou" />
+            <Separator layoutX="223.0" layoutY="231.0" prefHeight="1.0" prefWidth="87.0" />
+            <Separator layoutX="84.0" layoutY="230.0" prefHeight="1.0" prefWidth="87.0" />
+            <Button layoutX="146.0" layoutY="256.0" mnemonicParsing="false" onAction="#consultercat" style="-fx-background-color: black;" text="Mes catégories" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
