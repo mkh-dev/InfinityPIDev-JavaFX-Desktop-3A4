@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" fx:id="anchropane" prefHeight="356.0" prefWidth="274.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pijava.gui.ItemController">
+   <children>
+      <VBox fx:id="vbox" layoutX="12.0" layoutY="12.0" prefHeight="332.0" prefWidth="249.0" style="-fx-background-radius: 30; -fx-background-color: white;" stylesheets="@first.css">
+         <opaqueInsets>
+            <Insets left="15.0" right="15.0" />
+         </opaqueInsets>
+         <children>
+            <VBox alignment="CENTER" prefHeight="129.0" prefWidth="183.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="33.0" prefWidth="199.0">
+                     <children>
+                        <Label fx:id="tfnomprod" alignment="CENTER" prefHeight="19.0" prefWidth="198.0" text="      Macaron Caramel">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="DeleteProd" mnemonicParsing="false" onAction="#DeleteProd" prefHeight="23.0" prefWidth="21.0" style="-fx-background-color: transparent;" styleClass="shadow" stylesheets="@first.css">
+                           <graphic>
+                              <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/croix-cercle.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <ImageView fx:id="tfimg" fitHeight="109.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/803-macaron-caramel-macaron-g-1-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
+            <HBox alignment="CENTER" prefHeight="96.0" prefWidth="199.0">
+               <children>
+                  <Text fx:id="tfdesc" strokeType="OUTSIDE" strokeWidth="0.0" text="La macaron au caramel est une pâtisserie faite de deux coques de macaron fourrées de crème au caramel. C'est une délicieuse douceur sucrée." textAlignment="CENTER" wrappingWidth="167.470032453537" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="199.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="41.0" text="Prix :">
+                     <opaqueInsets>
+                        <Insets left="10.0" />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets left="15.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="tfprix" text="5" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="199.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="59.0" text="Quantité :">
+                     <opaqueInsets>
+                        <Insets left="10.0" />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets left="15.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="tfquantite" prefHeight="17.0" prefWidth="38.0" text="  250" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="33.0" prefWidth="199.0">
+               <children>
+                  <Button fx:id="ModifierProd" mnemonicParsing="false" onAction="#ModifierProd" stylesheets="@first.css" text="Modifier">
+                     <styleClass>
+                        <String fx:value="search-button" />
+                        <String fx:value="shadow" />
+                     </styleClass>
+                  </Button>
+               </children></HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

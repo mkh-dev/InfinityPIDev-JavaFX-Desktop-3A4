@@ -17,10 +17,14 @@ public class Users {
     private String nom;
     private String email;
     private Date dateNaissance;
-    private String numTel;
+    private int numTel;
     private String userRole;
+    private String password;
 
-    public Users(int id, String prenom, String nom, String email, Date dateNaissance, String numTel, String userRole) {
+    public Users() {
+    }
+
+    public Users(int id, String prenom, String nom, String email, Date dateNaissance, int numTel, String userRole, String password) {
         this.id = id;
         this.prenom = prenom;
         this.nom = nom;
@@ -28,23 +32,23 @@ public class Users {
         this.dateNaissance = dateNaissance;
         this.numTel = numTel;
         this.userRole = userRole;
-    }
-    
-    public Users (){
-        
+        this.password = password;
     }
     
     
 
-    public Users(String prenom, String nom, String email, Date dateNaissance,  String numTel, String userRole) {
+    public Users(String prenom, String nom, String email, Date dateNaissance, int numTel, String userRole, String password) {
         this.prenom = prenom;
         this.nom = nom;
         this.email = email;
         this.dateNaissance = dateNaissance;
         this.numTel = numTel;
         this.userRole = userRole;
+        this.password = password;
     }
 
+
+    
     public int getId() {
         return id;
     }
@@ -85,11 +89,11 @@ public class Users {
         this.dateNaissance = dateNaissance;
     }
 
-    public  String getNumTel() {
+    public int getNumTel() {
         return numTel;
     }
 
-    public void setNumTel( String numTel) {
+    public void setNumTel(int numTel) {
         this.numTel = numTel;
     }
 
@@ -101,11 +105,17 @@ public class Users {
         this.userRole = userRole;
     }
 
-    @Override
-    public String toString() {
-        return "Users{" + "id=" + id + ", prenom=" + prenom + ", nom=" + nom + ", email=" + email + ", dateNaissance=" + dateNaissance + ", numTel=" + numTel + ", userRole=" + userRole + '}';
+    public String getPassword() {
+        return password;
     }
-   
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+   public String toString() {
+    return prenom + " " + nom + ", " + email + ", " + dateNaissance + ", " + numTel + ", " + userRole + ", " + password;
+}
 }
 
 

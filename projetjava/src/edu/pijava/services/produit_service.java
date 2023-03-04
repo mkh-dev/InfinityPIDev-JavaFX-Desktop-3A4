@@ -43,7 +43,11 @@ public class produit_service {
              p.setQuantite(RS.getInt("quantite"));
              p.setNom_part(RS.getString("nom_part"));
              p.setId_cat(RS.getInt("id_cat"));
-             p.setImage(RS.getString("image"));
+             //p.setImage(RS.getString("image"));
+             // String imagePath = RS.getString("image");
+            // Set the image path to the product object
+            //p.setImage(imagePath);
+           
              
 
 
@@ -70,6 +74,7 @@ list.add(p);
             pst.setString(5, p.getNom_part());
             pst.setInt(6,p.getId_cat());
             pst.setString(7, p.getImage());
+            
             
  if (pst.executeUpdate() != 0) {
                 System.out.println("Produit added");
@@ -100,16 +105,21 @@ System.out.println(ex.getMessage());
         return false;
     }
     
+   
     
-    public boolean modifierprod(String nom_prod, String description, double prix,int id_prod) {
+    
+    public boolean modifierprod(String nom_prod, String description, double prix,int quantite,int id_cat,String image,int id_prod) {
 
-        String requete = "UPDATE produit SET  nom_prod= ? , description= ? ,prix= ? where id_prod=?;";
+        String requete = "UPDATE produit SET  nom_prod= ? , description= ? ,prix= ? ,quantite= ? ,id_cat= ? ,image= ? where id_prod=?;";
         try {
             PreparedStatement pst = conn.prepareStatement(requete);
             pst.setString(1, nom_prod);
             pst.setString(2, description);
             pst.setDouble(3, prix);
-            pst.setInt(4, id_prod);
+            pst.setInt(4, quantite);
+            pst.setInt(5, id_cat);
+            pst.setString(6, image);
+            pst.setInt(7, id_prod);
             
             if (pst.executeUpdate() != 0) {
                 System.out.println("produit Updated");
@@ -192,40 +202,28 @@ System.out.println(ex.getMessage());
 
         return u;
     }
-  
     
-    
-    
-    
-    ///APres...................................
-    public List<produit> getAllProducts() {
-    List<produit> list = new ArrayList<>();
+    public List<produit> trierProduitsParCategorie(String categorie) {
+        //Connection conn = getConn();
+    List<produit> produits = new ArrayList<>();
+    String req = "SELECT * FROM produit WHERE id_cat=?";
     try {
-        String req = "SELECT * FROM produit";
         PreparedStatement pst = conn.prepareStatement(req);
+        pst.setString(1, categorie);
         ResultSet rs = pst.executeQuery();
         while (rs.next()) {
             produit p = new produit();
-            p.setId_prod(rs.getInt("id_prod"));
-            p.setDescription(rs.getString("description"));
-            p.setNom_prod(rs.getString("nom_prod"));
-            p.setPrix(rs.getDouble("prix"));
+            p.setId_cat(rs.getInt("id prod"));
+            p.setNom_prod(rs.getString("nom prod"));
+            p.setPrix(rs.getFloat("prix"));
             p.setQuantite(rs.getInt("quantite"));
-            p.setNom_part(rs.getString("nom_part"));
-            p.setId_cat(rs.getInt("id_cat"));
-            p.setImage(rs.getString("image"));
-            list.add(p);
+            p.setNom_part(rs.getString("nom part"));
+            produits.add(p);
         }
     } catch (SQLException ex) {
-        Logger.getLogger(produit_service.class.getName()).log(Level.SEVERE, null, ex);
+        System.out.println(ex.getMessage());
     }
-    return list;
-}
-public void displayAllProducts() {
-   List<produit> produits = getAllProducts(); // Appel de la méthode getAllProducts()
-   for (produit product : produits) {
-       System.out.println(product.getNom_prod()); // Affichage du nom de chaque produit
-   }
+    return produits;
 }
 
 }
