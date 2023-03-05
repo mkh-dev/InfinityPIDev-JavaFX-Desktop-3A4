@@ -2,6 +2,7 @@ package edu.pijava.gui;
 
 import edu.pijava.model.Users;
 import edu.pijava.services.UserService;
+import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -16,7 +17,21 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
+import java.util.Properties;
+import java.util.Random;
 import java.util.ResourceBundle;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 public class InscriptionController implements Initializable {
     private static final String EMAIL_REGEX = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
@@ -44,6 +59,16 @@ public class InscriptionController implements Initializable {
     private CheckBox ckPartenaire;
     @FXML
     private Hyperlink hlinkLogin;
+    
+    
+    private UserService userService = new UserService();
+
+    private final String EMAIL_FROM = "pidevtestapp@gmail.com";
+    private final String EMAIL_PASSWORD = "krkjrmewwhxrsndq";
+    private final String EMAIL_SUBJECT = "Réinitialisation de mot de passe";
+    private final String EMAIL_CONTENT = "Voici votre code de réinitialisation de mot de passe : ";
+
+    private String code;
 
     /**
      * Initializes the controller class.
@@ -82,6 +107,7 @@ public class InscriptionController implements Initializable {
         String prenom = tfPrenom.getText();
         String nom = tfNom.getText();
         String email = tfEmail.getText();
+        Users user = userService.getUserByEmail(email);
         int numTel = Integer.parseInt(tfNumTel.getText());
 
         LocalDate localDate = datePicker.getValue();
@@ -103,13 +129,23 @@ public class InscriptionController implements Initializable {
 
         Users u = new Users(prenom, nom, email, dateNaissance, numTel, userRole, password);
         UserService userCrud = new UserService();
-        userCrud.ajouterUtilisateur2(u);
+        userCrud.ajouterUtilisateur2(u);  
+        // Générer un code aléatoire à 6 chiffres
+    code = generateCode();
 
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Inscription réussie");
-        alert.setHeaderText(null);
-        alert.setContentText("Votre inscription a été enregistrée !");
-        alert.showAndWait();
+    // Envoyer le code par email
+    sendEmail(email, code);
+
+    // Afficher une alerte "Code de réinitialisation envoyé dans le mail"
+    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+    alert.setTitle("Confirmation du compte");
+    alert.setHeaderText(null);
+    alert.setContentText("Le code de confirmation a été envoyé à votre adresse email.");
+    alert.showAndWait();
+
+    // Rediriger l'utilisateur vers l'interface CodeConfirmation.fxml
+    redirectToCodeConfirmation();
+    return;
     }
 
     private boolean validateFields() {
@@ -150,4 +186,72 @@ public class InscriptionController implements Initializable {
             }
             return true;
             }
+        
+
+
+
+
+private String generateCode() {
+        Random random = new Random();
+        int code = random.nextInt(900000) + 100000; // Générer un nombre aléatoire à 6 chiffres
+        return String.valueOf(code);
+    }
+
+    private void sendEmail(String email, String code) {
+        Properties properties = new Properties();
+        properties.put("mail.smtp.auth", "true");
+        properties.put("mail.smtp.starttls.enable", "true");
+        properties.put("mail.smtp.host", "smtp.gmail.com");
+        properties.put("mail.smtp.port", "587");
+
+        Session session = Session.getInstance(properties, new Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication (EMAIL_FROM, EMAIL_PASSWORD);
             }
+        });
+
+        try {
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(EMAIL_FROM));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
+            message.setSubject(EMAIL_SUBJECT);
+            message.setSentDate(new Date());
+
+            message.setText(EMAIL_CONTENT + code);
+
+            Transport.send(message);
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+    }
+
+   private void redirectToCodeConfirmation() {
+    try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/pijava/gui/CodeConfirmation.fxml"));
+        Parent root = loader.load();
+        CodeConfirmationController codeConfirmationController = loader.getController();
+        codeConfirmationController.setEmail(tfEmail.getText());
+        codeConfirmationController.setCode(code); // Correction de l'erreur : utiliser la variable 'code' au lieu de 'randomCode'
+        Stage stage = (Stage) btnValider.getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
+
+
+
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+    
+
+}
+
+

@@ -91,9 +91,9 @@ public class AddUserController implements Initializable {
         UserService userCrud = new UserService();
         userCrud.ajouterUtilisateur2(u);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Modification réussie");
+        alert.setTitle("Ajout réussie");
         alert.setHeaderText(null);
-        alert.setContentText("L'utilisateur a été modifié avec succès !");
+        alert.setContentText("L'utilisateur a été ajouté avec succès !");
         alert.showAndWait();
     }
 
