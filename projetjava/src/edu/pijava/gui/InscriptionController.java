@@ -3,6 +3,7 @@ package edu.pijava.gui;
 import edu.pijava.model.Users;
 import edu.pijava.services.UserService;
 import java.io.IOException;
+import java.io.StringWriter;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -12,6 +13,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -24,6 +26,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
 import javax.mail.Authenticator;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -31,7 +36,13 @@ import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
+import org.apache.velocity.Template;
+import org.apache.velocity.VelocityContext;
+import org.apache.velocity.app.VelocityEngine;
+import org.apache.velocity.exception.VelocityException;
 
 public class InscriptionController implements Initializable {
     private static final String EMAIL_REGEX = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
@@ -210,21 +221,49 @@ private String generateCode() {
             }
         });
 
-        try {
-            Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(EMAIL_FROM));
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
-            message.setSubject(EMAIL_SUBJECT);
-            message.setSentDate(new Date());
+      try {
+    MimeMessage message = new MimeMessage(session);
+    message.setFrom(new InternetAddress(EMAIL_FROM));
+    message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
+    message.setSubject(EMAIL_SUBJECT);
 
-            message.setText(EMAIL_CONTENT + code);
+    // create the message body
+    MimeMultipart multipart = new MimeMultipart("related");
 
-            Transport.send(message);
-        } catch (MessagingException e) {
-            e.printStackTrace();
-        }
+    // load the HTML template
+    VelocityEngine velocityEngine = new VelocityEngine();
+    velocityEngine.init();
+    Template template = velocityEngine.getTemplate("path/to/template.html");
+
+    // create the context and add the data
+    VelocityContext context = new VelocityContext();
+    context.put("code", code);
+
+    // merge the data with the template
+    StringWriter writer = new StringWriter();
+    template.merge(context, writer);
+
+    // add the HTML content
+    MimeBodyPart messageBodyPart = new MimeBodyPart();
+    messageBodyPart.setContent(writer.toString(), "text/html");
+    multipart.addBodyPart(messageBodyPart);
+
+    // add the image
+    MimeBodyPart imagePart = new MimeBodyPart();
+    DataSource fds = new FileDataSource("path/to/image.jpg");
+    imagePart.setDataHandler(new DataHandler(fds));
+    imagePart.setHeader("Content-ID", "<image>");
+    multipart.addBodyPart(imagePart);
+
+    message.setContent(multipart);
+
+    Transport.send(message);
+} catch (MessagingException | VelocityException e) {
+    e.printStackTrace();
+}
+
     }
-
+   
    private void redirectToCodeConfirmation() {
     try {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/pijava/gui/CodeConfirmation.fxml"));
