@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" fx:id="modifier_v_anchorpane" onMouseMoved="#getData" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="gui.ModifiervehiculeController">
+   <children>
+      <ComboBox fx:id="marque_mo_v" layoutX="266.0" layoutY="80.0" prefWidth="150.0" />
+      <ComboBox fx:id="model_mod_v" layoutX="266.0" layoutY="146.0" prefWidth="150.0" />
+      <Label layoutX="152.0" layoutY="84.0" text="Marque :" />
+      <Label layoutX="156.0" layoutY="150.0" text="Model :" />
+      <Label layoutX="141.0" layoutY="220.0" text="Immatriculation :" />
+      <Label layoutX="141.0" layoutY="285.0" text="Disponibilte :" />
+      <TextField fx:id="immatriculation_mod_v" layoutX="267.0" layoutY="216.0" prefHeight="26.0" prefWidth="150.0" />
+      <TextField fx:id="disponibilte_mod_v" layoutX="267.0" layoutY="290.0" prefHeight="26.0" prefWidth="150.0" />
+      <Button fx:id="retour_mod_v" layoutX="37.0" layoutY="338.0" mnemonicParsing="false" onAction="#retour_mod_v_button" text="Retour" />
+      <Button fx:id="modifier_v" layoutX="474.0" layoutY="338.0" mnemonicParsing="false" onAction="#modifier_v_button" text="Modifier" />
+   </children>
+</AnchorPane>
