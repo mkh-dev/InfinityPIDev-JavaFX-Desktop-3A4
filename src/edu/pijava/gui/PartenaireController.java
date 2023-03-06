@@ -50,7 +50,7 @@ public class PartenaireController implements Initializable {
     @FXML
     private void consultercat(ActionEvent event) {
          try {
-            Parent root = FXMLLoader.load(getClass().getResource("Liste_1.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("CategorieProd.fxml"));
             Scene scene = new Scene(root);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);

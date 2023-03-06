@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pijava.gui.CategorieProdController">
+   <left>
+      <VBox prefHeight="436.0" prefWidth="230.0" style="-fx-background-radius: 0 60 0 0;" styleClass="right-bar" stylesheets="@first.css" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="29.0" prefWidth="230.0" />
+            <HBox alignment="CENTER" prefHeight="45.0" prefWidth="230.0">
+               <padding>
+                  <Insets left="15.0" right="15.0" />
+               </padding>
+               <children>
+                  <TextField prefHeight="25.0" prefWidth="143.0" promptText="Type here to search " stylesheets="@first.css">
+                     <styleClass>
+                        <String fx:value="search-box" />
+                        <String fx:value="shadow" />
+                     </styleClass>
+                  </TextField>
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="53.0" style="-fx-background-color: white;" stylesheets="@first.css" text="Search">
+                     <styleClass>
+                        <String fx:value="search-button" />
+                        <String fx:value="shadow" />
+                     </styleClass>
+                  </Button>
+               </children>
+            </HBox>
+            <VBox prefHeight="412.0" prefWidth="213.0" style="-fx-background-color: white; -fx-background-radius: 30;">
+               <opaqueInsets>
+                  <Insets left="15.0" right="15.0" />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="15.0" right="15.0" />
+               </VBox.margin>
+               <children>
+                  <VBox alignment="CENTER" prefHeight="129.0" prefWidth="183.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="33.0" prefWidth="199.0">
+                           <children>
+                              <Label fx:id="tfnomprod" prefHeight="19.0" prefWidth="109.0" text="Macaron Caramel">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <ImageView fx:id="tfimg" fitHeight="94.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/803-macaron-caramel-macaron-g-1-removebg-preview.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </VBox>
+                  <HBox alignment="CENTER" prefHeight="96.0" prefWidth="199.0">
+                     <children>
+                        <Text fx:id="tfdesc" strokeType="OUTSIDE" strokeWidth="0.0" text="La macaron au caramel est une pâtisserie faite de deux coques de macaron fourrées de crème au caramel. C'est une délicieuse douceur sucrée." textAlignment="CENTER" wrappingWidth="167.470032453537" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="199.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="41.0" text="Prix :">
+                           <opaqueInsets>
+                              <Insets left="10.0" />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="tfprix" text="5" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="199.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="59.0" text="Quantité :">
+                           <opaqueInsets>
+                              <Insets left="10.0" />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="tfquantite" prefHeight="17.0" prefWidth="38.0" text="  250" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="33.0" prefWidth="199.0" />
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <VBox prefHeight="436.0" prefWidth="803.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox fx:id="productScrollPane" alignment="CENTER_LEFT" prefHeight="43.0" prefWidth="637.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="43.0" prefWidth="153.0">
+                     <children>
+                        <Button fx:id="btnadd_cat_prod" mnemonicParsing="false" onAction="#btnadd_cat_prod" prefHeight="41.0" prefWidth="151.0" style="-fx-background-color: trasparent;" text="Add Cat Product">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="28.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/carre-plus.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                     <opaqueInsets>
+                        <Insets left="20.0" />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </HBox>
+               </children>
+               <opaqueInsets>
+                  <Insets left="10.0" />
+               </opaqueInsets>
+            </HBox>
+            <ScrollPane prefHeight="663.0" prefWidth="870.0">
+               <content>
+                  <GridPane fx:id="grid" prefHeight="503.0" prefWidth="822.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="341.99998474121094" minHeight="10.0" prefHeight="196.00002543131512" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+               </content>
+            </ScrollPane>
+         </children>
+      </VBox>
+   </center>
+   <top>
+      <HBox alignment="BOTTOM_LEFT" prefHeight="73.0" prefWidth="1090.0" style="-fx-background-color: white;" BorderPane.alignment="TOP_LEFT">
+         <children>
+            <ImageView fitHeight="103.0" fitWidth="103.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/Capture%20d’écran%202023-02-01%20182532.png" />
+               </image>
+            </ImageView>
+         </children>
+         <BorderPane.margin>
+            <Insets left="10.0" />
+         </BorderPane.margin>
+      </HBox>
+   </top>
+</BorderPane>

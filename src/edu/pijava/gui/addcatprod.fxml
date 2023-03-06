@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@first.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pijava.gui.AddcatprodController">
+   <children>
+      <Label layoutX="233.0" layoutY="160.0" text="Categorie produit">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <TextField fx:id="tfcatprod" layoutX="367.0" layoutY="157.0" promptText="Ajouter catégorie produit" styleClass="shadow" stylesheets="@first.css" />
+      <Button fx:id="addcatprod" layoutX="351.0" layoutY="215.0" mnemonicParsing="false" onAction="#addcatprod" stylesheets="@first.css" text="Ajouter">
+         <styleClass>
+            <String fx:value="search-button" />
+            <String fx:value="shadow" />
+         </styleClass></Button>
+      <HBox prefHeight="400.0" prefWidth="166.0" style="-fx-background-radius: 0 60 0 0;" styleClass="right-bar" stylesheets="@first.css" />
+   </children>
+</AnchorPane>

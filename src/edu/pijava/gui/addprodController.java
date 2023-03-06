@@ -48,7 +48,7 @@ import javafx.stage.Stage;
  *
  * @author rimbs
  */
-public class ThirdController implements Initializable {
+public class addprodController implements Initializable {
 
     @FXML
     private TextField tfNom;

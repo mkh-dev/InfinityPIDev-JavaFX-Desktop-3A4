@@ -23,6 +23,12 @@ public class categorie_prod {
         this.cat_prod = cat_prod;
     }
 
+    public categorie_prod(int id_cat_prod, String cat_prod) {
+        this.id_cat_prod = id_cat_prod;
+        this.cat_prod = cat_prod;
+    }
+    
+
     public int getId_cat_prod() {
         return id_cat_prod;
     }
