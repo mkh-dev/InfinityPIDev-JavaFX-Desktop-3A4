@@ -1,11 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.pijava.services;
 
-
+import org.mindrot.jbcrypt.BCrypt;
 import edu.pijava.model.Users;
 import edu.pijava.utils.MyConnection;
 import java.sql.Connection;
@@ -133,21 +128,27 @@ public void ajouterUtilisateur2(Users usr){
     return utilisateur;
 }
     
-    
-   public boolean authenticateUser(String email, String password) {
+   
+
+public boolean authenticateUser(String email, String password) {
     try {
-        String query = "SELECT * FROM users WHERE email = ? AND password = ?";
+        String query = "SELECT * FROM users WHERE email = ?";
         PreparedStatement pst = cnx2.prepareStatement(query);
         pst.setString(1, email);
-        pst.setString(2, password);
         ResultSet rs = pst.executeQuery();
-        return rs.next();
+        if (rs.next()) {
+            String hashedPassword = rs.getString("password");
+            if (BCrypt.checkpw(password, hashedPassword)) {
+                return true;
+            }
+        }
+        return false;
     } catch (SQLException ex) {
         System.err.println(ex.getMessage());
         return false;
     }
 }
-   
+
    public Users getUserByEmail(String email) {
     Users user = null;
     try {

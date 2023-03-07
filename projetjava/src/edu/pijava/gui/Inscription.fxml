@@ -7,6 +7,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -26,7 +27,7 @@
             <DatePicker fx:id="datePicker" layoutX="68.0" layoutY="239.0" prefHeight="25.0" prefWidth="265.0" promptText="Date de naissance" />
             <TextField fx:id="tfEmail" layoutX="68.0" layoutY="173.0" prefHeight="25.0" prefWidth="265.0" promptText="Email" />
             <TextField fx:id="tfNumTel" layoutX="68.0" layoutY="206.0" prefHeight="25.0" prefWidth="265.0" promptText="Numéro de téléphone" />
-            <Button fx:id="btnValider" layoutX="150.0" layoutY="423.0" mnemonicParsing="false" onAction="#savePerson" prefHeight="25.0" prefWidth="81.0" style="-fx-background-color: black;" text="S'inscrire" textFill="WHITE" />
+            <Button fx:id="btnValiderRegister" layoutX="150.0" layoutY="423.0" mnemonicParsing="false" onAction="#savePerson" prefHeight="25.0" prefWidth="81.0" style="-fx-background-color: black;" text="S'inscrire" textFill="WHITE" />
             <Label layoutX="116.0" layoutY="467.0" text="Déjà inscrit(e) ?" />
             <PasswordField fx:id="pfPassword" layoutX="68.0" layoutY="272.0" prefHeight="25.0" prefWidth="265.0" promptText="Mot de passe" />
             <PasswordField fx:id="pfConfirmerPassword" layoutX="68.0" layoutY="305.0" prefHeight="25.0" prefWidth="265.0" promptText="Confirmer le mot de passe" />

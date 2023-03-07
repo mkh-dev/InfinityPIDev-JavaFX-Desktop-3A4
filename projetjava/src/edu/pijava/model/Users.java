@@ -1,16 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.pijava.model;
 
 import java.util.Date;
+import org.mindrot.jbcrypt.BCrypt;
 
-/**
- *
- * @author MALEK-ADMIN
- */
 public class Users {
     private int id;
     private String prenom;
@@ -32,10 +24,8 @@ public class Users {
         this.dateNaissance = dateNaissance;
         this.numTel = numTel;
         this.userRole = userRole;
-        this.password = password;
+        setPassword(password);
     }
-    
-    
 
     public Users(String prenom, String nom, String email, Date dateNaissance, int numTel, String userRole, String password) {
         this.prenom = prenom;
@@ -44,11 +34,9 @@ public class Users {
         this.dateNaissance = dateNaissance;
         this.numTel = numTel;
         this.userRole = userRole;
-        this.password = password;
+        setPassword(password);
     }
 
-
-    
     public int getId() {
         return id;
     }
@@ -110,12 +98,11 @@ public class Users {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
+        this.password = hashedPassword;
     }
 
-   public String toString() {
-    return prenom + " " + nom + ", " + email + ", " + dateNaissance + ", " + numTel + ", " + userRole + ", " + password;
+    public String toString() {
+        return prenom + " " + nom + ", " + email + ", " + dateNaissance + ", " + numTel + ", " + userRole + ", " + password;
+    }
 }
-}
-
-

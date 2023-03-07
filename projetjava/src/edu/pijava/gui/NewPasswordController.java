@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import org.mindrot.jbcrypt.BCrypt;
 
 public class NewPasswordController {
 
@@ -43,35 +44,38 @@ public class NewPasswordController {
     }
 
     @FXML
-    public void valider() {
-        if (connection == null) {
-            System.err.println("La connexion n'a pas été initialisée.");
-            return;
-        }
-        String password1 = passwordField1.getText();
-        String password2 = passwordField2.getText();
-        if (password1.equals(password2)) {
-            try {
-                String updateQuery = "UPDATE users SET password = ? WHERE email = ?";
-                PreparedStatement statement = connection.prepareStatement(updateQuery);
-                statement.setString(1, password1);
-                statement.setString(2, email);
-                int rowsUpdated = statement.executeUpdate();
-                if (rowsUpdated > 0) {
-                    confirmationLabel.setText("Le mot de passe a été mis à jour.");
-                    confirmationLabel.setStyle("-fx-text-fill: green;");
-                } else {
-                    confirmationLabel.setText("Le mot de passe n'a pas pu être mis à jour.");
-                    confirmationLabel.setStyle("-fx-text-fill: red;");
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        } else {
-            confirmationLabel.setText("Les mots de passe ne sont pas identiques.");
-            confirmationLabel.setStyle("-fx-text-fill: red;");
-        }
+public void valider() {
+    if (connection == null) {
+        System.err.println("La connexion n'a pas été initialisée.");
+        return;
     }
+    String password1 = passwordField1.getText();
+    String password2 = passwordField2.getText();
+    if (password1.equals(password2)) {
+        try {
+            // Hache le nouveau mot de passe
+            String hashedPassword = BCrypt.hashpw(password1, BCrypt.gensalt());
+            
+            String updateQuery = "UPDATE users SET password = ? WHERE email = ?";
+            PreparedStatement statement = connection.prepareStatement(updateQuery);
+            statement.setString(1, hashedPassword);
+            statement.setString(2, email);
+            int rowsUpdated = statement.executeUpdate();
+            if (rowsUpdated > 0) {
+                confirmationLabel.setText("Le mot de passe a été mis à jour.");
+                confirmationLabel.setStyle("-fx-text-fill: green;");
+            } else {
+                confirmationLabel.setText("Le mot de passe n'a pas pu être mis à jour.");
+                confirmationLabel.setStyle("-fx-text-fill: red;");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    } else {
+        confirmationLabel.setText("Les mots de passe ne sont pas identiques.");
+        confirmationLabel.setStyle("-fx-text-fill: red;");
+    }
+}
 
     public void setUserData(Users user) {
         setEmail(user.getEmail());
