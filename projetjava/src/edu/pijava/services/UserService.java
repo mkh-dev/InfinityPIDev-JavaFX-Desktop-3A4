@@ -1,6 +1,6 @@
 package edu.pijava.services;
 
-import org.mindrot.jbcrypt.BCrypt;
+
 import edu.pijava.model.Users;
 import edu.pijava.utils.MyConnection;
 import java.sql.Connection;
@@ -11,6 +11,7 @@ import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
@@ -37,7 +38,7 @@ public void ajouterUtilisateur2(Users usr){
             pst.setString(4,dateNaissance);
             pst.setString(5, String.valueOf(usr.getNumTel()));
             pst.setString(6,usr.getUserRole());
-            pst.setString(7,usr.getPassword());
+            pst.setString(7, BCrypt.hashpw(usr.getPassword(), BCrypt.gensalt()));
             pst.executeUpdate();
         }
     } catch (SQLException ex) {
@@ -128,27 +129,26 @@ public void ajouterUtilisateur2(Users usr){
     return utilisateur;
 }
     
-   
-
-public boolean authenticateUser(String email, String password) {
+    
+  public boolean authenticateUser(String email, String password) {
     try {
-        String query = "SELECT * FROM users WHERE email = ?";
+        String query = "SELECT * FROM users WHERE email=?";
         PreparedStatement pst = cnx2.prepareStatement(query);
         pst.setString(1, email);
         ResultSet rs = pst.executeQuery();
         if (rs.next()) {
             String hashedPassword = rs.getString("password");
-            if (BCrypt.checkpw(password, hashedPassword)) {
-                return true;
-            }
+            return BCrypt.checkpw(password, hashedPassword);
+        } else {
+            return false;
         }
-        return false;
     } catch (SQLException ex) {
         System.err.println(ex.getMessage());
         return false;
     }
 }
 
+   
    public Users getUserByEmail(String email) {
     Users user = null;
     try {

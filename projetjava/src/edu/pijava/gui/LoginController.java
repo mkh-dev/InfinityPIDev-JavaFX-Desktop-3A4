@@ -63,6 +63,17 @@ public class LoginController {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+                } else if (userRole.equals("Transporteur")) {
+                // Charger l'interface page.fxml
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("Transporteur.fxml"));
+                    Parent root = loader.load();
+                    Stage stage = (Stage) loginButton.getScene().getWindow();
+                    Scene scene = new Scene(root);
+                    stage.setScene(scene);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             } else if (userRole.equals("Administrateur")) {
                 // Charger l'interface inscription.fxml
                 try {

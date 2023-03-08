@@ -17,10 +17,12 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Properties;
 import java.util.Random;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -60,6 +62,8 @@ public class InscriptionController implements Initializable {
     @FXML
     private CheckBox ckPartenaire;
     @FXML
+    private CheckBox ckTransporteur;
+    @FXML
     private Hyperlink hlinkLogin;
     
     
@@ -79,6 +83,7 @@ public class InscriptionController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         hlinkLogin.setStyle("-fx-text-fill: black;");
+  
 
     }
 
@@ -97,6 +102,10 @@ public class InscriptionController implements Initializable {
         if (ckPartenaire.isSelected()) {
             checkedCount++;
         }
+        
+         if (ckTransporteur.isSelected()) {
+            checkedCount++;
+        }
 
         if (checkedCount != 1) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -112,10 +121,38 @@ public class InscriptionController implements Initializable {
         String email = tfEmail.getText();
         Users user = userService.getUserByEmail(email);
         int numTel = Integer.parseInt(tfNumTel.getText());
+        
+            // Vérifier si l'email existe déjà dans la base de données
+        Users ur = userService.getUserByEmail(email);
+        if (ur!= null) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erreur de saisie");
+        alert.setHeaderText(null);
+        alert.setContentText("L'email que vous avez saisi existe déjà. Veuillez saisir une autre adresse email.");
+        alert.showAndWait();
+        tfEmail.setText("");
+        return;
+    }
 
         LocalDate localDate = datePicker.getValue();
         Date dateNaissance = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
 
+    // Vérifier si la date de naissance est dans le futur
+  if (localDate.isAfter(LocalDate.now())) {
+    Alert alert = new Alert(Alert.AlertType.ERROR);
+    alert.setTitle("Erreur de saisie");
+    alert.setHeaderText(null);
+    alert.setContentText("La date de naissance ne peut pas être dans le futur !");
+    alert.showAndWait();
+    return;
+} else if (localDate.isAfter(LocalDate.now().minusYears(18))) {
+    Alert alert = new Alert(Alert.AlertType.ERROR);
+    alert.setTitle("Erreur de saisie");
+    alert.setHeaderText(null);
+    alert.setContentText("La date de naissance ne peut pas être dans le passé proche !");
+    alert.showAndWait();
+    return;
+} 
         String password = pfPassword.getText();
         String confirmerMotDePasse = pfConfirmerPassword.getText();
 
@@ -128,7 +165,7 @@ public class InscriptionController implements Initializable {
             return;
         }
 
-        String userRole = ckUtilisateur.isSelected() ? "Utilisateur" : "Partenaire";
+        String userRole = ckUtilisateur.isSelected() ? "Utilisateur" : (ckPartenaire.isSelected() ? "Partenaire" : "Transporteur");
 
         Users u = new Users(prenom, nom, email, dateNaissance, numTel, userRole, password);
         UserService userCrud = new UserService();
@@ -259,4 +296,5 @@ private String generateCodeRegister() {
         String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
         // Utiliser le mot de passe haché comme bon vous semble
     }
+        
 }

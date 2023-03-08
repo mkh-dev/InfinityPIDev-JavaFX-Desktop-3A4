@@ -15,6 +15,6 @@
       <font>
          <Font name="System Bold" size="12.0" />
       </font></Label>
-    <TextField fx:id="textFieldCodeRegister" promptText="Code" />
+    <TextField fx:id="textFieldCode" promptText="Code" />
     <Button fx:id="btnValiderCodeRegister" onAction="#handleValider" style="-fx-background-color: black;" text="Valider" textFill="WHITE" />
 </VBox>

@@ -15,7 +15,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -62,26 +61,25 @@ public class ReclamationsPartenaireController implements Initializable {
     }
 
     @FXML
-    private void ajouterReclamation(ActionEvent event) {
-        String prenom = prenomTextField.getText().trim();
-        String nom = nomTextField.getText().trim();
-        String email = emailTextField.getText().trim();
-        String message = textArea.getText().trim();
-        if (prenom.isEmpty() || nom.isEmpty() || email.isEmpty() || message.isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Erreur");
-            alert.setHeaderText("Tous les champs sont obligatoires");
-            alert.showAndWait();
-            return;
-        }
-        Reclamations recl = new Reclamations(prenom, nom, email, message);
-        service.ajouterReclamation(recl);
-        afficherListeReclamations();
-        prenomTextField.setText("");
-        nomTextField.setText("");
-        emailTextField.setText("");
-        textArea.setText("");
-    }
+private void ajouterReclamation(ActionEvent event) throws IOException {
+// Charger la nouvelle fenêtre "AddReclamations.fxml"
+FXMLLoader loader = new FXMLLoader(getClass().getResource("AddReclamations.fxml"));
+Parent root = loader.load();
+// Créer une nouvelle scène pour la nouvelle fenêtre
+Scene scene = new Scene(root);
+
+// Créer une nouvelle étape pour la nouvelle scène
+Stage stage = new Stage();
+stage.setScene(scene);
+stage.setTitle("Ajouter réclamation");
+stage.setResizable(false);
+
+// Afficher la nouvelle étape
+stage.showAndWait();
+
+// Mettre à jour la liste des réclamations après l'ajout
+afficherListeReclamations();
+}
 
     @FXML
     private void supprimerReclamation(ActionEvent event) {

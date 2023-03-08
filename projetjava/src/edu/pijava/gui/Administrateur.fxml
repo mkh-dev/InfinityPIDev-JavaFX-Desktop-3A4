@@ -27,6 +27,7 @@
             <Image url="@../../../images/icons8_bell_24px.png" />
          </image>
       </ImageView>
+
       <ImageView fitHeight="22.0" fitWidth="18.0" layoutX="714.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../images/icons8_help_32px.png" />
@@ -37,11 +38,7 @@
             <Image url="@../../../images/icons8_settings_26px.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="22.0" fitWidth="18.0" layoutX="873.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../images/icons8_slider_50px.png" />
-         </image>
-      </ImageView>
+      
       <Label alignment="CENTER" layoutX="93.0" layoutY="24.0" text="EVENTO">
          <font>
             <Font name="Gill Sans MT" size="18.0" />
@@ -106,5 +103,6 @@
             </AnchorPane>
          </center>
       </BorderPane>
+      <Button fx:id="deconnexionButton" layoutX="839.0" layoutY="26.0" onAction="#deconnexion" style="-fx-background-color: black;" text="Déconnexion" textFill="WHITE" />
    </children>
 </AnchorPane>
