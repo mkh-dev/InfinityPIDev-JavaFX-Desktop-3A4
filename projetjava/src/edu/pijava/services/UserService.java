@@ -20,7 +20,7 @@ import org.mindrot.jbcrypt.BCrypt;
 public class UserService {
     Connection cnx2;
     public UserService(){
-    cnx2= MyConnection.getInstance().getCnx();
+    cnx2= MyConnection.getInstance().getConn();
 }
 
     

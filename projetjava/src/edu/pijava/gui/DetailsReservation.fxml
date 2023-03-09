@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="pane2" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pijava.controllers.DetailsReservationController">
+   <children>
+      <Label alignment="CENTER" layoutX="375.0" layoutY="221.0" prefHeight="23.0" prefWidth="134.0" style="-fx-background-color: ebac08;" text="Nombre de places ">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <Label alignment="CENTER" layoutX="374.0" layoutY="281.0" prefHeight="23.0" prefWidth="134.0" style="-fx-background-color: ebac08;" text="id Event">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <TextField fx:id="fxidevent" layoutX="516.0" layoutY="280.0" prefHeight="26.0" prefWidth="56.0" />
+      <TextField fx:id="fxnbreplaces" layoutX="516.0" layoutY="219.0" prefHeight="26.0" prefWidth="56.0" />
+      <TextField fx:id="fxiduser" layoutX="516.0" layoutY="154.0" prefHeight="26.0" prefWidth="56.0" />
+      <Button fx:id="btnreserver" layoutX="381.0" layoutY="356.0" mnemonicParsing="false" onAction="#save" prefHeight="26.0" prefWidth="178.0" style="-fx-background-color: black; -fx-cursor: red;" text="Confirmer Réservation" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <Label alignment="CENTER" layoutX="375.0" layoutY="155.0" prefHeight="23.0" prefWidth="134.0" style="-fx-background-color: ebac08;" text="id User">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <Button fx:id="fxretour" layoutX="342.0" layoutY="408.0" mnemonicParsing="false" onAction="#back" prefHeight="30.0" prefWidth="244.0" style="-fx-background-color: #EAF2F8;" text="Annuler">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Button>
+      <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="368.0" layoutY="411.0">
+         <image>
+            <Image url="@../../../images/undo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="593.0" fitWidth="301.0" layoutX="30.0">
+         <image>
+            <Image url="@../../../images/4cdc40c9dfd46d44f7624f3ab25e2aea.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="fxmessage" layoutX="338.0" layoutY="475.0" prefHeight="64.0" prefWidth="250.0" textFill="RED" />
+   </children>
+</AnchorPane>

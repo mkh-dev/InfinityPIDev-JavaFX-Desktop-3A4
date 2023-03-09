@@ -12,33 +12,41 @@ package edu.pijava.model;
 public class Facture {
 
     private int idFacture;
-    private float netApayer;
+    private int netApayer;
     private int numRes;
-    private String nomUser;
+    private int idUser;
 
     public Facture() {
     }
 
     /**
      *
-     * @param idFacture
-     * @param numRes
      * @param netApayer
-     * @param nomUser
+     * @param idUser
      */
-    public Facture(int idFacture, int numRes, float netApayer, String nomUser) {
-        this.idFacture = idFacture;
+    
+    
+    public Facture( int netApayer) {
 
+        this.netApayer = netApayer;
+    }
+
+    public Facture(int netApayer, int idUser) {
+        this.netApayer = netApayer;
+        this.idUser = idUser;
+    }
+
+    public Facture(int numRes, int netApayer, int idUser) {
         this.numRes = numRes;
         this.netApayer = netApayer;
-        this.nomUser = nomUser;
+        this.idUser = idUser;
     }
 
     public int getIdFacture() {
         return idFacture;
     }
 
-    public float getNetApayer() {
+    public int getNetApayer() {
         return netApayer;
     }
 
@@ -50,15 +58,15 @@ public class Facture {
      *
      * @return
      */
-    public String getNomUser() {
-        return nomUser;
+    public int getIdUser() {
+        return idUser;
     }
 
     public void setIdFacture(int idFacture) {
         this.idFacture = idFacture;
     }
 
-    public void setNetApayer(float netApayer) {
+    public void setNetApayer(int netApayer) {
         this.netApayer = netApayer;
     }
 
@@ -66,13 +74,15 @@ public class Facture {
         this.numRes = numRes;
     }
 
-    public void setNomUser(String nomUser) {
-        this.nomUser = nomUser;
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
     }
 
     @Override
     public String toString() {
-        return "Facture{" + "idFacture=" + idFacture + ", netApayer=" + netApayer + ", numRes=" + numRes + ", nomUser=" + nomUser + '}';
+        return "Facture  : " + ", numRes=" + numRes ;
     }
+
+ 
 
 }

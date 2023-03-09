@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pijava.controllers.ModifierReservationController">
+   <children>
+      <Label alignment="CENTER" layoutX="369.0" layoutY="93.0" prefHeight="23.0" prefWidth="104.0" style="-fx-background-color: ebac08;" text="id User">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <Label alignment="CENTER" layoutX="370.0" layoutY="157.0" prefHeight="23.0" prefWidth="104.0" style="-fx-background-color: ebac08;" text="Nombre de places ">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <Label alignment="CENTER" layoutX="373.0" layoutY="218.0" prefHeight="23.0" prefWidth="104.0" style="-fx-background-color: ebac08;" text="id Event">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <TextField fx:id="fxidevent" layoutX="483.0" layoutY="217.0" prefHeight="26.0" prefWidth="56.0" />
+      <TextField fx:id="fxnbreplaces" layoutX="483.0" layoutY="156.0" prefHeight="26.0" prefWidth="56.0" />
+      <TextField fx:id="fxiduser" layoutX="483.0" layoutY="92.0" prefHeight="26.0" prefWidth="56.0" />
+      <Button fx:id="btnmodifier" layoutX="369.0" layoutY="282.0" mnemonicParsing="false" onAction="#modify" prefHeight="26.0" prefWidth="178.0" style="-fx-background-color: black;" text="Modifier Réservation" textFill="WHITE" />
+      <Button fx:id="btnmodifier1" layoutX="369.0" layoutY="336.0" mnemonicParsing="false" onAction="#modify" prefHeight="26.0" prefWidth="178.0" text="Retour au menu principal " />
+      <ImageView fitHeight="400.0" fitWidth="279.0" layoutX="52.0">
+         <image>
+            <Image url="@../../../images/759b4e4507408e5103690353d8cc8984.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="fxmessage" layoutX="359.0" layoutY="252.0" prefHeight="18.0" prefWidth="187.0" textFill="RED" />
+   </children>
+</AnchorPane>
