@@ -2,6 +2,11 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/MALEK-ADMIN/Documents/NetBeansProjects/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/edu/pijava/gui/FirstWindow.java</file>
+            <file>file:/C:/Users/MALEK-ADMIN/Documents/NetBeansProjects/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/edu/pijava/gui/AdministrateurController.java</file>
+            <file>file:/C:/Users/MALEK-ADMIN/Documents/NetBeansProjects/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/edu/pijava/controllers/ReserverEventController.java</file>
+            <file>file:/C:/Users/MALEK-ADMIN/Documents/NetBeansProjects/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/edu/pijava/gui/reserverEvent.fxml</file>
+        </group>
     </open-files>
 </project-private>
