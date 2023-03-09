@@ -2,8 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -11,65 +9,71 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pijava.controllers.ReserverEventController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pijava.controllers.ReserverEventController">
    <children>
       <SplitPane dividerPositions="0.2809714795008912" prefHeight="599.0" prefWidth="899.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="241.0" style="-fx-background-color: white;">
                <children>
-                  <Button layoutX="26.0" layoutY="379.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="202.0" style="-fx-background-color: ebac08;" text="   Consulter nos évenements">
+                  <Button layoutX="17.0" layoutY="306.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="208.0" style="-fx-background-color: ebac08;" text="   Consulter nos évenements">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Button>
-                  <Button layoutX="26.0" layoutY="332.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="202.0" style="-fx-background-color: ebac08;" text="Créer un événement">
+                  <Button layoutX="17.0" layoutY="255.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="208.0" style="-fx-background-color: ebac08;" text="Créer un événement">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Button>
-                  <Button blendMode="DARKEN" layoutX="27.0" layoutY="283.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="196.0" style="-fx-background-color: ebac08;" text="Accueil">
+                  <Button blendMode="DARKEN" layoutX="17.0" layoutY="204.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="208.0" style="-fx-background-color: ebac08;" text="Accueil">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Button>
-                  <ImageView layoutX="30.0" layoutY="383.0">
+                  <Button fx:id="fxmesfactures" layoutX="17.0" layoutY="404.0" mnemonicParsing="false" onAction="#hadlebc5" prefHeight="32.0" prefWidth="208.0" style="-fx-background-color: ebac08;" text="Mes factures">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="fxtest" blendMode="DARKEN" layoutX="17.0" layoutY="355.0" mnemonicParsing="false" onAction="#test" prefHeight="32.0" prefWidth="208.0" style="-fx-background-color: ebac08;" text="Mes Réservations ">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="126.0" fitWidth="152.0" layoutX="59.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../images/search%20(1).png" />
+                        <Image url="@../../../images/logo1.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="fxmesfactures" layoutX="26.0" layoutY="425.0" mnemonicParsing="false" onAction="#hadlebc5" prefHeight="32.0" prefWidth="202.0" style="-fx-background-color: ebac08;" text="Mes factures">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Button>
-                  <ImageView layoutX="30.0" layoutY="336.0">
+                  <ImageView fitHeight="25.0" fitWidth="31.0" layoutX="69.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../images/add.png" />
+                        <Image url="@../../../images/homepage.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="fxtest" blendMode="DARKEN" layoutX="29.0" layoutY="239.0" mnemonicParsing="false" onAction="#test" prefHeight="32.0" prefWidth="196.0" style="-fx-background-color: ebac08;" text="Mes Réservations ">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Button>
-                  <ImageView fitHeight="186.0" fitWidth="200.0" layoutX="25.0" layoutY="14.0">
+                  <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="29.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../images/logo.png" />
+                        <Image url="@../../../images/event5.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="21.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/calendar.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="36.0" layoutY="359.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/calendarRes.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="55.0" layoutY="408.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/receipt.png" />
                      </image>
                   </ImageView>
                </children>
             </AnchorPane>
           <AnchorPane fx:id="pane1" minHeight="0.0" minWidth="0.0" prefHeight="488.0" prefWidth="365.0">
                <children>
-                  <MenuButton alignment="CENTER" layoutX="450.0" layoutY="33.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="135.0" style="-fx-background-color: ebac08;" text="userName" textAlignment="CENTER">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Profil" />
-                      <MenuItem mnemonicParsing="false" text="Logout" />
-                    </items>
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                  </MenuButton>
                   <Button layoutX="201.0" layoutY="479.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="163.0" style="-fx-background-color: ebac08;" text="Afficher plus">
                      <font>
                         <Font name="System Bold" size="14.0" />
@@ -78,11 +82,6 @@
                         <DropShadow height="44.39" radius="19.3575" width="35.04" />
                      </effect>
                   </Button>
-                  <ImageView fitHeight="104.0" fitWidth="134.0" layoutX="22.0" layoutY="95.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);">
-                     <image>
-                        <Image url="@../../../../../../../Downloads/event2.png" />
-                     </image>
-                  </ImageView>
                   <Label alignment="CENTER" layoutX="76.0" layoutY="340.0" prefHeight="18.0" prefWidth="134.0" text="Art Gallery" />
                   <Label alignment="CENTER" layoutX="360.0" layoutY="340.0" prefHeight="18.0" prefWidth="186.0" text="Seminar" />
                   <Button fx:id="btnReserver" layoutX="113.0" layoutY="381.0" mnemonicParsing="false" onAction="#handlebc1" style="-fx-background-color: ebac08; -fx-cursor: black;" text="Réserver">
@@ -117,11 +116,13 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Button>
-                  <ImageView layoutX="210.0" layoutY="483.0">
+                  <Button fx:id="deconnexionButton" layoutX="518.0" layoutY="28.0" onAction="#deconnexion" style="-fx-background-color: black;" text="Déconnexion" textFill="WHITE" />
+                  <ImageView fitHeight="18.0" fitWidth="24.0" layoutX="214.0" layoutY="487.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../images/add.png" />
+                        <Image url="@../../../images/more.png" />
                      </image>
                   </ImageView>
+
                </children>
             </AnchorPane>
         </items>

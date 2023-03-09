@@ -8,6 +8,7 @@ package edu.pijava.gui;
 import javafx.scene.image.Image;
 import java.io.IOException;
 import javafx.application.Application;
+import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -23,7 +24,7 @@ public class FirstWindow extends Application {
     public void start(Stage primaryStage) {
         
         try {
-            Parent root= FXMLLoader.load(getClass().getResource("HomePage.fxml"));
+            Parent root= FXMLLoader.load(getClass().getResource("reserverEvent.fxml"));
             
             Scene scene = new Scene(root);
 

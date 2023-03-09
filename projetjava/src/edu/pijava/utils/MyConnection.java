@@ -11,34 +11,38 @@ import java.sql.SQLException;
 
 /**
  *
- * @author belkn
+ * @author MALEK-ADMIN
  */
 public class MyConnection {
-private static Connection conn; //DB Credations
-    
-String url = "jdbc:mysql://localhost:3306/pidev";
-String user = "root";
-String pwd = "";
-private static MyConnection instance;
-    private MyConnection() {
+    private String url="jdbc:mysql://localhost:3306/pidev";
+    private String login="root";
+    private String pwd="";
+    private Connection cnx;
+    private static MyConnection instance;
+
+    private MyConnection(){
         try {
-            conn=DriverManager.getConnection(url, user, pwd);
-            System.out.println("Connexion etablie!!!");
+            cnx = DriverManager.getConnection(url, login, pwd);
+            System.out.println("Connexion établie!");
         } catch (SQLException ex) {
-            System.out.println("Probleme de connexion");        }
+            System.err.println(ex.getMessage());
+        }
     }
 
-    public static MyConnection getInstance() {
-        if(instance==null){
-            instance= new MyConnection();
+    public Connection getCnx (){
+        return cnx;
+    }
+
+    public static MyConnection getInstance(){
+        if(instance == null){
+            instance = new MyConnection();
         }
         return instance;
     }
- 
-    
+
     public Connection getConn(){
-        return MyConnection.getInstance().conn;
+        return MyConnection.getInstance().getCnx();
     }
-    
 }
+
 

@@ -5,7 +5,6 @@
  */
 package edu.pijava.controllers;
 
-import com.mysql.jdbc.StringUtils;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;

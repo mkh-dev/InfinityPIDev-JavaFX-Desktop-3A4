@@ -40,6 +40,8 @@ public class ReserverEventController implements Initializable {
     private Button fxmesfactures;
     @FXML
     private Button fxtest;
+     @FXML
+    private Button deconnexionButton;
 
     /**
      * Initializes the controller class.
@@ -98,5 +100,17 @@ public class ReserverEventController implements Initializable {
             Logger.getLogger(ReserverEventController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+@FXML
+    public void deconnexion(ActionEvent event) throws IOException {
+        // Code pour déconnecter l'utilisateur de son compte
+        // ...
+
+        // Rediriger l'utilisateur vers la page de connexion
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) deconnexionButton.getScene().getWindow();
+        stage.setScene(scene);
     }
 }
