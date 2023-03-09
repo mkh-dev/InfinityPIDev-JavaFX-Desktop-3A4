@@ -80,7 +80,7 @@ public class MesFacturesController implements Initializable {
 
                             Facture f = getTableView().getItems().get(getIndex());
                             AjouterFactureController factureController = new AjouterFactureController();
-                            factureController.init(f.getNumRes());
+                            factureController.id=f.getIdFacture();
                             // Suppression alert
                             FactureCrud fc = new FactureCrud();
                             fc.supprimerFacture(f.getIdFacture());

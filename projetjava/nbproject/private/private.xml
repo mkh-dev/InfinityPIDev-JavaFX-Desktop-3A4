@@ -10,6 +10,7 @@
             <file>file:/C:/Users/ouesl/Desktop/3A/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/edu/pijava/services/ReservationCrud.java</file>
             <file>file:/C:/Users/ouesl/Desktop/3A/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/edu/pijava/gui/MesReservations2.fxml</file>
             <file>file:/C:/Users/ouesl/Desktop/3A/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/edu/pijava/gui/AjouterFacture.fxml</file>
+            <file>file:/C:/Users/ouesl/Desktop/3A/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/edu/pijava/gui/Mes%20ReservationsTri.fxml</file>
             <file>file:/C:/Users/ouesl/Desktop/3A/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/edu/pijava/gui/MesReservations.fxml</file>
             <file>file:/C:/Users/ouesl/Desktop/3A/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/edu/pijava/controllers/ModifierReservationController.java</file>
             <file>file:/C:/Users/ouesl/Desktop/3A/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/edu/pijava/gui/MesFactures.fxml</file>
@@ -18,13 +19,15 @@
             <file>file:/C:/Users/ouesl/Desktop/3A/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/edu/pijava/services/FactureCrud.java</file>
             <file>file:/C:/Users/ouesl/Desktop/3A/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/edu/pijava/controllers/MesFacturesController.java</file>
             <file>file:/C:/Users/ouesl/Desktop/3A/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/edu/pijava/utils/MyConnection.java</file>
+            <file>file:/C:/Users/ouesl/Desktop/3A/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/edu/pijava/controllers/MesReservationsTriController.java</file>
             <file>file:/C:/Users/ouesl/Desktop/3A/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/edu/pijava/interfaces/InterfaceCRUD.java</file>
             <file>file:/C:/Users/ouesl/Desktop/3A/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/edu/pijava/gui/MonCalendrier.fxml</file>
             <file>file:/C:/Users/ouesl/Desktop/3A/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/edu/pijava/gui/DetailsReservation.fxml</file>
-            <file>file:/C:/Users/ouesl/Desktop/3A/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/edu/pijava/controllers/AjouterFactureController.java</file>
             <file>file:/C:/Users/ouesl/Desktop/3A/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/edu/pijava/gui/Reserver.java</file>
+            <file>file:/C:/Users/ouesl/Desktop/3A/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/edu/pijava/controllers/AjouterFactureController.java</file>
             <file>file:/C:/Users/ouesl/Desktop/3A/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/projetjava/Projetjava.java</file>
             <file>file:/C:/Users/ouesl/Desktop/3A/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/edu/pijava/controllers/MonCalendrierController.java</file>
+            <file>file:/C:/Users/ouesl/Desktop/3A/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/edu/pijava/model/Reservation2.java</file>
             <file>file:/C:/Users/ouesl/Desktop/3A/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/edu/pijava/controllers/MesReservationsController.java</file>
             <file>file:/C:/Users/ouesl/Desktop/3A/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/edu/pijava/model/evenement.java</file>
             <file>file:/C:/Users/ouesl/Desktop/3A/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/edu/pijava/controllers/MesReservations2Controller.java</file>

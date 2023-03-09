@@ -34,9 +34,7 @@ public class AjouterFactureController implements Initializable {
     private Label fxmessage;
         static int id;
 
-   public void init(int id) {
-        this.id = id;
-    }
+  
     /**
      * Initializes the controller class.
      * @param url

@@ -37,7 +37,7 @@ public class Projetjava {
         FactureCrud ress = new FactureCrud();
       
          
-        Facture f1 = new Facture( 1, 100, 2);
+        Facture f1 = new Facture( 85, 100, 2);
         Reservation r2 = new Reservation( 8, 9, 3);
 
   

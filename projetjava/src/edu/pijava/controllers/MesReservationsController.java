@@ -124,7 +124,7 @@ public class MesReservationsController implements Initializable {
                             // Récupérer l'offre correspondante
                             Reservation r = getTableView().getItems().get(getIndex());
                              AjouterFactureController factureController = new AjouterFactureController();
-                           factureController.init(r.getNumRes());
+                           factureController.id=r.getNumRes();
 
                             // Suppression alert
                             ReservationCrud rc = new ReservationCrud();

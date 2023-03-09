@@ -116,7 +116,7 @@ public class MesReservations2Controller implements Initializable {
 
     @FXML
     private void save(ActionEvent event) {
-
+        AjouterFactureController.id=listview.getSelectionModel().getSelectedItem().getNumRes();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/pijava/gui/AjouterFacture.fxml"));
         Parent root = null;
         try {

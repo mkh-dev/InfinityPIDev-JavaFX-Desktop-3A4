@@ -65,7 +65,7 @@ public class FactureCrud implements InterfaceCRUD {
         } catch (WriterException | IOException ex) {
             Logger.getLogger(FactureCrud.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            System.out.println("Facture non ajoutée");
+            System.out.println(ex.getMessage());
         }
     }
 
