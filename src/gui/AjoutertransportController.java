@@ -254,6 +254,7 @@ public class AjoutertransportController implements Initializable {
         }
     }
 
+    @FXML
     public void getPosition() {
         try {
             // Appeler l'API ip-api pour obtenir les coordonnées géographiques
