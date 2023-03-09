@@ -35,5 +35,6 @@
             <Image url="@../../../images/759b4e4507408e5103690353d8cc8984.jpg" />
          </image>
       </ImageView>
+      <Label fx:id="fxmessage" layoutX="359.0" layoutY="252.0" prefHeight="18.0" prefWidth="187.0" textFill="RED" />
    </children>
 </AnchorPane>

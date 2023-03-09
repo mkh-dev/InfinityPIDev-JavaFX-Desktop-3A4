@@ -11,11 +11,6 @@
 
 <AnchorPane id="AnchorPane" fx:id="pane2" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pijava.controllers.DetailsReservationController">
    <children>
-      <Label fx:id="fxmessage" alignment="CENTER" layoutX="183.0" layoutY="284.0" prefHeight="23.0" prefWidth="226.0" textFill="RED" underline="true">
-         <effect>
-            <DropShadow />
-         </effect>
-      </Label>
       <Label alignment="CENTER" layoutX="375.0" layoutY="221.0" prefHeight="23.0" prefWidth="134.0" style="-fx-background-color: ebac08;" text="Nombre de places ">
          <effect>
             <DropShadow />
@@ -52,5 +47,6 @@
             <Image url="@../../../images/4cdc40c9dfd46d44f7624f3ab25e2aea.jpg" />
          </image>
       </ImageView>
+      <Label fx:id="fxmessage" layoutX="338.0" layoutY="475.0" prefHeight="64.0" prefWidth="250.0" textFill="RED" />
    </children>
 </AnchorPane>

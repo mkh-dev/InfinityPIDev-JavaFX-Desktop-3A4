@@ -4,40 +4,27 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pijava.controllers.AjouterFactureController">
    <children>
-      <Label alignment="CENTER" layoutX="40.0" layoutY="123.0" prefHeight="26.0" prefWidth="142.0" style="-fx-background-color: ebac08;" text="id User" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="173.0" layoutY="146.0" prefHeight="23.0" prefWidth="134.0" style="-fx-background-color: ebac08;" text="Net A payer">
          <effect>
             <DropShadow />
          </effect>
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
       </Label>
-      <TextField fx:id="fxiduser" layoutX="199.0" layoutY="123.0" prefHeight="26.0" prefWidth="56.0" />
-      <Button fx:id="btnajouter" layoutX="67.0" layoutY="297.0" mnemonicParsing="false" onAction="#save" prefHeight="26.0" prefWidth="178.0" style="-fx-background-color: green; -fx-cursor: red;" text="Ajouter facture" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="173.0" layoutY="188.0" prefHeight="23.0" prefWidth="134.0" style="-fx-background-color: ebac08;" text="id User">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <TextField fx:id="fxiduser" layoutX="336.0" layoutY="186.0" prefHeight="26.0" prefWidth="56.0" />
+      <TextField fx:id="fxnetapayer" layoutX="336.0" layoutY="145.0" prefHeight="26.0" prefWidth="56.0" />
+      <Button fx:id="btnajouter" layoutX="196.0" layoutY="290.0" mnemonicParsing="false" onAction="#save" prefHeight="26.0" prefWidth="178.0" style="-fx-background-color: green; -fx-cursor: red;" text="Ajouter facture" textFill="WHITE">
          <font>
             <Font name="System Bold" size="17.0" />
          </font></Button>
       <Label fx:id="fxmessage" layoutX="156.0" layoutY="241.0" prefHeight="18.0" prefWidth="287.0" textFill="RED" />
-      <Label alignment="CENTER" layoutX="41.0" layoutY="62.0" prefHeight="26.0" prefWidth="141.0" style="-fx-background-color: ebac08;" text="net A payer" textFill="WHITE">
-         <effect>
-            <DropShadow />
-         </effect>
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <TextField fx:id="fxnetapayer" layoutX="199.0" layoutY="62.0" prefHeight="26.0" prefWidth="56.0" />
-      <ImageView fitHeight="460.0" fitWidth="287.0" layoutX="313.0" layoutY="-60.0">
-         <image>
-            <Image url="@../../../images/30597c89db76494d5204bb5f007886af.jpg" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>

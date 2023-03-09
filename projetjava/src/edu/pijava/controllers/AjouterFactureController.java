@@ -6,9 +6,7 @@
 package edu.pijava.controllers;
 
 import edu.pijava.model.Facture;
-import edu.pijava.model.Reservation;
 import edu.pijava.services.FactureCrud;
-import edu.pijava.services.ReservationCrud;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -27,55 +25,48 @@ import javafx.scene.control.TextField;
 public class AjouterFactureController implements Initializable {
 
     @FXML
-    private TextField fxnetapayer;
-    @FXML
     private TextField fxiduser;
+    @FXML
+    private TextField fxnetapayer;
     @FXML
     private Button btnajouter;
     @FXML
     private Label fxmessage;
-    static int id;
-    private Label fxsomme;
+        static int id;
 
+   public void init(int id) {
+        this.id = id;
+    }
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
-    public void init(int id){
-    this.id=id;
-    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }
- 
+    }    
 
     @FXML
     private void save(ActionEvent event) {
-       if(validateFields()){
-           // System.out.println("save");
-            int numRes = id;
-            
+         if (validateFields()) {
+            //System.out.println("save");
+            int netApayer =  Integer.parseInt(fxnetapayer.getText());
             int idUser = Integer.parseInt(fxiduser.getText());
-            Reservation r = new Reservation();
-            ReservationCrud rc = new ReservationCrud();
-            int netApayer = Integer.parseInt(fxnetapayer.getText());
-
-          
-            Facture f = new Facture(numRes, netApayer, idUser);
+            Facture f = new Facture(id,netApayer,idUser);
+            
             FactureCrud fc = new FactureCrud();
             fc.ajouterFacture(f);
-          
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+
+           Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
             alert.setContentText("Facture ajoutée!");
-            alert.show();}
-        
+            alert.show();
+        }
     }
-
     private boolean validateFields() {
-        if ( 
-                fxiduser.getText().isEmpty()) {
+        if (fxnetapayer.getText().isEmpty() || fxiduser.getText().isEmpty()) {
             /* bch tji fenetre okhra 
             Alert alert = new Alert(AlertType.WARNING);
         alert.setTitle("Attention");
@@ -91,5 +82,4 @@ public class AjouterFactureController implements Initializable {
         return true;
     }
     
-
 }

@@ -26,11 +26,11 @@
                </color>
             </DropShadow>
          </effect></Label>
-      <Button fx:id="fxedit" layoutX="482.0" layoutY="187.0" mnemonicParsing="false" onAction="#edit" prefHeight="27.0" prefWidth="78.0" style="-fx-background-color: black;" text="Modifier" textFill="WHITE">
+      <Button fx:id="fxedit" layoutX="482.0" layoutY="187.0" mnemonicParsing="false" onAction="#edit" prefHeight="36.0" prefWidth="86.0" style="-fx-background-color: black;" text="Modifier" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
-      <Button fx:id="fxpayer" layoutX="482.0" layoutY="81.0" mnemonicParsing="false" onAction="#save" prefHeight="26.0" prefWidth="78.0" style="-fx-background-color: black;" text="Payer" textFill="WHITE">
+      <Button fx:id="fxpayer" layoutX="482.0" layoutY="131.0" mnemonicParsing="false" onAction="#save" prefHeight="36.0" prefWidth="86.0" style="-fx-background-color: black;" text="Payer" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
@@ -53,10 +53,11 @@
             </Lighting>
          </effect>
       </Text>
-      <Button fx:id="fxdelete" layoutX="482.0" layoutY="281.0" mnemonicParsing="false" onAction="#delete" prefHeight="27.0" prefWidth="78.0" style="-fx-background-color: black;" text="Supprimer" textFill="WHITE">
+      <Button fx:id="fxdelete" layoutX="482.0" layoutY="238.0" mnemonicParsing="false" onAction="#delete" prefHeight="36.0" prefWidth="86.0" style="-fx-background-color: black;" text="Supprimer" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
+      <Button fx:id="fxtri" layoutX="474.0" layoutY="81.0" mnemonicParsing="false" onAction="#trier" prefHeight="36.0" prefWidth="101.0" style="-fx-background-color: black;" text="Trier par date " />
    </children>
 </AnchorPane>

@@ -25,7 +25,7 @@ private static MyConnection instance;
             conn=DriverManager.getConnection(url, user, pwd);
             System.out.println("Connexion etablie!!!");
         } catch (SQLException ex) {
-            System.out.println("Prebleme de connexion");        }
+            System.out.println("Probleme de connexion");        }
     }
 
     public static MyConnection getInstance() {

@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 /**
@@ -32,19 +33,42 @@ public class ModifierReservationController implements Initializable {
     @FXML
     private Button btnmodifier;
     static int id;
+   
+  
+    @FXML
+    private Label fxmessage;
     public void init(int id){
     this.id=id;
     }
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
     
-    
+     private boolean validateFields() {
+    if (fxnbreplaces.getText().isEmpty()
+                || fxidevent.getText().isEmpty()
+                || fxiduser.getText().isEmpty()) {
+             //bch tji fenetre okhra 
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Attention");
+        alert.setHeaderText(null);
+        alert.setContentText("Veuillez remplir tous les champs !");
+        alert.showAndWait();
+        return false;
+
+           /* fxmessage.setText("Veuillez remplir tous les champs");
+            fxmessage.setVisible(true);
+            return false;*/
+        }
+        return true;
+    }
 
     public void setFxidevent(String prenom) {
         this.fxidevent.setText(prenom);
@@ -59,16 +83,16 @@ public class ModifierReservationController implements Initializable {
     }
     @FXML
     private void modify(ActionEvent event) {
-        
+        if (validateFields()){
         int idUser = Integer.parseInt(fxiduser.getText());
         int nbrePlaces = Integer.parseInt(fxnbreplaces.getText());
         int idEvent = Integer.parseInt(fxidevent.getText());
         
         Reservation r = new Reservation();
         r.setNumRes(id);
-           r.setIdUser(idUser);
-           r.setNbPlaces(nbrePlaces);  
-           r.setIdEvent(idEvent);
+        r.setIdUser(idUser);
+        r.setNbPlaces(nbrePlaces);  
+        r.setIdEvent(idEvent);
            
         ReservationCrud rc = new ReservationCrud();
         rc.modifierReservation(r);
@@ -78,7 +102,7 @@ public class ModifierReservationController implements Initializable {
         alert.setContentText("Réservation modifiée!");
         alert.show();
     }
-    
+}
 
    
 }

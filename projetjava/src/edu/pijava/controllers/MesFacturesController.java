@@ -7,8 +7,6 @@ package edu.pijava.controllers;
 
 import edu.pijava.model.Facture;
 import edu.pijava.services.FactureCrud;
-import java.awt.Color;
-import static java.awt.Color.RED;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -40,7 +38,6 @@ import javafx.util.Callback;
  */
 public class MesFacturesController implements Initializable {
 
-    private TableColumn<Facture, String> fxnumres;
     @FXML
     private TableColumn<Facture, String> fxnetapayer;
     @FXML
@@ -48,7 +45,6 @@ public class MesFacturesController implements Initializable {
     @FXML
     private Label fxnbre;
     FactureCrud fc = new FactureCrud();
-    @FXML
     private TableColumn<?, ?> fxiduser;
     @FXML
     private Button fxretour;
@@ -66,11 +62,8 @@ public class MesFacturesController implements Initializable {
     }
 
     private void loadData() {
-        
-   
 
         fxnetapayer.setCellValueFactory(new PropertyValueFactory<>("netApayer"));
-        fxiduser.setCellValueFactory(new PropertyValueFactory<>("idUser"));
 
         ObservableList<Facture> FactureList = FXCollections.observableArrayList(fc.afficherMesFactures(2));
         tableview.setItems(FactureList);
@@ -81,13 +74,13 @@ public class MesFacturesController implements Initializable {
             public TableCell<Facture, Void> call(final TableColumn<Facture, Void> param) {
                 final TableCell<Facture, Void> cell = new TableCell<Facture, Void>() {
                     private final Button btn2 = new Button("Supprimer");
-                        {
-                             btn2.setOnAction((ActionEvent event) -> {
-   
-                            Facture f = getTableView().getItems().get(getIndex());
-                             AjouterFactureController factureController = new AjouterFactureController();
-                           factureController.init(f.getNumRes());
 
+                    {
+                        btn2.setOnAction((ActionEvent event) -> {
+
+                            Facture f = getTableView().getItems().get(getIndex());
+                            AjouterFactureController factureController = new AjouterFactureController();
+                            factureController.init(f.getNumRes());
                             // Suppression alert
                             FactureCrud fc = new FactureCrud();
                             fc.supprimerFacture(f.getIdFacture());
@@ -96,15 +89,13 @@ public class MesFacturesController implements Initializable {
                             alert.setHeaderText(null);
                             alert.setContentText("Facture supprimée!");
                             alert.show();
-                            
+
                             // Rafraîchir la table des reservations
                             tableview.setItems(FXCollections.observableArrayList(fc.afficherMesFactures(2)));
-                        
-                                     });
-                                     }
-                                     
-             
-               
+
+                        });
+                    }
+
                     @Override
                     protected void updateItem(Void item, boolean empty) {
                         HBox managebtn = new HBox(btn2);
@@ -112,39 +103,31 @@ public class MesFacturesController implements Initializable {
                         if (empty) {
                             setGraphic(null);
                         } else {
-                            setGraphic(managebtn);}
+                            setGraphic(managebtn);
                         }
-                    };
-          return cell;
+                    }
+                };
+                return cell;
             }
         });
-   
-       
-                        
-                        
-    
-     }
-    
+
+    }
+
     @FXML
     private void back(ActionEvent event) {
-           FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/pijava/gui/ReserverEvent.fxml"));
-                            Parent root = null;
-                            try {
-                                root = loader.load();
-                            } catch (IOException ex) {
-                                Logger.getLogger(AjouterFactureController.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                             ReserverEventController controller = loader.getController();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/pijava/gui/ReserverEvent.fxml"));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException ex) {
+            Logger.getLogger(AjouterFactureController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ReserverEventController controller = loader.getController();
 
-                            Scene scene = new Scene(root);
-                            Stage stage = new Stage();
-                            stage.setScene(scene);
-                            stage.showAndWait();
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.showAndWait();
     }
-    
+
 }
-
- 
-  
-    
-

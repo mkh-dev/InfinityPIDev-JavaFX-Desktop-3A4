@@ -26,8 +26,12 @@ public class Facture {
      */
     
     
-    public Facture( int netApayer, int idUser) {
+    public Facture( int netApayer) {
 
+        this.netApayer = netApayer;
+    }
+
+    public Facture(int netApayer, int idUser) {
         this.netApayer = netApayer;
         this.idUser = idUser;
     }
@@ -76,11 +80,9 @@ public class Facture {
 
     @Override
     public String toString() {
-        return "Facture{" + "idFacture=" + idFacture + ", netApayer=" + netApayer + ", numRes=" + numRes + ", idUser=" + idUser + '}';
+        return "Facture  : " + ", numRes=" + numRes ;
     }
 
-    public void setPrenom(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+ 
 
 }

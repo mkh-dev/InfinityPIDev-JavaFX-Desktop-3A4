@@ -10,7 +10,10 @@ import edu.pijava.utils.MyConnection;
 import edu.pijava.services.ReservationCrud;
 import edu.pijava.model.Reservation;
 import edu.pijava.model.Facture;
+import edu.pijava.model.evenement;
 import edu.pijava.services.FactureCrud;
+import edu.pijava.services.evenement_service;
+import java.sql.Timestamp;
 
 /**
  *
@@ -24,28 +27,35 @@ public class Projetjava {
     public static void main(String[] args) {
         // TODO code application logic here
         MyConnection conn = MyConnection.getInstance();
-        Reservation r1 = new Reservation(10, 5, 3);
-              ReservationCrud res = new ReservationCrud();
+        //Reservation r1 = new Reservation(10, 5, "hafla");
+        ReservationCrud res = new ReservationCrud();
+        Reservation r3 = new Reservation(10, 5, "hafla");
+                 evenement_service eventserv = new evenement_service();
 
+        evenement e =new evenement ("test4","test4",Timestamp.valueOf("2023-03-14 22:12:23"),Timestamp.valueOf("2023-05-14 22:10:23"),"ariana",120.0,4,"test2",2);
+     //   eventserv.ajouterEvent(e);
         FactureCrud ress = new FactureCrud();
       
          
-        Facture f1 = new Facture( 85, 50, 2);
-        //Reservation r2 = new Reservation( 8, 9, 3);
+        Facture f1 = new Facture( 1, 100, 2);
+        Reservation r2 = new Reservation( 8, 9, 3);
 
   
 
-        //res.ajouterReservation(r1);
-             //   res.ajouterReservation(r2);
+       // res.ajouterReservation2(r3,e);
+     // res.ajouterReservation(r2);
 
         ress.ajouterFacture(f1);
        //res.modifierReservation(r1);
-       //System.out.println(res.afficherReservation());
-        //ress.supprimerFacture(1);
-        //res.annulerReservation(69);
+        //res.afficherReservation2(10);
+      //System.out.println(res.afficherMesReservations(10));
+       /// ress.supprimerFacture(153);
+          //res.annulerReservation(69);
+
+res.afficherMesReservationsTri(10);
         //System.out.println(res.afficherMesReservations(2));
       // System.out.println(ress.afficherFacture());
-        System.out.println( res.getReservationById(73));
+      //  System.out.println( res.getReservationById(73));
 
     }
 

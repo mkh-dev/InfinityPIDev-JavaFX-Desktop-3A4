@@ -47,6 +47,8 @@ public class MesReservations2Controller implements Initializable {
     private Button fxpayer;
     @FXML
     private Button refresh;
+    @FXML
+    private Button fxtri;
 
     /**
      * Initializes the controller class.
@@ -55,9 +57,9 @@ public class MesReservations2Controller implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         ReservationCrud rc = new ReservationCrud();
-        ObservableList<Reservation> ReservationList = FXCollections.observableArrayList(rc.afficherMesReservations(10));
+        ObservableList<Reservation> ReservationList = FXCollections.observableArrayList(rc.afficherMesReservations(2));
         listview.setItems(ReservationList);
-        fxnbre.setText("Vous Avez " + ReservationList.size() +" réservations:");
+        fxnbre.setText("Vous Avez " + ReservationList.size() + " réservations:");
         ;
 
     }
@@ -114,33 +116,49 @@ public class MesReservations2Controller implements Initializable {
 
     @FXML
     private void save(ActionEvent event) {
-        
-                         FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/pijava/gui/AjouterFacture.fxml"));
-                            Parent root = null;
-                            try {
-                                root = loader.load();
-                            } catch (IOException ex) {
-                                Logger.getLogger(AjouterFactureController.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                              AjouterFactureController controller = loader.getController();
 
-                            Scene scene = new Scene(root);
-                            Stage stage = new Stage();
-                            stage.setScene(scene);
-                            stage.showAndWait();
-        
-        
-        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/pijava/gui/AjouterFacture.fxml"));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException ex) {
+            Logger.getLogger(AjouterFactureController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        AjouterFactureController controller = loader.getController();
+
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.showAndWait();
+
     }
 
     @FXML
     private void refresh() {
 
-       ReservationCrud rc = new ReservationCrud();
-        ObservableList<Reservation> ReservationList = FXCollections.observableArrayList(rc.afficherMesReservations(10));
+        ReservationCrud rc = new ReservationCrud();
+        ObservableList<Reservation> ReservationList = FXCollections.observableArrayList(rc.afficherMesReservations(2));
         listview.setItems(ReservationList);
         fxnbre.setText("Vous Avez  " + ReservationList.size() + "      réservations:");
         ;
+
+    }
+
+    @FXML
+    private void trier(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/pijava/gui/Mes ReservationsTri.fxml"));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException ex) {
+            Logger.getLogger(MesReservationsTriController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        MesReservationsTriController controller = loader.getController();
+
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.showAndWait();
 
     }
 
