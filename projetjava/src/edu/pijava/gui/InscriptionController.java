@@ -83,6 +83,7 @@ public class InscriptionController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         hlinkLogin.setStyle("-fx-text-fill: black;");
+         hlinkLogin.setOnAction(this::handleLoginClick);
   
 
     }
@@ -297,4 +298,16 @@ private String generateCodeRegister() {
         // Utiliser le mot de passe haché comme bon vous semble
     }
         
+     private void handleLoginClick(ActionEvent event) {
+        try {
+            Parent loginParent = FXMLLoader.load(getClass().getResource("Login.fxml"));
+            Scene loginScene = new Scene(loginParent);
+            Stage loginStage = (Stage) hlinkLogin.getScene().getWindow();
+            loginStage.setScene(loginScene);
+            loginStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
+

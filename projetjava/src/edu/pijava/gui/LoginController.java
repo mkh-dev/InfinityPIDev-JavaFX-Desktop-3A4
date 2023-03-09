@@ -26,6 +26,8 @@ public class LoginController {
     private Button loginButton;
     @FXML
     private Hyperlink linkPassword;
+        @FXML
+    private Hyperlink hlinkRegister;
 
     private void handleLogin(ActionEvent event) {
         String email = logEmail.getText();
@@ -100,6 +102,8 @@ public class LoginController {
 void initialize() {
     loginButton.setOnAction(this::handleLogin);
     linkPassword.setOnAction(this::handleForgotPassword);
+    hlinkRegister.setStyle("-fx-text-fill: black;");
+    hlinkRegister.setOnAction(this::handleRegisterClick);
 }
 
 
@@ -117,4 +121,16 @@ private void handleForgotPassword(ActionEvent event) {
     }
 }
 
+
+private void handleRegisterClick(ActionEvent event) {
+        try {
+            Parent loginParent = FXMLLoader.load(getClass().getResource("Inscription.fxml"));
+            Scene loginScene = new Scene(loginParent);
+            Stage loginStage = (Stage) hlinkRegister.getScene().getWindow();
+            loginStage.setScene(loginScene);
+            loginStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
