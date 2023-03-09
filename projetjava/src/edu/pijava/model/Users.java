@@ -1,26 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.pijava.model;
 
 import java.util.Date;
+import org.mindrot.jbcrypt.BCrypt;
 
-/**
- *
- * @author MALEK-ADMIN
- */
 public class Users {
     private int id;
     private String prenom;
     private String nom;
     private String email;
     private Date dateNaissance;
-    private String numTel;
+    private int numTel;
     private String userRole;
+    private String password;
 
-    public Users(int id, String prenom, String nom, String email, Date dateNaissance, String numTel, String userRole) {
+    public Users() {
+    }
+
+    public Users(int id, String prenom, String nom, String email, Date dateNaissance, int numTel, String userRole, String password) {
         this.id = id;
         this.prenom = prenom;
         this.nom = nom;
@@ -28,21 +24,17 @@ public class Users {
         this.dateNaissance = dateNaissance;
         this.numTel = numTel;
         this.userRole = userRole;
+        setPassword(password);
     }
-    
-    public Users (){
-        
-    }
-    
-    
 
-    public Users(String prenom, String nom, String email, Date dateNaissance,  String numTel, String userRole) {
+    public Users(String prenom, String nom, String email, Date dateNaissance, int numTel, String userRole, String password) {
         this.prenom = prenom;
         this.nom = nom;
         this.email = email;
         this.dateNaissance = dateNaissance;
         this.numTel = numTel;
         this.userRole = userRole;
+        setPassword(password);
     }
 
     public int getId() {
@@ -85,11 +77,11 @@ public class Users {
         this.dateNaissance = dateNaissance;
     }
 
-    public  String getNumTel() {
+    public int getNumTel() {
         return numTel;
     }
 
-    public void setNumTel( String numTel) {
+    public void setNumTel(int numTel) {
         this.numTel = numTel;
     }
 
@@ -101,11 +93,17 @@ public class Users {
         this.userRole = userRole;
     }
 
-    @Override
-    public String toString() {
-        return "Users{" + "id=" + id + ", prenom=" + prenom + ", nom=" + nom + ", email=" + email + ", dateNaissance=" + dateNaissance + ", numTel=" + numTel + ", userRole=" + userRole + '}';
+    public String getPassword() {
+        return password;
     }
-   
-}
 
+    public void setPassword(String password) {
+        String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
+        this.password = hashedPassword;
+    }
+
+    public String toString() {
+        return prenom + " " + nom + ", " + email + ", " + dateNaissance + ", " + numTel + ", " + userRole + ", " + password;
+    }
+}
 
