@@ -88,8 +88,8 @@ public class ReserverEventController implements Initializable {
         }
 
     }
-
-    @FXML
+    
+@FXML
     private void test(ActionEvent event) {
           try {
             Parent sv;
@@ -107,7 +107,7 @@ public class ReserverEventController implements Initializable {
         // ...
 
         // Rediriger l'utilisateur vers la page de connexion
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/pijava/gui/Login.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         Stage stage = (Stage) deconnexionButton.getScene().getWindow();

@@ -46,7 +46,7 @@ public class LoginController {
             if (userRole.equals("Utilisateur")) {
                 // Charger l'interface utilisateur.fxml
                 try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("Utilisateur.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("reserverEvent.fxml"));
                     Parent root = loader.load();
                     Stage stage = (Stage) loginButton.getScene().getWindow();
                     Scene scene = new Scene(root);
