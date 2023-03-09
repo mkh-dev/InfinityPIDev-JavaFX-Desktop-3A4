@@ -21,7 +21,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-public class ReclamationsUtilisateurController implements Initializable {
+public class ReclamationsTransporteurController implements Initializable {
 
     @FXML
     private ListView<Reclamations> listView;

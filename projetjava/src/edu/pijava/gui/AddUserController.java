@@ -16,6 +16,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import org.mindrot.jbcrypt.BCrypt;
 
 public class AddUserController implements Initializable {
 
@@ -37,6 +38,8 @@ public class AddUserController implements Initializable {
     private CheckBox ckUtilisateur;
     @FXML
     private CheckBox ckPartenaire;
+    @FXML
+    private CheckBox ckTransporteur;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -62,6 +65,12 @@ public class AddUserController implements Initializable {
         if (ckPartenaire.isSelected()) {
             checkedCount++;
         }
+        
+         if (ckTransporteur.isSelected()) {
+            checkedCount++;
+        }
+        
+        
 
         // Si plus d'une case à cocher est sélectionnée, afficher un message d'erreur
         if (checkedCount != 1) {
@@ -85,7 +94,7 @@ public class AddUserController implements Initializable {
         String password = addPassword.getText();
 
         // Récupérer le rôle utilisateur ou partenaire
-        String userRole = ckUtilisateur.isSelected() ? "Utilisateur" : "Partenaire";
+        String userRole = ckUtilisateur.isSelected() ? "Utilisateur" : (ckPartenaire.isSelected() ? "Partenaire" : "Transporteur");
 
         Users u = new Users(prenom, nom, email, dateNaissance, numTel, userRole, password);
         UserService userCrud = new UserService();
@@ -138,4 +147,9 @@ public class AddUserController implements Initializable {
     // Si tous les champs sont remplis et que l'adresse email et le numéro de téléphone sont au bon format, retourner true
     return true;
 }
+   
+        public void hashPassword(String password) {
+        String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
+        // Utiliser le mot de passe haché comme bon vous semble
+    }
 }

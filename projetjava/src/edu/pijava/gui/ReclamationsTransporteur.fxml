@@ -4,7 +4,7 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="619.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pijava.gui.ReclamationsUtilisateurController">
+<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="619.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pijava.gui.ReclamationsTransporteurController">
    <children>
       <Button fx:id="ajouterButton" layoutX="95.0" layoutY="404.0" mnemonicParsing="false" onAction="#ajouterReclamation" style="-fx-background-color: black;" text="Ajouter Réclamation" textFill="WHITE" />
       <ListView fx:id="listView" layoutX="95.0" layoutY="21.0" prefHeight="375.0" prefWidth="428.0" />
