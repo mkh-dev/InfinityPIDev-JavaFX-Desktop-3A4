@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pijava.gui.addprodController">
+   <children>
+      <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="505.0" prefWidth="1000.0">
+         <children>
+            <BorderPane prefHeight="505.0" prefWidth="1000.0" style="-fx-background-color: white;">
+               <left>
+                  <Pane prefHeight="505.0" prefWidth="230.0" style="-fx-background-radius: 0 60 0 0;" styleClass="right-bar" stylesheets="@first.css" BorderPane.alignment="CENTER" />
+               </left>
+               <center>
+                  <Pane prefHeight="367.0" prefWidth="902.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label layoutX="134.0" layoutY="74.0" text="Nom de Produit">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="135.0" layoutY="107.0" text="Prix">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="131.0" layoutY="139.0" text="Quantité">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="133.0" layoutY="175.0" text="Id Catégorie">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="135.0" layoutY="223.0" text="Description">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="135.0" layoutY="285.0" text="Nom Partenaire">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="136.0" layoutY="318.0" text="Image">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="tfNom" layoutX="377.0" layoutY="70.0" prefHeight="25.0" prefWidth="223.0" promptText="Entrez le nom de produit" styleClass="shadow" stylesheets="@first.css" />
+                        <TextField fx:id="tfQuantite" layoutX="377.0" layoutY="135.0" prefHeight="25.0" prefWidth="223.0" promptText="Entrez la quantité disponible" styleClass="shadow" stylesheets="@first.css" />
+                        <TextField fx:id="tfPrix" layoutX="377.0" layoutY="103.0" prefHeight="25.0" prefWidth="223.0" promptText="Entrez le prix de produit" styleClass="shadow" stylesheets="@first.css" />
+                        <TextField fx:id="tfIdCat" layoutX="377.0" layoutY="171.0" prefHeight="25.0" prefWidth="223.0" promptText="Entrez l'id de catégorie" styleClass="shadow" stylesheets="@first.css" />
+                        <TextField fx:id="tfNomPart" layoutX="375.0" layoutY="281.0" prefHeight="25.0" prefWidth="223.0" promptText="Entrez votre nom" styleClass="shadow" stylesheets="@first.css" />
+                        <TextField fx:id="tfImg" layoutX="375.0" layoutY="314.0" prefHeight="25.0" prefWidth="223.0" promptText="Entre l'image " styleClass="shadow" stylesheets="@first.css" />
+                        <Button fx:id="btnAjouter" layoutX="322.0" layoutY="352.0" mnemonicParsing="false" onAction="#AjouterClicked" prefHeight="25.0" prefWidth="144.0" stylesheets="@first.css" text="Ajouter Produit">
+                           <styleClass>
+                              <String fx:value="search-button" />
+                              <String fx:value="shadow" />
+                           </styleClass>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="upload" layoutX="614.0" layoutY="314.0" mnemonicParsing="false" onAction="#upload" stylesheets="@first.css" text="Upload">
+                           <styleClass>
+                              <String fx:value="search-button" />
+                              <String fx:value="shadow" />
+                           </styleClass></Button>
+                        <Button fx:id="btnrevenir" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnrevenir" prefHeight="25.0" prefWidth="34.0" style="-fx-background-color: transparent;">
+                           <graphic>
+                              <ImageView fitHeight="32.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/fleche-petite-gauche.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <TextArea fx:id="tfDesc" layoutX="377.0" layoutY="211.0" prefHeight="64.0" prefWidth="220.0" promptText="Entrez une description de produit" styleClass="shadow" stylesheets="@first.css" />
+                        <Button fx:id="importer" layoutX="621.0" layoutY="14.0" mnemonicParsing="false" onAction="#importer" stylesheets="@first.css" text="Importer un fichier csv">
+                           <styleClass>
+                              <String fx:value="shadow" />
+                              <String fx:value="search-button" />
+                           </styleClass>
+                        </Button>
+                     </children>
+                  </Pane>
+               </center>
+               <top>
+                  <HBox alignment="BOTTOM_LEFT" prefHeight="101.0" prefWidth="990.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+                     <children>
+                        <ImageView fitHeight="103.0" fitWidth="103.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/Capture%20d’écran%202023-02-01%20182532.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <BorderPane.margin>
+                        <Insets left="10.0" />
+                     </BorderPane.margin>
+                  </HBox>
+               </top>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

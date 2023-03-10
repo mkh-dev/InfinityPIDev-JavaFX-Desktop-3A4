@@ -27,14 +27,14 @@ public class PartenaireController implements Initializable {
     }    
     
     public void openPartenaire() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("ReclamationsPartenaire.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("CategorieProd.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
     }
     
     public void openCategorie() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Inscription.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("product.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();

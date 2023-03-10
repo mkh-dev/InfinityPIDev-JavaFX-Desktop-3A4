@@ -5,16 +5,24 @@
  */
 package edu.pijava.gui;
 
-import static edu.pijava.gui.ListeController1.id_prod;
+//import static edu.pijava.gui.ListeController1.id_prod;
 
 import edu.pijava.model.produit;
 import edu.pijava.services.produit_service;
 import edu.pijava.utils.MyConnection;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -71,6 +79,7 @@ public class ItemController implements Initializable {
     private Button ModifierProd;
     @FXML
     private Button DeleteProd;
+    private produit produit;
 
     /**
      * Initializes the controller class.
@@ -79,7 +88,7 @@ public class ItemController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         anchropane.setOnMouseClicked(event -> {
-        System.out.println("Clicked on item with ID: " + anchropane.getId());
+        System.out.println("Clicked on item with ID: "  + anchropane.getId());
         // Do something with the ID
          ModifierProd(event);
      
@@ -127,30 +136,46 @@ private void ModifierProd(ActionEvent event) {
 
     
      public void setData(produit prod) {
-        //  this.produit = prod;
-        //this.myListener = myListener;
-         tfnomprod.setText(prod.getNom_prod());
-         tfdesc.setText(prod.getDescription());
-         //tfidcat.setText(Integer.toString(prod.getId_cat()));
-         tfprix.setText(Double.toString(prod.getPrix()));
-         tfquantite.setText(Integer.toString(prod.getQuantite()));
-         anchropane.setId(Integer.toString(prod.getId_prod()));
+            this.produit = prod;
+        tfnomprod.setText(prod.getNom_prod());
+        tfdesc.setText(prod.getDescription());
+        //tfidcat.setText(Integer.toString(prod.getId_cat()));
+        tfprix.setText(Double.toString(prod.getPrix()));
+        tfquantite.setText(Integer.toString(prod.getQuantite()));
+        anchropane.setId(Integer.toString(prod.getId_prod()));
+        String imagePath = "C:/xampp/htdocs/img/" + prod.getImage();
+        // Create an ImageView object
+        ImageView imageView = new ImageView();
+        // Create a File object with the path of your image
+        //File file = new File(imagePath);
 
-        
-          //Image image = new Image(getClass().getResourceAsStream(prod.getImage()));
-         //tfimg.setImage(image);
-     //  File file = new File("C:/xampp/htdocs/img" + prod.getImage());
-//Image image = new Image(file.toURI().toString());
-//tfimg.setImage(image);
-        
-        
-        
-        
+        //File file = new File(prod.getImage());
+        System.out.println("Image : " + prod.getImage());
+
+        // Check if the file exists
+        //if (file.exists()) {
+        // Create an Image object with the file path
+        //Image image = new Image(file.toURI().toString());
+        //On verrifie si le chemin vers l'image n'est pa vide
+        if (prod.getImage() == null && prod.getImage().isEmpty()) {
+            System.out.println("Image Introuvable, Utilisation de l'image par defaut");
+        } else {
+            Image image = new Image(getClass().getResourceAsStream(prod.getImage()));
+            this.tfimg.setImage(image);
+        }
+        //System.out.println(file.toURI().toString());
+        // Set the image to the ImageView
+
+        // } else {
+        /* System.out.println(file.toURI().toString());
+            System.out.println("Image not found.");*/
     }
    
+
+
+
           
     private void ModifierProd(MouseEvent event) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
   //Button Delete dans l'interface   
@@ -206,7 +231,7 @@ alert.getDialogPane().getStyleClass().add("alert");
 
     
     
-    Connection conn = MyConnection.getInstance().getConn();
+   Connection conn = MyConnection.getInstance().getConn();
 
      public boolean supprimerProd1(int id_prod) {
     String requete = "DELETE FROM produit WHERE id_prod = ?";
@@ -222,11 +247,7 @@ alert.getDialogPane().getStyleClass().add("alert");
     }
     return false;
 }
-   
-    
 
-  
-    
 
- 
+
 }

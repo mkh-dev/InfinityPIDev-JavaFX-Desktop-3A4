@@ -40,6 +40,8 @@ public class categorie_prod_service {
             while(RS.next()){
              categorie_prod p = new categorie_prod();
              p.setCat_prod(RS.getString("cat_prod"));
+             p.setId_cat(RS.getInt("id_cat"));
+
              
 list.add(p);
             }
@@ -75,10 +77,10 @@ list.add(p);
       //Mèthode pour supprimer categorie produit 
     public boolean supprimercatprod(categorie_prod cp) {
 
-        String reqeute = "delete from categorie_prod where (id_cat_prod = ?) ;";
+        String reqeute = "delete from categorie_prod where (id_cat = ?) ;";
         try {
             PreparedStatement pst = conn.prepareStatement(reqeute);
-            pst.setInt(1, cp.getId_cat_prod());
+            pst.setInt(1, cp.getId_cat());
             
             if (pst.executeUpdate() != 0) {
                 System.out.println("categorie prod  supprimé");
@@ -96,13 +98,13 @@ System.out.println(ex.getMessage());
   
     
     
-    public boolean modifiercatprod(String cat_prod,int id_cat_prod) {
+    public boolean modifiercatprod(int id_cat,String cat_prod) {
 
-        String requete = "UPDATE categorie_prod SET  cat_prod= ? where id_cat_prod=?;";
+        String requete = "UPDATE categorie_prod SET  cat_prod= ? where id_cat=?;";
         try {
             PreparedStatement pst = conn.prepareStatement(requete);
             pst.setString(1, cat_prod);
-            pst.setInt(2, id_cat_prod);
+           pst.setInt(2, id_cat);
             
             if (pst.executeUpdate() != 0) {
                 System.out.println("Categorie produit Updated");
@@ -120,12 +122,12 @@ System.out.println(ex.getMessage());
     
     
     
-     public categorie_prod findbyid(int id_cat_prod) {
+     public categorie_prod findbyid(int id_cat) {
         categorie_prod cp = new categorie_prod();
         try {
 
-            PreparedStatement pre = conn.prepareStatement("Select * from categorie_prod WHERE id_cat_prod=? ");
-            pre.setInt(1,id_cat_prod);
+            PreparedStatement pre = conn.prepareStatement("Select * from categorie_prod WHERE id_cat=? ");
+            pre.setInt(1,id_cat);
             ResultSet RS = pre.executeQuery();
             while (RS.next()) {
                 String cat_prod =RS.getString("cat_prod");
@@ -141,14 +143,14 @@ System.out.println(ex.getMessage());
         return cp;
     }
 
-     public String getCat_prod(int id_cat_prod) {
+     public String getCat_prod(int id_cat) {
         String q = "";
 
-        String requete4 = "select cat_prod from categorie_prod where id_cat_prod=?;";
+        String requete4 = "select cat_prod from categorie_prod where id_cat=?;";
         PreparedStatement pst;
         try {
             pst = conn.prepareStatement(requete4);
-            pst.setInt(1, id_cat_prod);
+            pst.setInt(1, id_cat);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 q = rs.getString(1);

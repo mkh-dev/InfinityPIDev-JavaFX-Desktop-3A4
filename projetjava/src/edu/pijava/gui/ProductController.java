@@ -24,12 +24,16 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
 
 /**
  * FXML Controller class
@@ -43,17 +47,8 @@ public class ProductController implements Initializable {
     @FXML
     private Button btnadd;
     @FXML
-    private Label tfnomprod;
-    @FXML
-    private ImageView tfimg;
-    @FXML
-    private Text tfdesc;
-    @FXML
-    private Label tfprix;
-    @FXML
-    private Label tfquantite;
-    @FXML
     private GridPane grid;
+    
    // @FXML
    // private ListView<produit> prodlistview;
 
@@ -63,7 +58,14 @@ public class ProductController implements Initializable {
     
     private produit_service ps = new produit_service();
     private List<produit> prod = new ArrayList<>();
-    private ComboBox<produit> produitComboBox;
+    @FXML
+    private Button searchbtn;
+    @FXML
+    private TextField searchbox;
+    @FXML
+    private VBox vbox;
+    @FXML
+    private Button btnhome;
 
     
     @Override
@@ -82,7 +84,7 @@ public class ProductController implements Initializable {
     private void btnadd(ActionEvent event) {
         
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("Third.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("addprod.fxml"));
             Scene scene = new Scene(root);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
@@ -92,7 +94,7 @@ public class ProductController implements Initializable {
         }
     }
 
-    
+    produit p =new produit(); 
     List<produit> list = new ArrayList<>();
     public void afficher() {
         try {
@@ -102,12 +104,16 @@ public class ProductController implements Initializable {
 
             int column = 0;
             int row = 1;
-            for (int i = 0; i < list.size(); i++) {
+            for (int i = list.size()-1; i >= 0; i--) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("item.fxml"));
                 AnchorPane anchropane= fxmlLoader.load();
                 ItemController itemController = fxmlLoader.getController();
                 itemController.setData(list.get(i));
+                
+                
+          
+                
                 
                 if (column == 3) {
                     column = 0;
@@ -129,9 +135,88 @@ public class ProductController implements Initializable {
     }
         
     }
+    /*
+
+    @FXML
+    private void searchbtn(ActionEvent event) {
+        String searchText = searchbox.getText().toLowerCase();
+
+    List<produit> searchResults = new ArrayList<>();
+    for (produit p : prod) {
+        if (p.getNom_prod().toLowerCase().contains(searchText)) {
+            searchResults.add(p);
+        }
+    }
+
+    // Afficher les résultats de la recherche
+    grid.getChildren().clear();
+    int column = 0;
+    int row = 1;
+    for (produit p : searchResults) {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("item.fxml"));
+        AnchorPane anchropane;
+        try {
+            anchropane = fxmlLoader.load();
+            ItemController itemController = fxmlLoader.getController();
+            itemController.setData(p);
+            if (column == 3) {
+                column = 0;
+                row++;
+            }
+            grid.add(anchropane, column, row);
+            column++;
+        } catch (IOException ex) {
+            Logger.getLogger(ProductController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    }
    
 
+    */
     
-   
+    
+    @FXML
+private void searchbtn(ActionEvent event) {
+    String searchText = searchbox.getText().toLowerCase();
+
+    List<produit> searchResults = new ArrayList<>();
+    for (produit p : prod) {
+        if (p.getNom_prod().toLowerCase().contains(searchText)) {
+            searchResults.add(p);
+        }
+    }
+
+    // Afficher les résultats de la recherche
+    vbox.getChildren().clear();
+    for (produit p : searchResults) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("item.fxml"));
+            AnchorPane anchorpane = fxmlLoader.load();
+            ItemController itemController = fxmlLoader.getController();
+            itemController.setData(p);
+            vbox.getChildren().add(anchorpane);
+        } catch (IOException ex) {
+            Logger.getLogger(ProductController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+}
+
+    @FXML
+    private void btnhome(ActionEvent event) {
+          try {
+            Parent root = FXMLLoader.load(getClass().getResource("Partenaire.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(ProductController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+
+ 
    
 }
