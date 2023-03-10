@@ -282,7 +282,6 @@ File selectedFile = fileChooser.showOpenDialog(null);
                 ps.ajouterprod(p);
 
                 System.out.println("Produit ajouté avec succès !");
-                btnrevenir(event);
 
                 
                 
