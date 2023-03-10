@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="modifierAnchorePane" onMouseMoved="#getData" prefHeight="547.0" prefWidth="756.0" styleClass="Container" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ModifierEvenementController">
+    <children>
+        <Label layoutX="198.0" layoutY="142.0" text="nom" />
+        <TextField fx:id="tfnom" layoutX="238.0" layoutY="138.0" prefHeight="25.0" prefWidth="255.0" />
+        <TextField fx:id="tflieu" layoutX="238.0" layoutY="168.0" onAction="#onTfLieuKeyTyped" prefHeight="25.0" prefWidth="255.0" />
+        <Button fx:id="btnajouter" layoutX="401.0" layoutY="473.0" mnemonicParsing="false" onAction="#ModiferEvent" prefHeight="37.0" prefWidth="92.0" styleClass="Button" text="Modifer" textFill="WHITE" />
+        <Label layoutX="201.0" layoutY="172.0" text="lieu" />
+        <DatePicker fx:id="datePicker1" layoutX="238.0" layoutY="255.0" prefHeight="25.0" prefWidth="255.0" />
+        <Label layoutX="171.0" layoutY="259.0" text="date debut" />
+        <Label layoutX="192.0" layoutY="293.0" text="datefin" />
+        <DatePicker fx:id="datePicker2" layoutX="238.0" layoutY="289.0" prefHeight="25.0" prefWidth="255.0" />
+        <Label layoutX="523.0" layoutY="134.0" text="description" />
+        <TextArea fx:id="tfdescription" layoutX="523.0" layoutY="159.0" prefHeight="87.0" prefWidth="200.0" />
+        <Label layoutX="194.0" layoutY="327.0" text="image" />
+        <Label layoutX="346.0" layoutY="433.0" text="BUDGET :">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <Label layoutX="177.0" layoutY="369.0" text="catégorie" />
+        <Button fx:id="btnselectproduct" layoutX="238.0" layoutY="432.0" mnemonicParsing="false" styleClass="Button" text="select product" textFill="WHITE" />
+        <Label layoutX="178.0" layoutY="401.0" text="transport" />
+        <ListView fx:id="sugestionAddress" layoutX="238.0" layoutY="189.0" prefHeight="58.0" prefWidth="255.0" />
+        <ComboBox fx:id="ftcatevent" layoutX="238.0" layoutY="365.0" prefHeight="25.0" prefWidth="255.0" />
+        <ComboBox fx:id="fttransport" layoutX="238.0" layoutY="397.0" prefHeight="25.0" prefWidth="255.0" />
+        <Button fx:id="ftimage" layoutX="238.0" layoutY="323.0" mnemonicParsing="false" onAction="#selectImage" prefHeight="25.0" prefWidth="255.0" styleClass="Button" text="choisir une image" textFill="WHITE" />
+        <Label fx:id="imageNameLabel" layoutX="238.0" layoutY="348.0" prefHeight="17.0" prefWidth="54.0" text="-" />
+        <Accordion layoutX="483.0" layoutY="402.0" />
+        <Label fx:id="ftbudget" layoutX="416.0" layoutY="424.0" prefHeight="37.0" prefWidth="77.0" text="-" />
+        <Label layoutX="283.0" layoutY="58.0" text="Modifier Evenement">
+            <font>
+                <Font size="29.0" />
+            </font>
+        </Label>
+        <MenuButton layoutX="34.0" layoutY="151.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" styleClass="Button" text="Menu" textFill="WHITE">
+            <items>
+                <MenuItem mnemonicParsing="false" text="Afficher Les Evenements" />
+                <MenuItem mnemonicParsing="false" text="Ajouter un Evenement" />
+            </items>
+        </MenuButton>
+      <ImageView fx:id="imageActuel" fitHeight="87.0" fitWidth="200.0" layoutX="523.0" layoutY="347.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="528.0" layoutY="327.0" text="Image Actuelle :" />
+    </children>
+</AnchorPane>
