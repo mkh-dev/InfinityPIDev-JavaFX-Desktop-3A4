@@ -48,6 +48,7 @@ import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import javafx.scene.control.Alert;
 import org.json.JSONObject;
 
 /**
@@ -240,6 +241,11 @@ public class AjoutertransportController implements Initializable {
         CRUDtransport crud = new CRUDtransport();
 
         crud.ajoutertransport(t);
+                   Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("success");
+        alert.setHeaderText(null);
+        alert.setContentText("Transport ajouté!");
+        alert.showAndWait();
         Stage stage = null;
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ajoutervehicule.fxml"));

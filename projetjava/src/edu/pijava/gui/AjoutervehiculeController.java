@@ -5,7 +5,6 @@
  */
 package edu.pijava.gui;
 
-import edu.pijava.model.Transport;
 import edu.pijava.model.Vehicule;
 import java.io.IOException;
 import java.net.URL;
@@ -18,13 +17,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import edu.pijava.services.CRUDvehicule;
-
 /**
  * FXML Controller class
  *
@@ -104,6 +103,11 @@ private void save_voiture(ActionEvent event) {
      
      CRUDvehicule crud = new CRUDvehicule();
      crud.ajoutervehicule(v);
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Success");
+        alert.setHeaderText(null);
+        alert.setContentText("Vehicule ajoutée !");
+        alert.showAndWait();
 } 
 
  

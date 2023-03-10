@@ -19,6 +19,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -26,6 +27,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import edu.pijava.services.CRUDtransport;
+
 
 /**
  * FXML Controller class
@@ -118,6 +120,11 @@ public class ModifiertransportController implements Initializable {
         t.setId_transport(transport.getId_transport());
         CRUDtransport crud = new CRUDtransport();
         crud.modifiertransport(t);
+                   Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Succes");
+        alert.setHeaderText(null);
+        alert.setContentText("Transport modifié !");
+        alert.showAndWait();
 
         try {
             Parent newParent = FXMLLoader.load(getClass().getResource("affichertransport.fxml"));

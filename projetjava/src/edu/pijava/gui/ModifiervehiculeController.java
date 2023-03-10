@@ -7,7 +7,6 @@ package edu.pijava.gui;
 
 //import entities.Transport;
 import edu.pijava.model.Vehicule;
-import java.io.IOException;
 import java.net.URL;
 //import java.time.LocalDate;
 //import java.time.format.DateTimeFormatter;
@@ -20,12 +19,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import edu.pijava.services.CRUDvehicule;
+import java.io.IOException;
 
 /**
  * FXML Controller class
@@ -129,7 +130,11 @@ public class ModifiervehiculeController implements Initializable {
         v.setId_vehicule(v.getId_vehicule());
         CRUDvehicule crud = new CRUDvehicule();
         crud.modifiervehicule(v);
-        
+                        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Succes");
+        alert.setHeaderText(null);
+        alert.setContentText("Vehicule modifiée !");
+        alert.showAndWait();
          try {
             Parent newParent = FXMLLoader.load(getClass().getResource("Affichervehicule.fxml"));
             Scene newScene = new Scene(newParent);

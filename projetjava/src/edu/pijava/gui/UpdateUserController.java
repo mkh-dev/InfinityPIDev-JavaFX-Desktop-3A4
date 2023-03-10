@@ -33,6 +33,8 @@ public class UpdateUserController implements Initializable {
     private CheckBox ckUtilisateur;
     @FXML
     private CheckBox ckPartenaire;
+     @FXML
+    private CheckBox ckTransporteur;
 
     private UserService userService;
     private Users user;
@@ -50,6 +52,8 @@ public class UpdateUserController implements Initializable {
             ckUtilisateur.setSelected(true);
         } else if (user.getUserRole().equals("Partenaire")) {
             ckPartenaire.setSelected(true);
+        } else if (user.getUserRole().equals("Transporteur")) {
+            ckTransporteur.setSelected(true);
         }
     
     }
@@ -69,8 +73,8 @@ public class UpdateUserController implements Initializable {
         } else if (ckPartenaire.isSelected()) {
             user.setUserRole("Partenaire");
         } else {
-            user.setUserRole("Utilisateur");
-        }
+            user.setUserRole("Transporteur");
+        } 
 
         // update the user in the database
         userService.modifierUtilisateur(user);

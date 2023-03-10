@@ -15,11 +15,6 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="241.0" style="-fx-background-color: white;">
                <children>
-                  <Button fx:id="btnVehicule" layoutX="17.0" layoutY="306.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="208.0" style="-fx-background-color: ebac08;" text="Véhicule">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Button>
                   <Button fx:id="btnTransport" layoutX="17.0" layoutY="255.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="208.0" style="-fx-background-color: ebac08;" text="Ajouter Transport">
                      <font>
                         <Font name="System Bold" size="13.0" />
@@ -30,22 +25,17 @@
                         <Image url="@../../../images/logo1.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="60.0" layoutY="310.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/car.png" />
-                     </image>
-                  </ImageView>
                   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="36.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/insurance.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="btReclam" layoutX="17.0" layoutY="355.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="208.0" style="-fx-background-color: ebac08;" text="Mes Réclamations">
+                  <Button fx:id="btReclam" layoutX="17.0" layoutY="308.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="208.0" style="-fx-background-color: ebac08;" text="Mes Réclamations">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Button>
-                  <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="39.0" layoutY="359.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="36.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/file.png" />
                      </image>
