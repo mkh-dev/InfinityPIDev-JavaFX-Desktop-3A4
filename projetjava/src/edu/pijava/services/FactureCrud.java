@@ -84,13 +84,13 @@ public class FactureCrud implements InterfaceCRUD {
         List<Facture> list = new ArrayList<>();
 
         try {
-            String req = "SELECT netApayer FROM `facture` where idUser=" + idUser;
+String req = "SELECT * FROM `facture` where idUser=" + idUser;
             Statement st = conn.createStatement();
 
             ResultSet RS = st.executeQuery(req);
             while (RS.next()) {
                 Facture f = new Facture();
-
+                f.setIdFacture(RS.getInt("idFacture"));
                 f.setNetApayer(RS.getInt("netApayer"));
                 //f.setIdUser(RS.getInt("idUser"));
                 //f.setPrenomUser(RS.getString("prenom")); 
