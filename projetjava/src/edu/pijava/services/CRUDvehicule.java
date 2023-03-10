@@ -4,7 +4,7 @@
  */
 package edu.pijava.services;
 
-import edu.pijava.model.Vehicule;
+import edu.pijava.model.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -80,4 +80,3 @@ Connection conn = MyConnection.getInstance().getConn();
    return veh;
  }
 }
-

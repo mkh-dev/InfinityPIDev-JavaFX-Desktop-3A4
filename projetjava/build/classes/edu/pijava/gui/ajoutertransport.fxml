@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="482.0" prefWidth="682.0" style="-fx-background-color: #ebac08;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pijava.gui.AjoutertransportController">
+   <children>
+      <Label layoutX="121.0" layoutY="66.0" prefHeight="18.0" prefWidth="86.0" style="-fx-background-color: black;" text="Heure Depart :" textFill="WHITE" />
+      <Label layoutX="122.0" layoutY="160.0" style="-fx-background-color: black;" text="Type Transport :" textFill="WHITE" />
+      <Label layoutX="120.0" layoutY="200.0" prefHeight="18.0" prefWidth="86.0" style="-fx-background-color: black;" text="Lieu Depart :" textFill="WHITE" />
+      <Label layoutX="122.0" layoutY="244.0" prefHeight="18.0" prefWidth="86.0" style="-fx-background-color: black;" text="Lieu Arriver :" textFill="WHITE" />
+      <Label layoutX="119.0" layoutY="291.0" prefHeight="18.0" prefWidth="86.0" style="-fx-background-color: black;" text="Prix Transport :" textFill="WHITE" />
+      <TextField fx:id="lieu_arriver_aj" layoutX="226.0" layoutY="240.0" />
+      <TextField fx:id="heure_depart_aj" layoutX="226.0" layoutY="63.0" />
+      <TextField fx:id="lieu_depart_aj" layoutX="226.0" layoutY="196.0" />
+      <TextField fx:id="prix_transport_aj" layoutX="226.0" layoutY="287.0" />
+      <DatePicker fx:id="date_depart_aj" layoutX="228.0" layoutY="103.0" prefHeight="26.0" prefWidth="150.0" />
+      <Label layoutX="121.0" layoutY="107.0" prefHeight="18.0" prefWidth="86.0" style="-fx-background-color: black;" text="Date Depart :" textFill="WHITE" />
+      <Button fx:id="Ajouter" layoutX="322.0" layoutY="334.0" mnemonicParsing="false" onAction="#savetransport" style="-fx-background-color: black;" text="Ajouter" textFill="WHITE" />
+      <Button fx:id="Annuler" layoutX="363.0" layoutY="438.0" mnemonicParsing="false" style="-fx-background-color: black;" text="Annuler" textFill="WHITE" />
+      <ComboBox fx:id="type_transport_aj" layoutX="224.0" layoutY="156.0" prefWidth="150.0" />
+      <Button fx:id="voir_ajoute" layoutX="565.0" layoutY="71.0" mnemonicParsing="false" style="-fx-background-color: black;" text="Voir Ajoute" textFill="WHITE" />
+      <AnchorPane fx:id="anchorajoutertransport" layoutX="523.0" layoutY="204.0" prefHeight="26.0" prefWidth="67.0" />
+      <Button fx:id="suivant_t" layoutX="575.0" layoutY="438.0" mnemonicParsing="false" style="-fx-background-color: black;" text="Suivant" textFill="WHITE" />
+      <AnchorPane fx:id="anchore_suivant_t" layoutX="535.0" layoutY="377.0" prefHeight="10.0" prefWidth="55.0" />
+      <Button layoutX="421.0" layoutY="196.0" mnemonicParsing="false" onAction="#getPosition" style="-fx-background-color: black;" text="Utiliser ma position actuel" textFill="WHITE" />
+   </children>
+</AnchorPane>

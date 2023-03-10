@@ -27,14 +27,14 @@ public class TransporteurController implements Initializable {
     }    
     
     public void openTransport() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("ReclamationsPartenaire.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("ajoutertransport.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
     }
     
     public void openVehicule() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Inscription.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("ajoutervehicule.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();

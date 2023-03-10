@@ -26,6 +26,10 @@ public class Transport {
        this.lieu_arriver=lieu_arriver;
        this.prix_transport=prix_transport;
     }
+
+    public Transport() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     @Override
     public int hashCode() {
         int hash = 7;
@@ -112,5 +116,4 @@ public class Transport {
         this.prix_transport = prix_transport;
     }
 }
-
 

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" fx:id="modifierAnchorePane" onMouseMoved="#getData" prefHeight="482.0" prefWidth="682.0" style="-fx-background-color: #ebac08;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ModifiertransportController">
+   <children>
+      <Label layoutX="152.0" layoutY="78.0" prefHeight="18.0" prefWidth="86.0" style="-fx-background-color: black;" text="Heure Depart :" textFill="WHITE" />
+      <Label layoutX="152.0" layoutY="126.0" prefHeight="18.0" prefWidth="86.0" style="-fx-background-color: black;" text="Date Depart :" textFill="WHITE" />
+      <Label layoutX="152.0" layoutY="183.0" prefHeight="18.0" prefWidth="86.0" style="-fx-background-color: black;" text="Type Transport :" textFill="WHITE" />
+      <Label layoutX="152.0" layoutY="239.0" prefHeight="18.0" prefWidth="86.0" style="-fx-background-color: black;" text="Lieu Depart :" textFill="WHITE" />
+      <Label layoutX="152.0" layoutY="284.0" prefHeight="18.0" prefWidth="86.0" style="-fx-background-color: black;" text="Lieu Arriver :" textFill="WHITE" />
+      <Label layoutX="152.0" layoutY="330.0" prefHeight="18.0" prefWidth="86.0" style="-fx-background-color: black;" text="Prix Transport :" textFill="WHITE" />
+      <TextField fx:id="heur_depart_mod_tr" layoutX="258.0" layoutY="74.0" prefHeight="26.0" prefWidth="162.0" />
+      <TextField fx:id="prix_tranport_mod_tr" layoutX="258.0" layoutY="326.0" prefHeight="26.0" prefWidth="162.0" />
+      <TextField fx:id="lieu_arriver_mod_tr" layoutX="259.0" layoutY="280.0" prefHeight="26.0" prefWidth="162.0" />
+      <TextField fx:id="lieu_depart_mod_tr" layoutX="259.0" layoutY="235.0" prefHeight="26.0" prefWidth="162.0" />
+      <DatePicker fx:id="date_depart_mod_tr" layoutX="259.0" layoutY="122.0" prefHeight="26.0" prefWidth="162.0" />
+      <ComboBox fx:id="type_transport_mod_tr" layoutX="259.0" layoutY="179.0" prefHeight="26.0" prefWidth="162.0" />
+      <Button fx:id="modifier_tra" layoutX="359.0" layoutY="362.0" mnemonicParsing="false" onAction="#modifierTrasnsportButton" style="-fx-background-color: black;" text="Modifier" textFill="WHITE" />
+      <AnchorPane fx:id="anchorpane_mod_tr" layoutX="537.0" layoutY="366.0" prefHeight="18.0" prefWidth="42.0" />
+      <Button fx:id="Retour_modifier" layoutX="22.0" layoutY="441.0" mnemonicParsing="false" onAction="#Retour_modifier_transport_button" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: black;" text="Retour" textFill="WHITE" />
+   </children>
+</AnchorPane>
