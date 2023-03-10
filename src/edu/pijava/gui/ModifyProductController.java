@@ -83,8 +83,11 @@ public class ModifyProductController implements Initializable {
     p.setImage(image);
 
 produit_service ps = new produit_service();
-ps.modifierprod(nom_prod, description, prix, quantite, id_cat, image, id_prod);
-
+if (!tfQuantite.getText().isEmpty()) {
+        ps.modifierprod(nom_prod, description, prix, quantite, id_cat, image, id_prod);
+    } else {
+        ps.modifierprod(nom_prod, description, prix, id_cat, image, id_prod);
+    }
 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 alert.setTitle("Information Dialog");
 alert.setHeaderText(null);
@@ -129,5 +132,9 @@ alert.show();
 
     void setProduitId(int id_prod) {
 this.id_prod = id_prod;    }
+
+    void setCatProdId(int parseInt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

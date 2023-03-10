@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.String?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -11,38 +10,32 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="anchropane" prefHeight="137.0" prefWidth="273.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pijava.gui.Item_cat_prodController">
+<AnchorPane id="AnchorPane" fx:id="anchorpane" onMouseClicked="#handleItemClick" prefHeight="148.0" prefWidth="252.0" style="-fx-background-color: transparent;" styleClass="right-bar" stylesheets="@first.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pijava.gui.Item_cat_prodController">
    <children>
-      <VBox fx:id="vbox" layoutX="12.0" layoutY="12.0" prefHeight="113.0" prefWidth="243.0" style="-fx-background-radius: 30; -fx-background-color: white;" stylesheets="@first.css">
-         <opaqueInsets>
-            <Insets left="15.0" right="15.0" />
-         </opaqueInsets>
+      <VBox fx:id="vboxitem" layoutX="10.0" layoutY="22.0" prefHeight="103.0" prefWidth="229.0" style="-fx-border-radius: 30; -fx-background-color: White;" styleClass="right-bar" stylesheets="@first.css">
          <children>
-            <VBox alignment="CENTER" prefHeight="61.0" prefWidth="243.0">
+            <HBox alignment="CENTER" prefHeight="69.0" prefWidth="187.0">
                <children>
-                  <HBox alignment="CENTER" prefHeight="33.0" prefWidth="199.0">
-                     <children>
-                        <Label fx:id="tfnom_cat_prod" alignment="CENTER" prefHeight="19.0" prefWidth="198.0" text="      Macaron Caramel">
-                           <font>
-                              <Font name="System Bold" size="13.0" />
-                           </font>
-                        </Label>
-                        <Button fx:id="Delete_Cat_Prod" mnemonicParsing="false" onAction="#Delete_Cat_Prod" prefHeight="23.0" prefWidth="21.0" style="-fx-background-color: transparent;" styleClass="shadow" stylesheets="@first.css">
-                           <graphic>
-                              <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../images/croix-cercle.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                     </children>
-                  </HBox>
+                  <Label fx:id="tfnomcatprod" alignment="CENTER" prefHeight="19.0" prefWidth="198.0" text="      Macaron Caramel">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="DeleteCatProd" mnemonicParsing="false" onAction="#DeleteCatProd" prefHeight="30.0" prefWidth="59.0" style="-fx-background-color: transparent;" styleClass="shadow" stylesheets="@first.css">
+                     <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/croix-cercle.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                </children>
-            </VBox>
-            <HBox alignment="CENTER" prefHeight="33.0" prefWidth="199.0">
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="229.0">
                <children>
-                  <Button fx:id="Modifier_Cat_Prod" mnemonicParsing="false" onAction="#Modifier_Cat_Prod" stylesheets="@first.css" text="Modifier">
+                  <Button fx:id="DeleteCatProd1" mnemonicParsing="false" onAction="#DeleteCatProd" prefHeight="23.0" prefWidth="21.0" style="-fx-background-color: transparent;" styleClass="shadow" stylesheets="@first.css" />
+                  <Button fx:id="modifiercatprod" mnemonicParsing="false" onAction="#modifiercatprod" stylesheets="@first.css" text="Modifier">
                      <styleClass>
                         <String fx:value="search-button" />
                         <String fx:value="shadow" />

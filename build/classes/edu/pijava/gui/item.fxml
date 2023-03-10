@@ -41,7 +41,7 @@
                   </HBox>
                   <ImageView fx:id="tfimg" fitHeight="109.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../images/803-macaron-caramel-macaron-g-1-removebg-preview.png" />
+                        <Image url="@../../../images/logo.png" />
                      </image>
                   </ImageView>
                </children>
@@ -85,8 +85,10 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="33.0" prefWidth="199.0">
                <children>
-                  <Button fx:id="ModifierProd" mnemonicParsing="false" onAction="#ModifierProd" stylesheets="@first.css" text="Modifier">
-                     <styleClass>
+                  
+                   <Button fx:id="ModifierProd" mnemonicParsing="false" onAction="#ModifierProd" stylesheets="@first.css" text="Modifier">
+
+                       <styleClass>
                         <String fx:value="search-button" />
                         <String fx:value="shadow" />
                      </styleClass>

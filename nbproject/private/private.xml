@@ -3,14 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/rimbs/Documents/GitHub/InfinityPIDev-JavaFX-Desktop/projetjava/src/edu/pijava/gui/Item_cat_prodController.java</file>
-            <file>file:/C:/Users/rimbs/Documents/GitHub/InfinityPIDev-JavaFX-Desktop/projetjava/src/edu/pijava/gui/ItemController.java</file>
             <file>file:/C:/Users/rimbs/Documents/GitHub/InfinityPIDev-JavaFX-Desktop/projetjava/src/edu/pijava/gui/ProductController.java</file>
-            <file>file:/C:/Users/rimbs/Documents/GitHub/InfinityPIDev-JavaFX-Desktop/projetjava/src/edu/pijava/gui/Partenaire.java</file>
             <file>file:/C:/Users/rimbs/Documents/GitHub/InfinityPIDev-JavaFX-Desktop/projetjava/src/edu/pijava/gui/CategorieProdController.java</file>
-            <file>file:/C:/Users/rimbs/Documents/GitHub/InfinityPIDev-JavaFX-Desktop/projetjava/src/edu/pijava/gui/addprod.fxml</file>
-            <file>file:/C:/Users/rimbs/Documents/GitHub/InfinityPIDev-JavaFX-Desktop/projetjava/src/edu/pijava/gui/TwilioSMS.java</file>
-            <file>file:/C:/Users/rimbs/Documents/GitHub/InfinityPIDev-JavaFX-Desktop/projetjava/src/edu/pijava/gui/twilio.java</file>
+            <file>file:/C:/Users/rimbs/Documents/GitHub/InfinityPIDev-JavaFX-Desktop/projetjava/src/edu/pijava/gui/AddcatprodController.java</file>
+            <file>file:/C:/Users/rimbs/Documents/GitHub/InfinityPIDev-JavaFX-Desktop/projetjava/src/edu/pijava/gui/addprodController.java</file>
+            <file>file:/C:/Users/rimbs/Documents/GitHub/InfinityPIDev-JavaFX-Desktop/projetjava/src/edu/pijava/gui/ModifyProductController.java</file>
+            <file>file:/C:/Users/rimbs/Documents/GitHub/InfinityPIDev-JavaFX-Desktop/projetjava/src/edu/pijava/gui/ModifyCatProdController.java</file>
         </group>
     </open-files>
 </project-private>

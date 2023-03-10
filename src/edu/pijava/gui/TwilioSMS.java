@@ -29,7 +29,7 @@ public class TwilioSMS {
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 
         // Send the message
-        Message message = Message.creator(new PhoneNumber(TO_NUMBER), new PhoneNumber(FROM_NUMBER), "Hello from Twilio!").create();
+        Message message = Message.creator(new PhoneNumber(TO_NUMBER), new PhoneNumber(FROM_NUMBER), "Hello Zohra").create();
 
         // Print the message SID
         System.out.println("Message SID: " + message.getSid());

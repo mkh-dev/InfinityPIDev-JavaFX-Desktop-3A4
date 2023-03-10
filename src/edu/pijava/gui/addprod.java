@@ -27,7 +27,7 @@ public class addprod extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            Parent root =FXMLLoader.load(getClass().getResource("Third.fxml"));
+            Parent root =FXMLLoader.load(getClass().getResource("addprod.fxml"));
             Scene scene = new Scene(root);
             
             

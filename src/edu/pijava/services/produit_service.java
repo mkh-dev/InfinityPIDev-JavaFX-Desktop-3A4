@@ -8,13 +8,17 @@ package edu.pijava.services;
 import edu.pijava.model.categorie_prod;
 import edu.pijava.model.produit;
 import edu.pijava.utils.MyConnection;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -23,7 +27,7 @@ import java.util.logging.Logger;
  * @author rimbs
  */
 public class produit_service {
-     Statement ste;
+    Statement ste;
     Connection conn = MyConnection.getInstance().getConn();
   
     //Mèthode pour afficher produit
@@ -43,7 +47,7 @@ public class produit_service {
              p.setQuantite(RS.getInt("quantite"));
              p.setNom_part(RS.getString("nom_part"));
              p.setId_cat(RS.getInt("id_cat"));
-             //p.setImage(RS.getString("image"));
+             p.setImage(RS.getString("image"));
              // String imagePath = RS.getString("image");
             // Set the image path to the product object
             //p.setImage(imagePath);
@@ -226,4 +230,81 @@ System.out.println(ex.getMessage());
     return produits;
 }
 
+    public int getTotalProducts() {
+    Connection conn = null;
+    Statement stmt = null;
+    ResultSet rs = null;
+    int total = 0;
+    try {
+        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pidev", "root", "");
+        stmt = conn.createStatement();
+        rs = stmt.executeQuery("SELECT COUNT(*) FROM produit");
+        if (rs.next()) {
+            total = rs.getInt(1);
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } finally {
+        try {
+            if (rs != null) rs.close();
+            if (stmt != null) stmt.close();
+            if (conn != null) conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    return total;
 }
+
+   public int getLowQuantityProducts() {
+    try {
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pidev", "root", "");
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT COUNT(*) FROM produit WHERE quantite <20 ");
+        rs.next();
+        int count = rs.getInt(1);
+        rs.close();
+        stmt.close();
+        conn.close();
+        return count;
+    } catch (SQLException e) {
+        e.printStackTrace();
+        return -1;
+    }
+}
+
+   
+   public List<produit> importer(String filePath) {
+    List<produit> produits = new ArrayList<>();
+
+    try (Scanner scanner = new Scanner(new File(filePath))) {
+        while (scanner.hasNextLine()) {
+            String line = scanner.nextLine();
+            String[] fields = line.split(",");
+
+            // Créer un nouvel objet produit à partir des données lues dans le fichier CSV
+            String nom_prod = fields[0];
+            String description = fields[1];
+            double prix = Double.parseDouble(fields[2]);
+            int quantite = Integer.parseInt(fields[3]);
+            String nom_part = fields[4];
+            int id_cat = Integer.parseInt(fields[5]);
+            String image = fields[6];
+
+            produit p = new produit(nom_prod, description, prix, quantite, nom_part, id_cat, image);
+            produits.add(p);
+        }
+    } catch (FileNotFoundException e) {
+        e.printStackTrace();
+    }
+
+    return produits;
+}
+
+    public void modifierprod(String nom_prod, String description, int prix, int id_cat, String image, int id_prod) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    }
+
+

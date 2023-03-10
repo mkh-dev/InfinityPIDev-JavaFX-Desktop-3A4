@@ -28,7 +28,7 @@ public class product extends Application {
     public void start(Stage primaryStage) {
         try {
             Parent root =FXMLLoader.load(getClass().getResource("product.fxml"));
-            
+      
             Scene scene = new Scene(root);
             
             primaryStage.setTitle("Hello World!");
