@@ -40,6 +40,16 @@
                         <Image url="@../../../images/insurance.png" />
                      </image>
                   </ImageView>
+                  <Button fx:id="btReclam" layoutX="17.0" layoutY="355.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="208.0" style="-fx-background-color: ebac08;" text="Mes Réclamations">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="39.0" layoutY="359.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/file.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
           <AnchorPane fx:id="pane1" minHeight="0.0" minWidth="0.0" prefHeight="488.0" prefWidth="365.0">

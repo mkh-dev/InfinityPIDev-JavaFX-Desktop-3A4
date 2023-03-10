@@ -8,7 +8,7 @@ package edu.pijava.interfaces;
 import edu.pijava.model.Facture;
 import edu.pijava.model.Reservation;
 import edu.pijava.model.Reservation2;
-import edu.pijava.model.evenement;
+import edu.pijava.model.Evenement;
 
 import java.util.List;
 
@@ -25,7 +25,7 @@ public interface InterfaceCRUD {
     public void ajouterReservation(Reservation r);
         public void ajouterReservation2(Reservation2 r);
 
-   public void ajouterReservation2(Reservation r, evenement e);
+   public void ajouterReservation2(Reservation r, Evenement e);
 
     public void modifierReservation(Reservation r);
 
@@ -53,6 +53,6 @@ public interface InterfaceCRUD {
      * @return
      */
     public List<Facture> afficherFacture();
-    public void afficherReservation(int idUser, evenement e );
+    public void afficherReservation(int idUser, Evenement e );
 
 }

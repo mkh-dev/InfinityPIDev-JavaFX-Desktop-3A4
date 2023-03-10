@@ -9,7 +9,7 @@ import edu.pijava.model.Reservation;
 import edu.pijava.interfaces.InterfaceCRUD;
 import edu.pijava.model.Facture;
 import edu.pijava.model.Reservation2;
-import edu.pijava.model.evenement;
+import edu.pijava.model.Evenement;
 import edu.pijava.utils.MyConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -40,7 +40,7 @@ public class ReservationCrud implements InterfaceCRUD {
         }
     }
     @Override
-    public void ajouterReservation2(Reservation r,evenement e) {
+    public void ajouterReservation2(Reservation r,Evenement e) {
         try {
             String req = "INSERT INTO `reservation2`( `idUser`,`nbPlaces`,`nom_event`) VALUES ('" + r.getIdUser() + "','" + r.getNbPlaces() + "','" + e.getNom_event()+ "')";
             ste = conn.createStatement();
@@ -247,7 +247,7 @@ public class ReservationCrud implements InterfaceCRUD {
     }
 
     @Override
-    public void afficherReservation(int idUser, evenement e) {
+    public void afficherReservation(int idUser, Evenement e) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

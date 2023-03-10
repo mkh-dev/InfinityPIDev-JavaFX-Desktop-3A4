@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 package edu.pijava.model;
-import edu.pijava.model.evenement;
-import edu.pijava.model.categorie_event;
+import edu.pijava.model.Evenement;
+import edu.pijava.model.CategorieEvenement;
 import java.sql.Timestamp;
 
 /**

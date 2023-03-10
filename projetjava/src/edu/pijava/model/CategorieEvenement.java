@@ -3,24 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.pijava.services;
+package edu.pijava.model;
 
 /**
  *
- * @author rimbs
+ * @author MALEK-ADMIN
  */
-public class categorie_event {
-    
-    private int id_cat_event;
-    private String cat_event;
+public class CategorieEvenement {
+        private int id_cat_event;
+        private String cat_event;
 
-    public categorie_event() {
-        this.id_cat_event = 0;
-        this.cat_event ="";
+    public CategorieEvenement() {
+    }
+        
+        
+
+    public CategorieEvenement(int id_cat_event, String cat_event) {
+        this.id_cat_event = id_cat_event;
+        this.cat_event = cat_event;
     }
 
-    public categorie_event(String cat_event) {
-       
+    public CategorieEvenement(String cat_event) {
         this.cat_event = cat_event;
     }
 
@@ -42,8 +45,9 @@ public class categorie_event {
 
     @Override
     public String toString() {
-        return "categorie_event{" + "id_cat_event=" + id_cat_event + ", cat_event=" + cat_event + '}';
+        return "CategorieEvenement{" + "cat_event=" + cat_event + '}';
     }
-    
-    
+
+  
+        
 }

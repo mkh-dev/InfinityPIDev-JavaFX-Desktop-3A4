@@ -42,13 +42,19 @@ public class ReserverEventController implements Initializable {
     private Button fxtest;
      @FXML
     private Button deconnexionButton;
+         @FXML
+    private Button btEvent;
+                 @FXML
+    private Button btReclam;
+
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        setBtnEvent(btEvent);
+        setBtnReclam(btReclam);
     }
 
     @FXML
@@ -67,7 +73,7 @@ public class ReserverEventController implements Initializable {
     public void handlebc2(ActionEvent event) {
         try {
             Parent sv;
-            sv = (AnchorPane) FXMLLoader.load(getClass().getResource("/edu/pijava/gui/MesReservations.fxml"));
+            sv = (AnchorPane) FXMLLoader.load(getClass().getResource("/edu/pijava/gui/Login.fxml"));
             pane1.getChildren().removeAll();
             pane1.getChildren().setAll(sv);
         } catch (IOException ex) {
@@ -100,6 +106,43 @@ public class ReserverEventController implements Initializable {
             Logger.getLogger(ReserverEventController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+    
+    
+    public void openEvent() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/edu/pijava/gui/Evenement.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+    
+    public void setBtnEvent(Button btEvent) {
+        this.btEvent = btEvent;
+        this.btEvent.setOnAction(e -> {
+            try {
+                openEvent();
+            } catch (IOException ex) {
+               
+            }
+        });
+    }
+    
+    public void openReclam() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/edu/pijava/gui/ReclamationsUtilisateur.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+    
+    public void setBtnReclam(Button btReclam) {
+        this.btReclam = btReclam;
+        this.btReclam.setOnAction(e -> {
+            try {
+                openReclam();
+            } catch (IOException ex) {
+               
+            }
+        });
     }
 @FXML
     public void deconnexion(ActionEvent event) throws IOException {

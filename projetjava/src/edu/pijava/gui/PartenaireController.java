@@ -19,11 +19,13 @@ public class PartenaireController implements Initializable {
     public Button btnCategorie;
          @FXML
     private Button deconnexionButton;
-    
+               @FXML
+    private Button btReclam;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         setBtnPartenaire(btnPartenaire);
         setBtnCategorie(btnCategorie);
+         setBtnReclam(btReclam);
     }    
     
     public void openPartenaire() throws IOException {
@@ -61,6 +63,25 @@ public class PartenaireController implements Initializable {
             }
         });
     }
+    
+    public void openReclam() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("ReclamationsPartenaire.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+    
+    public void setBtnReclam(Button btReclam) {
+        this.btReclam = btReclam;
+        this.btReclam.setOnAction(e -> {
+            try {
+                openReclam();
+            } catch (IOException ex) {
+               
+            }
+        });
+    }
+    
     
     @FXML
     public void deconnexion(ActionEvent event) throws IOException {

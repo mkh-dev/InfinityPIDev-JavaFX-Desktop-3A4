@@ -5,34 +5,30 @@
  */
 package edu.pijava.model;
 
-
 import java.sql.Date;
-import java.sql.Timestamp;
 
-public class evenement {
-    private int id_event;
+/**
+ *
+ * @author MALEK-ADMIN
+ */
+public class Evenement {
+     private int id_event;
     private String nom_event;
     private String description_event;
-    private Timestamp date_debut_event;
-    private Timestamp date_fin_event;
+    private Date date_debut_event;
+    private Date date_fin_event;
     private String lieu_event;
-    private double budget_event;
+    private float budget_event;
     private int id_transport;
     private String image;
     private int id_cat_event;
-    public evenement() {
-        
-        this.id_event = 0;
-        this.nom_event = "";
-        this.description_event = "";
-        this.lieu_event = "";
-        this.budget_event = 0;
-        this.id_transport = 0;
-        this.image = "";
-        this.id_cat_event = 0;
+     private int id_prod;
+
+    public Evenement() {
     }
 
-    public evenement( String nom_event, String description_event, Timestamp date_debut_event, Timestamp date_fin_event, String lieu_event, double budget_event, int id_transport, String image,int id_cat_event) {
+    public Evenement(int id_event, String nom_event, String description_event, Date date_debut_event, Date date_fin_event, String lieu_event, float budget_event, int id_transport, String image, int id_cat_event, int id_prod) {
+        this.id_event = id_event;
         this.nom_event = nom_event;
         this.description_event = description_event;
         this.date_debut_event = date_debut_event;
@@ -42,6 +38,20 @@ public class evenement {
         this.id_transport = id_transport;
         this.image = image;
         this.id_cat_event = id_cat_event;
+        this.id_prod = id_prod;
+    }
+
+    public Evenement(String nom_event, String description_event, Date date_debut_event, Date date_fin_event, String lieu_event, float budget_event, int id_transport, String image, int id_cat_event, int id_prod) {
+        this.nom_event = nom_event;
+        this.description_event = description_event;
+        this.date_debut_event = date_debut_event;
+        this.date_fin_event = date_fin_event;
+        this.lieu_event = lieu_event;
+        this.budget_event = budget_event;
+        this.id_transport = id_transport;
+        this.image = image;
+        this.id_cat_event = id_cat_event;
+        this.id_prod = id_prod;
     }
 
     public int getId_event() {
@@ -68,19 +78,19 @@ public class evenement {
         this.description_event = description_event;
     }
 
-    public Timestamp getDate_debut_event() {
+    public Date getDate_debut_event() {
         return date_debut_event;
     }
 
-    public void setDate_debut_event(Timestamp date_debut_event) {
+    public void setDate_debut_event(Date date_debut_event) {
         this.date_debut_event = date_debut_event;
     }
 
-    public Timestamp getDate_fin_event() {
+    public Date getDate_fin_event() {
         return date_fin_event;
     }
 
-    public void setDate_fin_event(Timestamp date_fin_event) {
+    public void setDate_fin_event(Date date_fin_event) {
         this.date_fin_event = date_fin_event;
     }
 
@@ -92,11 +102,11 @@ public class evenement {
         this.lieu_event = lieu_event;
     }
 
-    public double getBudget_event() {
+    public float getBudget_event() {
         return budget_event;
     }
 
-    public void setBudget_event(double budget_event) {
+    public void setBudget_event(float budget_event) {
         this.budget_event = budget_event;
     }
 
@@ -124,19 +134,17 @@ public class evenement {
         this.id_cat_event = id_cat_event;
     }
 
+    public int getId_prod() {
+        return id_prod;
+    }
+
+    public void setId_prod(int id_prod) {
+        this.id_prod = id_prod;
+    }
+
     @Override
     public String toString() {
-        return "evenement{" + "id_event=" + id_event + ", nom_event=" + nom_event + ", description_event=" + description_event + ", date_debut_event=" + date_debut_event + ", date_fin_event=" + date_fin_event + ", lieu_event=" + lieu_event + ", budget_event=" + budget_event + ", id_transport=" + id_transport + ", image=" + image + ", id_cat_event=" + id_cat_event + '}';
+        return "Evenement{" + "nom_event=" + nom_event + ", description_event=" + description_event + ", date_debut_event=" + date_debut_event + ", date_fin_event=" + date_fin_event + ", lieu_event=" + lieu_event + ", budget_event=" + budget_event + ", id_transport=" + id_transport + ", image=" + image + ", id_cat_event=" + id_cat_event + ", id_prod=" + id_prod + '}';
     }
 
-   
-    }
-
-  
-    
-    
-    
-    
-    
-    
-    
+}

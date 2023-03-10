@@ -19,11 +19,14 @@ public class TransporteurController implements Initializable {
     public Button btnVehicule;
          @FXML
     private Button deconnexionButton;
+                      @FXML
+    private Button btReclam;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         setBtnTransport(btnTransport);
         setBtnVehicule(btnVehicule);
+         setBtnReclam(btReclam);
     }    
     
     public void openTransport() throws IOException {
@@ -56,6 +59,24 @@ public class TransporteurController implements Initializable {
         this.btnVehicule.setOnAction(e -> {
             try {
                 openVehicule();
+            } catch (IOException ex) {
+               
+            }
+        });
+    }
+    
+    public void openReclam() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("ReclamationsTransporteur.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+    
+    public void setBtnReclam(Button btReclam) {
+        this.btReclam = btReclam;
+        this.btReclam.setOnAction(e -> {
+            try {
+                openReclam();
             } catch (IOException ex) {
                
             }
