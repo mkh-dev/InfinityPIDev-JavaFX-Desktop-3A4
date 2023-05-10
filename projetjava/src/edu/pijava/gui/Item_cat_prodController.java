@@ -68,7 +68,7 @@ public class Item_cat_prodController implements Initializable {
     @FXML
     private void DeleteCatProd(ActionEvent event) {
          // Récupérer l'id du produit correspondant à l'item sélectionné
-    int id_cat = Integer.parseInt(anchorpane.getId());
+    int id_cat_prod = Integer.parseInt(anchorpane.getId());
 
     // Créer une boîte de dialogue de confirmation
     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -91,7 +91,7 @@ alert.getDialogPane().getStyleClass().add("alert");
         
 
         // Si l'utilisateur a confirmé la suppression, supprimer le produit correspondant à l'id
-        if (supprimercatprod1(id_cat)) {
+        if (supprimercatprod1(id_cat_prod)) {
             // Si la suppression a réussi, retirer l'item de la liste
             anchorpane.getChildren().remove(anchorpane);
             
@@ -119,12 +119,12 @@ alert.getDialogPane().getStyleClass().add("alert");
 
     //categorie_prod cp=new categorie_prod();
           //Mèthode pour supprimer categorie produit 
-    public boolean supprimercatprod1(int id_cat) {
+    public boolean supprimercatprod1(int id_cat_prod) {
 
-        String requete = "DELETE FROM categorie_prod WHERE id_cat = ?";
+        String requete = "DELETE FROM categorie_prod WHERE id_cat_prod = ?";
     try {
         PreparedStatement pst = conn.prepareStatement(requete);
-        pst.setInt(1, id_cat);
+        pst.setInt(1, id_cat_prod);
         if (pst.executeUpdate() != 0) {
             System.out.println("Produit supprimé avec succès");
             return true;
@@ -142,7 +142,7 @@ alert.getDialogPane().getStyleClass().add("alert");
     void setData(categorie_prod catprod) {
      this.catprod = catprod;
         tfnomcatprod.setText(catprod.getCat_prod());
-        anchorpane.setId(Integer.toString(catprod.getId_cat()));
+        anchorpane.setId(Integer.toString(catprod.getId_cat_prod()));
     }
 
     @FXML

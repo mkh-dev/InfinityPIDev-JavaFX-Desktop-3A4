@@ -5,6 +5,8 @@
  */
 package edu.pijava.model;
 
+import java.util.logging.Logger;
+
 /**
  *
  * @author rimbs
@@ -16,8 +18,11 @@ public class produit {
     private double prix;
     private int quantite;
     private String nom_part;
-    private int id_cat;
+    private int id_cat_prod;
     private String image;
+    private int nb_likes;
+    private int  nb_dislikes;
+    
 
     public produit() {
         this.id_prod=0;
@@ -26,40 +31,54 @@ public class produit {
         this.prix=0;
         this.quantite=0;
         this.nom_part="";
-        this.id_cat=0;
+        this.id_cat_prod=0;
         this.image="";
+        this. nb_likes=0;
+        this. nb_dislikes=0;
     }
 
-    public produit( String nom_prod, String description, double prix, int quantite, String nom_part, int id_cat,String image) {
+    public produit( String nom_prod, String description, double prix, int quantite, String nom_part, int id_cat_prod,String image) {
         
         this.nom_prod = nom_prod;
         this.description = description;
         this.prix = prix;
         this.quantite = quantite;
         this.nom_part = nom_part;
-        this.id_cat = id_cat;
+        this.id_cat_prod = id_cat_prod;
         this.image=image;
     }
 
-     public produit(int id_prod, String nom_prod, String description, double prix, int quantite, String nom_part, int id_cat,String image) {
+     public produit(int id_prod, String nom_prod, String description, double prix, int quantite, String nom_part, int id_cat_prod,String image) {
         this.id_prod=id_prod;
         this.nom_prod = nom_prod;
         this.description = description;
         this.prix = prix;
         this.quantite = quantite;
         this.nom_part = nom_part;
-        this.id_cat = id_cat;
+        this.id_cat_prod = id_cat_prod;
         this.image=image;
     }
 
-    public produit(String nom_prod, double prix, int quantite, int id_cat, String description, String nom_part, String image) {
+    public produit(String nom_prod, double prix, int quantite, int id_cat_prod, String description, String nom_part, String image) {
         this.nom_prod = nom_prod;
         this.prix = prix;
         this.quantite = quantite;
-        this.id_cat = id_cat;
+        this.id_cat_prod = id_cat_prod;
         this.description = description;
         this.nom_part = nom_part;
         this.image=image;
+    }
+    
+     public produit(String nom_prod, double prix, int quantite, int id_cat_prod, String description, String nom_part, String image,int  nb_likes,int  nb_dislikes) {
+        this.nom_prod = nom_prod;
+        this.prix = prix;
+        this.quantite = quantite;
+        this.id_cat_prod = id_cat_prod;
+        this.description = description;
+        this.nom_part = nom_part;
+        this.image=image;
+        this.nb_likes= nb_likes;
+        this. nb_dislikes= nb_dislikes;
     }
 
     public int getId_prod() {
@@ -110,12 +129,12 @@ public class produit {
         this.nom_part = nom_part;
     }
 
-    public int getId_cat() {
-        return id_cat;
+    public int getId_cat_prod() {
+        return id_cat_prod;
     }
 
-    public void setId_cat(int id_cat) {
-        this.id_cat = id_cat;
+    public void setId_cat_prod(int id_cat_prod) {
+        this.id_cat_prod = id_cat_prod;
     }
 
     public String getImage() {
@@ -125,12 +144,27 @@ public class produit {
     public void setImage(String image) {
         this.image = image;
     }
+    
+     public int getNb_likes() {
+        return  nb_likes;
+    }
 
-    @Override
-    public String toString() {
-        return "produit{" + "id_prod=" + id_prod + ", nom_prod=" + nom_prod + ", description=" + description + ", prix=" + prix + ", quantite=" + quantite + ", nom_part=" + nom_part + ", id_cat=" + id_cat + ", image=" + image + '}';
+    public void setNb_likes(int  nb_likes) {
+        this.nb_likes =  nb_likes;
     }
     
+     public int getNb_dislikes() {
+        return  nb_dislikes;
+    }
+
+    public void setNb_dislikes(int nb_dislikes) {
+        this. nb_dislikes =  nb_dislikes;
+    }
+
+    @Override
+public String toString() {
+    return "produit{" + "id_prod=" + id_prod + ", nom_prod=" + nom_prod + ", description=" + description + ", prix=" + prix + ", quantite=" + quantite + ", nom_part=" + nom_part + ", id_cat_prod=" + id_cat_prod + ", image=" + image + '}';
+}
 
   
     

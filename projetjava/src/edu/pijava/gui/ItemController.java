@@ -135,42 +135,21 @@ private void ModifierProd(ActionEvent event) {
 }
 
     
-     public void setData(produit prod) {
-            this.produit = prod;
-        tfnomprod.setText(prod.getNom_prod());
-        tfdesc.setText(prod.getDescription());
-        //tfidcat.setText(Integer.toString(prod.getId_cat()));
-        tfprix.setText(Double.toString(prod.getPrix()));
-        tfquantite.setText(Integer.toString(prod.getQuantite()));
-        anchropane.setId(Integer.toString(prod.getId_prod()));
-        String imagePath = "C:/xampp/htdocs/img/" + prod.getImage();
-        // Create an ImageView object
-        ImageView imageView = new ImageView();
-        // Create a File object with the path of your image
-        //File file = new File(imagePath);
-
-        //File file = new File(prod.getImage());
-        System.out.println("Image : " + prod.getImage());
-
-        // Check if the file exists
-        //if (file.exists()) {
-        // Create an Image object with the file path
-        //Image image = new Image(file.toURI().toString());
-        //On verrifie si le chemin vers l'image n'est pa vide
-        if (prod.getImage() == null && prod.getImage().isEmpty()) {
-            System.out.println("Image Introuvable, Utilisation de l'image par defaut");
-        } else {
-            Image image = new Image(getClass().getResourceAsStream(prod.getImage()));
-            this.tfimg.setImage(image);
-        }
-        //System.out.println(file.toURI().toString());
-        // Set the image to the ImageView
-
-        // } else {
-        /* System.out.println(file.toURI().toString());
-            System.out.println("Image not found.");*/
+ public void setData(produit prod) {
+    this.produit = prod;
+    tfnomprod.setText(prod.getNom_prod());
+    tfdesc.setText(prod.getDescription());
+    tfprix.setText(Double.toString(prod.getPrix()));
+    tfquantite.setText(Integer.toString(prod.getQuantite()));
+    anchropane.setId(Integer.toString(prod.getId_prod()));
+    String imagePath = "file:///C:/xampp/htdocs/img/" + prod.getImage(); // chemin absolu sur Windows
+    Image image = new Image(imagePath);
+    if (image.isError()) {
+        System.out.println("Image introuvable: " + imagePath);
+    } else {
+        this.tfimg.setImage(image);
     }
-   
+}
 
 
 

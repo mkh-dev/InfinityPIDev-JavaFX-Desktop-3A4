@@ -244,7 +244,7 @@ File selectedFile = fileChooser.showOpenDialog(null);
             //Path destination = Paths.get("C:/xampp/htdocs/img/");
 
             //chemin relatif du dossier ou seront stocké les images des produits
-            Path destination = Paths.get("src/edu/pijava/gui/ProductData/Images");
+            Path destination = Paths.get("C://xampp//img");
             if (!destination.toFile().exists()) {
                 destination.toFile().mkdirs();
             }
@@ -255,7 +255,7 @@ File selectedFile = fileChooser.showOpenDialog(null);
                 System.out.println("Fichier copié avec succès !");
 
                 // Obtenir le lien de l'emplacement de la copie de l'image
-                String imagePath = destination.toUri().toString() + fileName;
+                String imagePath = "img/" + fileName;
 
                 String chaine = imagePath;
 
@@ -275,7 +275,7 @@ File selectedFile = fileChooser.showOpenDialog(null);
                 p.setPrix(Double.parseDouble(tfPrix.getText()));
                 p.setQuantite(Integer.parseInt(tfQuantite.getText()));
                 p.setNom_part(tfNomPart.getText());
-                p.setId_cat(Integer.parseInt(tfIdCat.getText()));
+                p.setId_cat_prod(Integer.parseInt(tfIdCat.getText()));
 
                 p.setImage(sousChaine); // Stocker le nom du fichier dans la base de données
                 //on ne stock pas le nom du fichier mais directement le chemin relatif au fichier. plus simple

@@ -83,9 +83,9 @@ private void ModifyClicked(ActionEvent event) {
     if (!prixText.isEmpty()) {
         prix = Integer.parseInt(prixText);
     }
-    int id_cat= 0;
+    int id_cat_prod= 0;
     if (!id_catText.isEmpty()) {
-        id_cat = Integer.parseInt(id_catText);
+        id_cat_prod = Integer.parseInt(id_catText);
     }
 
     // Créer un objet produit avec les valeurs récupérées
@@ -100,13 +100,13 @@ private void ModifyClicked(ActionEvent event) {
     if (prix != 0) {
         p.setPrix(prix);
     }
-    if (id_cat != 0) {
-        p.setId_cat(id_cat);
+    if (id_cat_prod != 0) {
+        p.setId_cat_prod(id_cat_prod);
     }
 
     // Appeler la méthode de modification dans le service de produit
     produit_service ps = new produit_service();
-    ps.modifierprod(nom_prod, description, prix, quantite, id_cat, id_prod);
+    ps.modifierprod(nom_prod, description, prix, quantite, id_cat_prod, id_prod);
 
     // Afficher une boîte de dialogue pour informer l'utilisateur que le produit a été modifié
     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
