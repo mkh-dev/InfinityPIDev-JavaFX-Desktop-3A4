@@ -40,6 +40,9 @@ public class AddUserController implements Initializable {
     private CheckBox ckPartenaire;
     @FXML
     private CheckBox ckTransporteur;
+    @FXML
+    private CheckBox ckOrganisateur;
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -69,6 +72,10 @@ public class AddUserController implements Initializable {
          if (ckTransporteur.isSelected()) {
             checkedCount++;
         }
+         
+        if (ckOrganisateur.isSelected()) {
+            checkedCount++;
+        }
         
         
 
@@ -94,7 +101,7 @@ public class AddUserController implements Initializable {
         String password = addPassword.getText();
 
         // Récupérer le rôle utilisateur ou partenaire
-        String userRole = ckUtilisateur.isSelected() ? "Utilisateur" : (ckPartenaire.isSelected() ? "Partenaire" : "Transporteur");
+         String userRole = ckUtilisateur.isSelected() ? "ROLE_UTILISATEUR" : (ckPartenaire.isSelected() ? "ROLE_PARTENAIRE" : (ckOrganisateur.isSelected() ? "ROLE_ORGANISATEUR" : "ROLE_TRANSPORTEUR"));
 
         Users u = new Users(prenom, nom, email, dateNaissance, numTel, userRole, password);
         UserService userCrud = new UserService();

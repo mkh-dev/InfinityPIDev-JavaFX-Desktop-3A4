@@ -35,6 +35,9 @@ public class UpdateUserController implements Initializable {
     private CheckBox ckPartenaire;
      @FXML
     private CheckBox ckTransporteur;
+         @FXML
+    private CheckBox ckOrganisateur;
+
 
     private UserService userService;
     private Users user;

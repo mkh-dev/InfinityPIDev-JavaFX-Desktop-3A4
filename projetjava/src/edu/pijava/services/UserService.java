@@ -119,10 +119,12 @@ public void ajouterUtilisateur2(Users usr){
         PreparedStatement pst = cnx2.prepareStatement(requete);
         pst.setInt(1, id);
         ResultSet rs = pst.executeQuery();
-        if (rs.next()) {
-            utilisateur = new Users(rs.getInt("id"), rs.getString("nom"), rs.getString("prenom"),
-                    rs.getString("email"), rs.getDate("dateNaissance"), rs.getInt("numTel"), rs.getString("userRole"),rs.getString("password"));
-        }
+if (rs.next()) {
+    utilisateur = new Users(rs.getInt("id"), rs.getString("nom"), rs.getString("prenom"),
+            rs.getString("email"), rs.getDate("dateNaissance"), rs.getInt("numTel"),
+            rs.getString("userRole"), rs.getString("password"), rs.getInt("is_verified"));
+}
+
     } catch (SQLException ex) {
         System.err.println(ex.getMessage());
     }
