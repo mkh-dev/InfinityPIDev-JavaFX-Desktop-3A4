@@ -12,11 +12,12 @@ public class Users {
     private int numTel;
     private String userRole;
     private String password;
+    private int is_verified;
 
     public Users() {
     }
 
-    public Users(int id, String prenom, String nom, String email, Date dateNaissance, int numTel, String userRole, String password) {
+    public Users(int id, String prenom, String nom, String email, Date dateNaissance, int numTel, String userRole, String password, int is_verified) {
         this.id = id;
         this.prenom = prenom;
         this.nom = nom;
@@ -24,17 +25,19 @@ public class Users {
         this.dateNaissance = dateNaissance;
         this.numTel = numTel;
         this.userRole = userRole;
-        setPassword(password);
+        this.password = password;
+        this.is_verified = is_verified;
     }
 
-    public Users(String prenom, String nom, String email, Date dateNaissance, int numTel, String userRole, String password) {
+    public Users(String prenom, String nom, String email, Date dateNaissance, int numTel, String userRole, String password, int is_verified) {
         this.prenom = prenom;
         this.nom = nom;
         this.email = email;
         this.dateNaissance = dateNaissance;
         this.numTel = numTel;
         this.userRole = userRole;
-        setPassword(password);
+        this.password = password;
+        this.is_verified = is_verified;
     }
 
     public int getId() {
@@ -98,12 +101,46 @@ public class Users {
     }
 
     public void setPassword(String password) {
-        String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
-        this.password = hashedPassword;
+        this.password = password;
     }
 
-    public String toString() {
-        return prenom + " " + nom + ", " + email + ", " + dateNaissance + ", " + numTel + ", " + userRole + ", " + password;
+    public int getIs_verified() {
+        return is_verified;
     }
+
+    public void setIs_verified(int is_verified) {
+        this.is_verified = is_verified;
+    }
+
+    @Override
+    public String toString() {
+        return "Users{" + "prenom=" + prenom + ", nom=" + nom + ", email=" + email + ", dateNaissance=" + dateNaissance + ", numTel=" + numTel + ", userRole=" + userRole + ", password=" + password + '}';
+    }
+
+    public Users(int id, String prenom, String nom, String email, Date dateNaissance, int numTel, String userRole, String password) {
+        this.id = id;
+        this.prenom = prenom;
+        this.nom = nom;
+        this.email = email;
+        this.dateNaissance = dateNaissance;
+        this.numTel = numTel;
+        this.userRole = userRole;
+        this.password = password;
+    }
+
+    public Users(String prenom, String nom, String email, Date dateNaissance, int numTel, String userRole, String password) {
+        this.prenom = prenom;
+        this.nom = nom;
+        this.email = email;
+        this.dateNaissance = dateNaissance;
+        this.numTel = numTel;
+        this.userRole = userRole;
+        this.password = password;
+    }
+
+  
+   
+    
+
 }
 

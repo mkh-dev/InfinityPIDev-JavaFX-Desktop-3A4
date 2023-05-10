@@ -64,6 +64,8 @@ public class InscriptionController implements Initializable {
     @FXML
     private CheckBox ckTransporteur;
     @FXML
+    private CheckBox ckOrganisateur;
+    @FXML
     private Hyperlink hlinkLogin;
     
     
@@ -76,7 +78,7 @@ public class InscriptionController implements Initializable {
     private final String EMAIL_CONTENT = "Voici votre code de confirmation de compte : ";
 
     private String code;
-
+    
     /**
      * Initializes the controller class.
      */
@@ -108,6 +110,9 @@ public class InscriptionController implements Initializable {
             checkedCount++;
         }
 
+        if (ckOrganisateur.isSelected()) {
+            checkedCount++;
+        }
         if (checkedCount != 1) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Erreur de saisie");
@@ -166,7 +171,7 @@ public class InscriptionController implements Initializable {
             return;
         }
 
-        String userRole = ckUtilisateur.isSelected() ? "Utilisateur" : (ckPartenaire.isSelected() ? "Partenaire" : "Transporteur");
+        String userRole = ckUtilisateur.isSelected() ? "ROLE_UTILISATEUR" : (ckPartenaire.isSelected() ? "ROLE_PARTENAIRE" : (ckOrganisateur.isSelected() ? "ROLE_ORGANISATEUR" : "ROLE_TRANSPORTEUR"));
 
         Users u = new Users(prenom, nom, email, dateNaissance, numTel, userRole, password);
         UserService userCrud = new UserService();
