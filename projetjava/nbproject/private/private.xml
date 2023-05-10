@@ -3,8 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/MALEK-ADMIN/Documents/NetBeansProjects/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/edu/pijava/services/EvenementCategorieService.java</file>
+            <file>file:/C:/Users/MALEK-ADMIN/Documents/NetBeansProjects/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/edu/pijava/services/UploadServices.java</file>
             <file>file:/C:/Users/MALEK-ADMIN/Documents/NetBeansProjects/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/edu/pijava/gui/AddUserController.java</file>
+            <file>file:/C:/Users/MALEK-ADMIN/Documents/NetBeansProjects/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/edu/pijava/services/FactureCrud.java</file>
+            <file>file:/C:/Users/MALEK-ADMIN/Documents/NetBeansProjects/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/edu/pijava/services/EvenementCategorieService.java</file>
+            <file>file:/C:/Users/MALEK-ADMIN/Documents/NetBeansProjects/InfinityPIDev-JavaFX-Desktop-3A4/projetjava/src/edu/pijava/gui/AddEvent.fxml</file>
         </group>
     </open-files>
 </project-private>
