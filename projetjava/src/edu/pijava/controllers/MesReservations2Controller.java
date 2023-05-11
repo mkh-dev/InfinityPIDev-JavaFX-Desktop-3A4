@@ -57,7 +57,7 @@ public class MesReservations2Controller implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         ReservationCrud rc = new ReservationCrud();
-        ObservableList<Reservation> ReservationList = FXCollections.observableArrayList(rc.afficherMesReservations(2));
+        ObservableList<Reservation> ReservationList = FXCollections.observableArrayList(rc.afficherMesReservations(62));
         listview.setItems(ReservationList);
         fxnbre.setText("Vous Avez " + ReservationList.size() + " réservations:");
         ;
@@ -67,7 +67,7 @@ public class MesReservations2Controller implements Initializable {
     @FXML
     private void delete(ActionEvent event) {
         ReservationCrud rc = new ReservationCrud();
-        ObservableList<Reservation> ReservationList = FXCollections.observableArrayList(rc.afficherMesReservations(2));
+        ObservableList<Reservation> ReservationList = FXCollections.observableArrayList(rc.afficherMesReservations(62));
         Reservation selectedRes = listview.getSelectionModel().getSelectedItem();
         if (selectedRes != null) {
             rc.annulerReservation(selectedRes.getNumRes());
