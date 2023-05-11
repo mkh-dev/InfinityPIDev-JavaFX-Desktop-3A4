@@ -14,31 +14,34 @@ public class Users {
     private String password;
     private int is_verified;
 
-    public Users() {
-    }
+  
 
-    public Users(int id, String prenom, String nom, String email, Date dateNaissance, int numTel, String userRole, String password, int is_verified) {
-        this.id = id;
-        this.prenom = prenom;
-        this.nom = nom;
-        this.email = email;
-        this.dateNaissance = dateNaissance;
-        this.numTel = numTel;
-        this.userRole = userRole;
-        this.password = password;
-        this.is_verified = is_verified;
-    }
+public Users() {
+    this.is_verified = 1;
+}
 
-    public Users(String prenom, String nom, String email, Date dateNaissance, int numTel, String userRole, String password, int is_verified) {
-        this.prenom = prenom;
-        this.nom = nom;
-        this.email = email;
-        this.dateNaissance = dateNaissance;
-        this.numTel = numTel;
-        this.userRole = userRole;
-        this.password = password;
-        this.is_verified = is_verified;
-    }
+public Users(int id, String prenom, String nom, String email, Date dateNaissance, int numTel, String userRole, String password, int is_verified) {
+    this.id = id;
+    this.prenom = prenom;
+    this.nom = nom;
+    this.email = email;
+    this.dateNaissance = dateNaissance;
+    this.numTel = numTel;
+    this.userRole = userRole;
+    this.password = password;
+    this.is_verified = 1; // Toujours définir la valeur à 1
+}
+
+public Users(String prenom, String nom, String email, Date dateNaissance, int numTel, String userRole, String password, int is_verified) {
+    this.prenom = prenom;
+    this.nom = nom;
+    this.email = email;
+    this.dateNaissance = dateNaissance;
+    this.numTel = numTel;
+    this.userRole = userRole;
+    this.password = password;
+    this.is_verified = 1; // Toujours définir la valeur à 1
+}
 
     public int getId() {
         return id;

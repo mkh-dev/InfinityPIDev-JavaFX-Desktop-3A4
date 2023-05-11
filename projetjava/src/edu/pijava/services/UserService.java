@@ -38,7 +38,7 @@ public void ajouterUtilisateur2(Users usr){
             pst.setString(4,dateNaissance);
             pst.setString(5, String.valueOf(usr.getNumTel()));
             pst.setString(6,usr.getUserRole());
-            pst.setString(7, BCrypt.hashpw(usr.getPassword(), BCrypt.gensalt()));
+            pst.setString(8, BCrypt.hashpw(usr.getPassword(), BCrypt.gensalt()));
             pst.executeUpdate();
         }
     } catch (SQLException ex) {

@@ -173,7 +173,7 @@ public class InscriptionController implements Initializable {
 
         String userRole = ckUtilisateur.isSelected() ? "ROLE_UTILISATEUR" : (ckPartenaire.isSelected() ? "ROLE_PARTENAIRE" : (ckOrganisateur.isSelected() ? "ROLE_ORGANISATEUR" : "ROLE_TRANSPORTEUR"));
 
-        Users u = new Users(prenom, nom, email, dateNaissance, numTel, userRole, password);
+        Users u = new Users(prenom, nom, email, dateNaissance, numTel, userRole, password, 1);
         UserService userCrud = new UserService();
         userCrud.ajouterUtilisateur2(u);  
         // Générer un code aléatoire à 6 chiffres

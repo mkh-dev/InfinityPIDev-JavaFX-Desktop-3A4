@@ -51,11 +51,14 @@ public class UpdateUserController implements Initializable {
         updateEmail.setText(user.getEmail());
         updateNumTel.setText(Integer.toString(user.getNumTel()));
         updatePassword.setText(user.getPassword());
-        if (user.getUserRole().equals("Utilisateur")) {
+        if (user.getUserRole().equals("ROLE_UTILISATEUR")) {
             ckUtilisateur.setSelected(true);
-        } else if (user.getUserRole().equals("Partenaire")) {
+        } else if (user.getUserRole().equals("ROLE_PARTENAIRE")) {
             ckPartenaire.setSelected(true);
-        } else if (user.getUserRole().equals("Transporteur")) {
+        } else if (user.getUserRole().equals("ROLE_TRANSPORTEUR")) {
+            ckTransporteur.setSelected(true);
+        }
+           else if (user.getUserRole().equals("ROLE_ORGANISATEUR")) {
             ckTransporteur.setSelected(true);
         }
     
@@ -72,11 +75,13 @@ public class UpdateUserController implements Initializable {
         user.setPassword(updatePassword.getText());
 
         if (ckUtilisateur.isSelected()) {
-            user.setUserRole("Utilisateur");
+            user.setUserRole("ROLE_UTILISATEUR");
         } else if (ckPartenaire.isSelected()) {
-            user.setUserRole("Partenaire");
+            user.setUserRole("ROLE_PARTENAIRE");
+        } else if (ckTransporteur.isSelected()) {
+            user.setUserRole("ROLE_TRANSPORTEUR");
         } else {
-            user.setUserRole("Transporteur");
+            user.setUserRole("ROLE_ORGANISATEUR");
         } 
 
         // update the user in the database

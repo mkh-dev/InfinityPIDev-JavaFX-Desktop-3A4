@@ -43,7 +43,7 @@ public class LoginController {
             alert.showAndWait();
         } else if (isValid) {
             String userRole = userService.getUserByEmail(email).getUserRole();
-            if (userRole.equals("Utilisateur")) {
+            if (userRole.equals("ROLE_UTILISATEUR")) {
                 // Charger l'interface utilisateur.fxml
                 try {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("reserverEvent.fxml"));
@@ -54,7 +54,7 @@ public class LoginController {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            } else if (userRole.equals("Partenaire")) {
+            } else if (userRole.equals("ROLE_PARTENAIRE")) {
                 // Charger l'interface page.fxml
                 try {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("Partenaire.fxml"));
@@ -65,7 +65,7 @@ public class LoginController {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                } else if (userRole.equals("Transporteur")) {
+                } else if (userRole.equals("ROLE_TRANSPORTEUR")) {
                 // Charger l'interface page.fxml
                 try {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("Transporteur.fxml"));
@@ -76,7 +76,18 @@ public class LoginController {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            } else if (userRole.equals("Administrateur")) {
+                                } else if (userRole.equals("ROLE_ORGANISATEUR")) {
+                // Charger l'interface page.fxml
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("Transporteur.fxml"));
+                    Parent root = loader.load();
+                    Stage stage = (Stage) loginButton.getScene().getWindow();
+                    Scene scene = new Scene(root);
+                    stage.setScene(scene);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else if (userRole.equals("ROLE_ADMINISTRATEUR")) {
                 // Charger l'interface inscription.fxml
                 try {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("Administrateur.fxml"));
