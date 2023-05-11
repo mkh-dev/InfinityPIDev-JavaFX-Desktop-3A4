@@ -244,7 +244,7 @@ File selectedFile = fileChooser.showOpenDialog(null);
             //Path destination = Paths.get("C:/xampp/htdocs/img/");
 
             //chemin relatif du dossier ou seront stocké les images des produits
-            Path destination = Paths.get("C://xampp//img");
+            Path destination = Paths.get("C:/xampp/htdocs/img/");
             if (!destination.toFile().exists()) {
                 destination.toFile().mkdirs();
             }
@@ -260,7 +260,7 @@ File selectedFile = fileChooser.showOpenDialog(null);
                 String chaine = imagePath;
 
                 // Découpage de la chaîne à partir de "Data"
-                int index = chaine.indexOf("ProductData");
+                int index = chaine.indexOf("C:/xampp/htdocs/img/");
                 if (index == -1) {
                     System.out.println("La chaîne ne contient pas \"Data\"");
                     return;

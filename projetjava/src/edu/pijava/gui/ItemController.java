@@ -135,19 +135,31 @@ private void ModifierProd(ActionEvent event) {
 }
 
     
- public void setData(produit prod) {
+   public void setData(produit prod) {
     this.produit = prod;
     tfnomprod.setText(prod.getNom_prod());
     tfdesc.setText(prod.getDescription());
+    //tfidcat.setText(Integer.toString(prod.getId_cat()));
     tfprix.setText(Double.toString(prod.getPrix()));
     tfquantite.setText(Integer.toString(prod.getQuantite()));
     anchropane.setId(Integer.toString(prod.getId_prod()));
-    String imagePath = "file:///C:/xampp/htdocs/img/" + prod.getImage(); // chemin absolu sur Windows
-    Image image = new Image(imagePath);
-    if (image.isError()) {
-        System.out.println("Image introuvable: " + imagePath);
-    } else {
+    
+    String imagePath = "C:/xampp/htdocs/img/" + prod.getImage();
+    System.out.println("Chemin d'accès de l'image : " + imagePath); // Afficher le chemin d'accès complet de l'image
+    
+    // Créer un objet ImageView
+    ImageView imageView = new ImageView();
+    // Créer un objet File avec le chemin d'accès de votre image
+    File file = new File(imagePath);
+
+    // Vérifier si le fichier existe
+    if (file.exists()) {
+        // Créer un objet Image avec le chemin d'accès du fichier
+        Image image = new Image(file.toURI().toString());
+        // Définir l'image pour l'objet ImageView
         this.tfimg.setImage(image);
+    } else {
+        System.out.println("Image not found.");
     }
 }
 
