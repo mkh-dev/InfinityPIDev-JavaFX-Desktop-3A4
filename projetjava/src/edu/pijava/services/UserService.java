@@ -38,7 +38,7 @@ public void ajouterUtilisateur2(Users usr){
             pst.setString(4,dateNaissance);
             pst.setString(5, String.valueOf(usr.getNumTel()));
             pst.setString(6,usr.getUserRole());
-            pst.setString(8, BCrypt.hashpw(usr.getPassword(), BCrypt.gensalt()));
+            pst.setString(7, BCrypt.hashpw(usr.getPassword(), BCrypt.gensalt()));
             pst.executeUpdate();
         }
     } catch (SQLException ex) {
@@ -122,7 +122,7 @@ public void ajouterUtilisateur2(Users usr){
 if (rs.next()) {
     utilisateur = new Users(rs.getInt("id"), rs.getString("nom"), rs.getString("prenom"),
             rs.getString("email"), rs.getDate("dateNaissance"), rs.getInt("numTel"),
-            rs.getString("userRole"), rs.getString("password"), rs.getInt("is_verified"));
+            rs.getString("userRole"), rs.getString("password"));
 }
 
     } catch (SQLException ex) {

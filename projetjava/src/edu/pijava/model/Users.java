@@ -12,36 +12,30 @@ public class Users {
     private int numTel;
     private String userRole;
     private String password;
-    private int is_verified;
 
-  
+    public Users() {
+    }
 
-public Users() {
-    this.is_verified = 1;
-}
+    public Users(int id, String prenom, String nom, String email, Date dateNaissance, int numTel, String userRole, String password) {
+        this.id = id;
+        this.prenom = prenom;
+        this.nom = nom;
+        this.email = email;
+        this.dateNaissance = dateNaissance;
+        this.numTel = numTel;
+        this.userRole = userRole;
+        this.password = password;
+    }
 
-public Users(int id, String prenom, String nom, String email, Date dateNaissance, int numTel, String userRole, String password, int is_verified) {
-    this.id = id;
-    this.prenom = prenom;
-    this.nom = nom;
-    this.email = email;
-    this.dateNaissance = dateNaissance;
-    this.numTel = numTel;
-    this.userRole = userRole;
-    this.password = password;
-    this.is_verified = 1; // Toujours définir la valeur à 1
-}
-
-public Users(String prenom, String nom, String email, Date dateNaissance, int numTel, String userRole, String password, int is_verified) {
-    this.prenom = prenom;
-    this.nom = nom;
-    this.email = email;
-    this.dateNaissance = dateNaissance;
-    this.numTel = numTel;
-    this.userRole = userRole;
-    this.password = password;
-    this.is_verified = 1; // Toujours définir la valeur à 1
-}
+    public Users(String prenom, String nom, String email, Date dateNaissance, int numTel, String userRole, String password) {
+        this.prenom = prenom;
+        this.nom = nom;
+        this.email = email;
+        this.dateNaissance = dateNaissance;
+        this.numTel = numTel;
+        this.userRole = userRole;
+        this.password = password;
+    }
 
     public int getId() {
         return id;
@@ -107,40 +101,12 @@ public Users(String prenom, String nom, String email, Date dateNaissance, int nu
         this.password = password;
     }
 
-    public int getIs_verified() {
-        return is_verified;
-    }
-
-    public void setIs_verified(int is_verified) {
-        this.is_verified = is_verified;
-    }
-
     @Override
     public String toString() {
         return "Users{" + "prenom=" + prenom + ", nom=" + nom + ", email=" + email + ", dateNaissance=" + dateNaissance + ", numTel=" + numTel + ", userRole=" + userRole + ", password=" + password + '}';
     }
 
-    public Users(int id, String prenom, String nom, String email, Date dateNaissance, int numTel, String userRole, String password) {
-        this.id = id;
-        this.prenom = prenom;
-        this.nom = nom;
-        this.email = email;
-        this.dateNaissance = dateNaissance;
-        this.numTel = numTel;
-        this.userRole = userRole;
-        this.password = password;
-    }
-
-    public Users(String prenom, String nom, String email, Date dateNaissance, int numTel, String userRole, String password) {
-        this.prenom = prenom;
-        this.nom = nom;
-        this.email = email;
-        this.dateNaissance = dateNaissance;
-        this.numTel = numTel;
-        this.userRole = userRole;
-        this.password = password;
-    }
-
+  
   
    
     
