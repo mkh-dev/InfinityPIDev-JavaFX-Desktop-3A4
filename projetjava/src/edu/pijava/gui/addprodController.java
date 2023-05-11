@@ -222,74 +222,75 @@ if (selectedFile != null) {
 }
     }
     */
- @FXML
-    private void upload(ActionEvent event) {
+ 
 
-// Générer une référence aléatoire pour le nom du fichier
-String fileName = UUID.randomUUID().toString() + ".png";
+@FXML
+ 
+    private void upload(ActionEvent event) {
 
 // Créer une instance de FileChooser
 FileChooser fileChooser = new FileChooser();
 
 // Configurer le FileChooser pour ne sélectionner que les fichiers image
 fileChooser.getExtensionFilters().addAll(
-    new ExtensionFilter("Images", "*.png", "*.jpg", "*.gif")
+        new ExtensionFilter("Images", "*.png", "*.jpg", "*.gif")
 );
 
 // Afficher la boîte de dialogue de sélection de fichier
 File selectedFile = fileChooser.showOpenDialog(null);
 
- if (selectedFile != null) {
-            // Définir le répertoire de destination
-            //Path destination = Paths.get("C:/xampp/htdocs/img/");
+if (selectedFile != null) {
+    // Définir le répertoire de destination
+    //Path destination = Paths.get("C:/xampp/htdocs/img/");
 
-            //chemin relatif du dossier ou seront stocké les images des produits
-            Path destination = Paths.get("C:/xampp/htdocs/img/");
-            if (!destination.toFile().exists()) {
-                destination.toFile().mkdirs();
-            }
+    //chemin relatif du dossier ou seront stocké les images des produits
+    Path destination = Paths.get("src/edu/pijava/gui/ProductData/Images");
 
-            // Copier le fichier sélectionné dans le répertoire de destination en utilisant la référence aléatoire pour le nom du fichier
-            try {
-                Files.copy(selectedFile.toPath(), destination.resolve(fileName), StandardCopyOption.REPLACE_EXISTING);
-                System.out.println("Fichier copié avec succès !");
+    if (!destination.toFile().exists()) {
+        destination.toFile().mkdirs();
+    }
 
-                // Obtenir le lien de l'emplacement de la copie de l'image
-                String imagePath = "img/" + fileName;
+    // Copier le fichier sélectionné dans le répertoire de destination en utilisant le nom d'origine pour le nom du fichier
+    // Copier le fichier sélectionné dans le répertoire de destination en utilisant le nom d'origine pour le nom du fichier
+try {
+    Files.copy(selectedFile.toPath(), destination.resolve(selectedFile.getName()), StandardCopyOption.REPLACE_EXISTING);
+    System.out.println("Fichier copié avec succès !");
 
-                String chaine = imagePath;
+    // Obtenir le nom de l'image
+    String imageName = selectedFile.getName();
 
-                // Découpage de la chaîne à partir de "Data"
-                int index = chaine.indexOf("C:/xampp/htdocs/img/");
-                if (index == -1) {
-                    System.out.println("La chaîne ne contient pas \"Data\"");
-                    return;
-                }
-                String sousChaine = chaine.substring(index);
+    // Définir un deuxième chemin de destination pour la copie de l'image
+    Path secondDestination = Paths.get("C:\\Users\\rimbs\\Desktop\\pidev symfony\\PI\\Symfony-Web-PIDev-3A4\\public\\uploads\\produits");
 
-                // Ajouter le produit à la base de données avec le chemin d'accès de l'image
-                produit p = new produit();
-                produit_service ps = new produit_service();
-                p.setNom_prod(tfNom.getText());
-                p.setDescription(tfDesc.getText());
-                p.setPrix(Double.parseDouble(tfPrix.getText()));
-                p.setQuantite(Integer.parseInt(tfQuantite.getText()));
-                p.setNom_part(tfNomPart.getText());
-                p.setId_cat_prod(Integer.parseInt(tfIdCat.getText()));
+    // Copier le fichier sélectionné vers la deuxième destination
+    try {
+        Files.copy(selectedFile.toPath(), secondDestination.resolve(imageName), StandardCopyOption.REPLACE_EXISTING);
+        System.out.println("Fichier copié avec succès vers la deuxième destination !");
+    } catch (IOException ex) {
+        System.out.println("Erreur lors de la copie du fichier vers la deuxième destination : " + ex.getMessage());
+    }
 
-                p.setImage(sousChaine); // Stocker le nom du fichier dans la base de données
-                //on ne stock pas le nom du fichier mais directement le chemin relatif au fichier. plus simple
-                ps.ajouterprod(p);
+    // Ajouter le produit à la base de données avec le nom d'accès de l'image
+    produit p = new produit();
+    produit_service ps = new produit_service();
+    p.setNom_prod(tfNom.getText());
+    p.setDescription(tfDesc.getText());
+    p.setPrix(Double.parseDouble(tfPrix.getText()));
+    p.setQuantite(Integer.parseInt(tfQuantite.getText()));
+    p.setNom_part(tfNomPart.getText());
+    p.setId_cat_prod(Integer.parseInt(tfIdCat.getText()));
 
-                System.out.println("Produit ajouté avec succès !");
+    p.setImage(imageName); // Stocker le nom du fichier dans la base de données
+    ps.ajouterprod(p);
 
-                
-                
+    System.out.println("Produit ajouté avec succès !");
 
-            } catch (IOException ex) {
-                System.out.println("Erreur lors de la copie du fichier : " + ex.getMessage());
-            }
-        }
+} catch (IOException ex) {
+    System.out.println("Erreur lors de la copie du fichier : " + ex.getMessage());
+}
+
+}
+
     }
     
     

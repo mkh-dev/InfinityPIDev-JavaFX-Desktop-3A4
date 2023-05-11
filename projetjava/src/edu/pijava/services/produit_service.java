@@ -68,7 +68,7 @@ public class produit_service {
             pst.setInt(4,p.getQuantite());
             pst.setString(5, p.getNom_part());
             pst.setInt(6,p.getId_cat_prod());
-            pst.setString(7, p.getImage());
+            pst.setString(7,p.getImage());
             pst.setInt(8, 0);
             pst.setInt(9, 0);
 

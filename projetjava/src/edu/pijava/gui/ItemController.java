@@ -134,8 +134,8 @@ private void ModifierProd(ActionEvent event) {
     }
 }
 
-    
-   public void setData(produit prod) {
+   
+  public void setData(produit prod) {
     this.produit = prod;
     tfnomprod.setText(prod.getNom_prod());
     tfdesc.setText(prod.getDescription());
@@ -143,27 +143,31 @@ private void ModifierProd(ActionEvent event) {
     tfprix.setText(Double.toString(prod.getPrix()));
     tfquantite.setText(Integer.toString(prod.getQuantite()));
     anchropane.setId(Integer.toString(prod.getId_prod()));
-    
-    String imagePath = "C:/xampp/htdocs/img/" + prod.getImage();
-    System.out.println("Chemin d'accès de l'image : " + imagePath); // Afficher le chemin d'accès complet de l'image
-    
-    // Créer un objet ImageView
+    String imagePath = "src/edu/pijava/gui/ProductData/Images/" + prod.getImage();
+    System.out.println(imagePath);
+    // Create an ImageView object
     ImageView imageView = new ImageView();
-    // Créer un objet File avec le chemin d'accès de votre image
-    File file = new File(imagePath);
-
-    // Vérifier si le fichier existe
-    if (file.exists()) {
-        // Créer un objet Image avec le chemin d'accès du fichier
-        Image image = new Image(file.toURI().toString());
-        // Définir l'image pour l'objet ImageView
+    //On vérifie si le chemin vers l'image n'est pas vide
+    if (prod.getImage() == null || prod.getImage().isEmpty()) {
+        System.out.println("Image introuvable, utilisation de l'image par défaut");
+        Image image = new Image(getClass().getResourceAsStream("default-image.png"));
         this.tfimg.setImage(image);
     } else {
-        System.out.println("Image not found.");
+        // Create a File object with the path of your image
+        File file = new File(imagePath);
+
+        // Check if the file exists
+        if (file.exists()) {
+            // Create an Image object with the file path
+            Image image = new Image(file.toURI().toString());
+            this.tfimg.setImage(image);
+        } else {
+            System.out.println("Image non trouvée, utilisation de l'image par défaut");
+            Image image = new Image(getClass().getResourceAsStream("default-image.png"));
+            this.tfimg.setImage(image);
+        }
     }
 }
-
-
 
           
     private void ModifierProd(MouseEvent event) {

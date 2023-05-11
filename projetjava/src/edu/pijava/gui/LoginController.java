@@ -79,11 +79,8 @@ public class LoginController {
                                 } else if (userRole.equals("ROLE_ORGANISATEUR")) {
                 // Charger l'interface page.fxml
                 try {
-<<<<<<< Updated upstream
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("Evenement.fxml"));
-=======
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("Transporteur.fxml"));
->>>>>>> Stashed changes
                     Parent root = loader.load();
                     Stage stage = (Stage) loginButton.getScene().getWindow();
                     Scene scene = new Scene(root);
