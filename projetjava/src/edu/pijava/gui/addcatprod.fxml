@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" stylesheets="@first.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pijava.gui.AddcatprodController">
+   <children>
+      <Label layoutX="231.0" layoutY="199.0" text="Categorie produit">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <TextField fx:id="tfcatprod" layoutX="365.0" layoutY="196.0" promptText="Ajouter catégorie produit" styleClass="shadow" stylesheets="@first.css" />
+      <Button fx:id="addcatprod" layoutX="349.0" layoutY="254.0" mnemonicParsing="false" onAction="#addcatprod" stylesheets="@first.css" text="Ajouter">
+         <styleClass>
+            <String fx:value="search-button" />
+            <String fx:value="shadow" />
+         </styleClass></Button>
+      <HBox layoutY="76.0" prefHeight="324.0" prefWidth="166.0" style="-fx-background-radius: 0 60 0 0;" styleClass="right-bar" stylesheets="@first.css" />
+      <Button fx:id="btnrevenir" layoutX="175.0" layoutY="73.0" mnemonicParsing="false" onAction="#btnrevenir" prefHeight="41.0" prefWidth="32.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="32.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/fleche-petite-gauche.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <HBox layoutX="11.0" prefHeight="73.0" prefWidth="587.0">
+         <children>
+            <ImageView fitHeight="73.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/Capture%20d’écran%202023-02-01%20182532.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

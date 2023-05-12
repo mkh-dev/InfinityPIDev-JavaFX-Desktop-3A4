@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pijava.controllers.AjouterFactureController">
+   <children>
+      <Label alignment="CENTER" layoutX="319.0" layoutY="140.0" prefHeight="23.0" prefWidth="134.0" style="-fx-background-color: ebac08;" text="Net A payer">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <Label alignment="CENTER" layoutX="319.0" layoutY="182.0" prefHeight="23.0" prefWidth="134.0" style="-fx-background-color: ebac08;" text="id User">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <TextField fx:id="fxiduser" layoutX="482.0" layoutY="180.0" prefHeight="26.0" prefWidth="56.0" />
+      <TextField fx:id="fxnetapayer" layoutX="482.0" layoutY="139.0" prefHeight="26.0" prefWidth="56.0" />
+      <Button fx:id="btnajouter" layoutX="342.0" layoutY="284.0" mnemonicParsing="false" onAction="#save" prefHeight="26.0" prefWidth="178.0" style="-fx-background-color: green; -fx-cursor: red;" text="Ajouter facture" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font></Button>
+      <Label fx:id="fxmessage" layoutX="156.0" layoutY="241.0" prefHeight="18.0" prefWidth="287.0" textFill="RED" />
+      <ImageView fitHeight="468.0" fitWidth="248.0" layoutX="45.0">
+         <image>
+            <Image url="@../../../images/30597c89db76494d5204bb5f007886af.jpg" />
+         </image>
+         <effect>
+            <DropShadow />
+         </effect>
+      </ImageView>
+   </children>
+</AnchorPane>

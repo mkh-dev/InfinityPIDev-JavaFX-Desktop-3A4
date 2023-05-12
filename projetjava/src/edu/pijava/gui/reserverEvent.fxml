@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pijava.controllers.ReserverEventController">
+   <children>
+      <SplitPane dividerPositions="0.2809714795008912" prefHeight="599.0" prefWidth="899.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="241.0" style="-fx-background-color: white;">
+               <children>
+                  <Button blendMode="DARKEN" layoutX="17.0" layoutY="216.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="208.0" style="-fx-background-color: ebac08;" text="Accueil">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="fxmesfactures" layoutX="17.0" layoutY="323.0" mnemonicParsing="false" onAction="#hadlebc5" prefHeight="32.0" prefWidth="208.0" style="-fx-background-color: ebac08;" text="Mes Factures">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="fxtest" blendMode="DARKEN" layoutX="17.0" layoutY="267.0" mnemonicParsing="false" onAction="#test" prefHeight="32.0" prefWidth="208.0" style="-fx-background-color: ebac08;" text="Mes Réservations ">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="126.0" fitWidth="152.0" layoutX="59.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/logo1.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="25.0" fitWidth="31.0" layoutX="59.0" layoutY="220.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/homepage.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="27.0" layoutY="271.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/calendarRes.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="27.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/receipt.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="btReclam" layoutX="17.0" layoutY="374.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="208.0" style="-fx-background-color: ebac08;" text="Mes Réclamations">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="24.0" fitWidth="25.0" layoutX="28.0" layoutY="378.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/file.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+          <AnchorPane fx:id="pane1" minHeight="0.0" minWidth="0.0" prefHeight="488.0" prefWidth="365.0">
+               <children>
+                  <Button layoutX="201.0" layoutY="479.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="163.0" style="-fx-background-color: ebac08;" text="Afficher plus">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <effect>
+                        <DropShadow height="44.39" radius="19.3575" width="35.04" />
+                     </effect>
+                  </Button>
+                  <Label alignment="CENTER" layoutX="76.0" layoutY="340.0" prefHeight="18.0" prefWidth="134.0" text="Art Gallery" />
+                  <Label alignment="CENTER" layoutX="360.0" layoutY="340.0" prefHeight="18.0" prefWidth="186.0" text="Seminar" />
+                  <Button fx:id="btnReserver" layoutX="113.0" layoutY="381.0" mnemonicParsing="false" onAction="#handlebc1" style="-fx-background-color: ebac08; -fx-cursor: black;" text="Réserver">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="149.0" fitWidth="196.0" layoutX="352.0" layoutY="167.0">
+                     <image>
+                        <Image url="@../../../images/event3.png" />
+                     </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </ImageView>
+                  <ImageView fitHeight="141.0" fitWidth="196.0" layoutX="45.0" layoutY="171.0">
+                     <image>
+                        <Image url="@../../../images/event2.png" />
+                     </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </ImageView>
+                  <Button fx:id="btnReserver1" layoutX="423.0" layoutY="381.0" mnemonicParsing="false" onAction="#handlebc1" style="-fx-background-color: ebac08; -fx-cursor: black;" text="Réserver">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="deconnexionButton" layoutX="518.0" layoutY="28.0" onAction="#deconnexion" style="-fx-background-color: black;" text="Déconnexion" textFill="WHITE" />
+                  <ImageView fitHeight="18.0" fitWidth="24.0" layoutX="214.0" layoutY="487.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/more.png" />
+                     </image>
+                  </ImageView>
+
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

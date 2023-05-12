@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pijava.gui.ProductController">
+   <left>
+      <VBox prefHeight="436.0" prefWidth="230.0" style="-fx-background-radius: 0 60 0 0;" styleClass="right-bar" stylesheets="@first.css" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="29.0" prefWidth="230.0" />
+            <HBox alignment="CENTER" prefHeight="45.0" prefWidth="230.0">
+               <padding>
+                  <Insets left="15.0" right="15.0" />
+               </padding>
+               <children>
+                  <TextField fx:id="searchbox" prefHeight="25.0" prefWidth="143.0" promptText="chercher" stylesheets="@first.css">
+                     <styleClass>
+                        <String fx:value="search-box" />
+                        <String fx:value="shadow" />
+                     </styleClass>
+                  </TextField>
+                  <Button fx:id="searchbtn" mnemonicParsing="false" onAction="#searchbtn" prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: white;" stylesheets="@first.css" text="chercher">
+                     <styleClass>
+                        <String fx:value="search-button" />
+                        <String fx:value="shadow" />
+                     </styleClass>
+                  </Button>
+               </children>
+            </HBox>
+            <VBox fx:id="vbox" prefHeight="341.0" prefWidth="230.0" />
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <VBox prefHeight="436.0" prefWidth="803.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox fx:id="productScrollPane" alignment="CENTER_LEFT" prefHeight="43.0" prefWidth="637.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="43.0" prefWidth="153.0">
+                     <children>
+                        <Button fx:id="btnadd" mnemonicParsing="false" onAction="#btnadd" prefHeight="41.0" prefWidth="151.0" style="-fx-background-color: trasparent;" text="Ajouter produit">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="28.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/carre-plus.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                     <opaqueInsets>
+                        <Insets left="20.0" />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </HBox>
+               </children>
+               <opaqueInsets>
+                  <Insets left="10.0" />
+               </opaqueInsets>
+            </HBox>
+            <ScrollPane prefHeight="663.0" prefWidth="870.0">
+               <content>
+                  <GridPane fx:id="grid" prefHeight="503.0" prefWidth="822.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="341.99998474121094" minHeight="10.0" prefHeight="196.00002543131512" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
+               </content>
+            </ScrollPane>
+         
+         </children>
+      </VBox>
+   </center>
+   <top>
+      <HBox alignment="BOTTOM_LEFT" prefHeight="73.0" prefWidth="1090.0" style="-fx-background-color: white;" BorderPane.alignment="TOP_LEFT">
+         <children>
+            <ImageView fitHeight="103.0" fitWidth="103.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/Capture%20d’écran%202023-02-01%20182532.png" />
+               </image>
+            </ImageView>
+            <VBox prefHeight="99.0" prefWidth="837.0" />
+            <VBox alignment="CENTER_RIGHT" prefHeight="99.0" prefWidth="131.0">
+               <children>
+                  <Button fx:id="btnhome" mnemonicParsing="false" onAction="#btnhome" style="-fx-background-color: transparent;">
+                     <graphic>
+                        <ImageView fitHeight="36.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/maison.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+         <BorderPane.margin>
+            <Insets left="10.0" />
+         </BorderPane.margin></HBox>
+   </top>
+</BorderPane>

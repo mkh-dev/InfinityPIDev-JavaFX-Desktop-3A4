@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="547.0" prefWidth="743.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pijava.gui.UpdateUserController">
+   <children>
+      <AnchorPane prefHeight="547.0" prefWidth="749.0" style="-fx-background-color: white;">
+         <children>
+            <TextField fx:id="updatePrenom" layoutX="62.0" layoutY="107.0" prefHeight="25.0" prefWidth="265.0" promptText="Prénom" />
+            <TextField fx:id="updateNom" layoutX="62.0" layoutY="140.0" prefHeight="25.0" prefWidth="265.0" promptText="Nom" />
+            <DatePicker fx:id="datePicker" layoutX="62.0" layoutY="239.0" prefHeight="25.0" prefWidth="265.0" promptText="Date de naissance" />
+            <TextField fx:id="updateEmail" layoutX="62.0" layoutY="173.0" prefHeight="25.0" prefWidth="265.0" promptText="Email" />
+            <TextField fx:id="updateNumTel" layoutX="62.0" layoutY="206.0" prefHeight="25.0" prefWidth="265.0" promptText="Numéro de téléphone" />
+            <Button fx:id="updateValider" layoutX="150.0" layoutY="421.0" mnemonicParsing="false" onAction="#handleUpdateUser" prefHeight="25.0" prefWidth="81.0" style="-fx-background-color: black;" text="Valider" textFill="WHITE" />
+            <PasswordField fx:id="updatePassword" layoutX="62.0" layoutY="272.0" prefHeight="25.0" prefWidth="265.0" promptText="Mot de passe" />
+            <CheckBox fx:id="ckUtilisateur" layoutX="67.0" layoutY="359.0" mnemonicParsing="false" text="Utilisateur" />
+            <CheckBox fx:id="ckPartenaire" layoutX="157.0" layoutY="359.0" mnemonicParsing="false" text="Partenaire" />
+            <ImageView fitHeight="557.0" fitWidth="392.0" layoutX="391.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/4.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="68.0" layoutY="323.0" text="En tant que :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Text layoutX="115.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modifier Un Utilisateur">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Text>
+            <CheckBox fx:id="ckTransporteur" layoutX="245.0" layoutY="359.0" mnemonicParsing="false" text="Transporteur" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
