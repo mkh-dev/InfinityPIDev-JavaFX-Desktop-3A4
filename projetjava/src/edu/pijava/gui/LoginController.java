@@ -80,7 +80,7 @@ public class LoginController {
                 // Charger l'interface page.fxml
                 try {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("Evenement.fxml"));
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("Transporteur.fxml"));
+                  
                     Parent root = loader.load();
                     Stage stage = (Stage) loginButton.getScene().getWindow();
                     Scene scene = new Scene(root);
